@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="17.2" version="17.2" Modules="simple" RootPath="." Language="en" Id="{4F0E274E-46EB-4E15-AAB3-657C897A4210}">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPCONTACT" Value="0375848907"/>
+    <ROW Property="ARPHELPLINK" Value="http://jbtech.vn/"/>
+    <ROW Property="ARPHELPTELEPHONE" Value="0375848907"/>
+    <ROW Property="ARPPRODUCTICON" Value="JBCert.exe" Type="8"/>
+    <ROW Property="ARPURLINFOABOUT" Value="http://jbtech.vn/"/>
+    <ROW Property="ARPURLUPDATEINFO" Value="http://jbtech.vn/"/>
+    <ROW Property="Manufacturer" Value="JBTech"/>
+    <ROW Property="ProductCode" Value="1033:{1EC1E720-44C1-497C-AA19-0830F806EDF7} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="JBCert_v1.2.0"/>
+    <ROW Property="ProductVersion" Value="1.2.0" Type="32"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{3042E070-5B86-4FD0-84D7-9A6F27756AF2}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
+    <ROW Directory="Mail_Dir" Directory_Parent="APPDIR" DefaultDir="Mail"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="StartMenuFolder" Directory_Parent="TARGETDIR" DefaultDir="STARTM~1|StartMenuFolder" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="APPDIR" ComponentId="{9638B1B1-1684-48F6-B5B8-E4D5B23EAA44}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="BCrypt.NetNext.dll" ComponentId="{07CA2E04-5BA3-4088-9EAA-CA213B63B141}" Directory_="APPDIR" Attributes="0" KeyPath="BCrypt.NetNext.dll"/>
+    <ROW Component="BouncyCastle.Crypto.dll" ComponentId="{6D9682ED-D270-424B-91F7-DDE018B26B37}" Directory_="APPDIR" Attributes="0" KeyPath="BouncyCastle.Crypto.dll"/>
+    <ROW Component="Common.dll" ComponentId="{B53BED77-F43B-4A68-B3DB-3E07F212BE77}" Directory_="APPDIR" Attributes="0" KeyPath="Common.dll"/>
+    <ROW Component="JBCert.exe" ComponentId="{3BB8F569-5F47-4EE2-A7C2-DA6D1E2ABF95}" Directory_="APPDIR" Attributes="0" KeyPath="JBCert.exe"/>
+    <ROW Component="MailKit.dll" ComponentId="{19BD098D-6AEE-4888-934A-96618A54CF38}" Directory_="APPDIR" Attributes="0" KeyPath="MailKit.dll"/>
+    <ROW Component="MailKit.xml" ComponentId="{BB76904F-29E7-40C7-A59B-028B85130AFD}" Directory_="APPDIR" Attributes="0" KeyPath="MailKit.xml" Type="0"/>
+    <ROW Component="MimeKit.dll" ComponentId="{09C3BCF0-50DA-4C00-B05A-718706CDEB45}" Directory_="APPDIR" Attributes="0" KeyPath="MimeKit.dll"/>
+    <ROW Component="Model.dll" ComponentId="{EE78ADD1-40BF-4FD3-A095-BB2044CB533A}" Directory_="APPDIR" Attributes="0" KeyPath="Model.dll"/>
+    <ROW Component="ProductInformation" ComponentId="{25EA4ABA-5D20-400B-97C2-121D43A69E5A}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="Repository.dll" ComponentId="{DD337CF1-62FB-4457-B766-CA55C28F06E6}" Directory_="APPDIR" Attributes="0" KeyPath="Repository.dll"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{A4500242-91A6-46B2-972D-63DBFDFD9777}" Directory_="SHORTCUTDIR" Attributes="0"/>
+    <ROW Component="SendPasswordEmailTemplate.html" ComponentId="{68BC2D0C-993E-4154-919F-237BCB95523F}" Directory_="Mail_Dir" Attributes="0" KeyPath="SendPasswordEmailTemplate.html" Type="0"/>
+    <ROW Component="Service.dll" ComponentId="{056AF110-43C6-473F-AE65-656DEBD080DD}" Directory_="APPDIR" Attributes="0" KeyPath="Service.dll"/>
+    <ROW Component="System.Buffers.dll" ComponentId="{EE4FBDE6-69A3-4DD9-B343-EE6AA9F8CC9D}" Directory_="APPDIR" Attributes="0" KeyPath="System.Buffers.dll"/>
+    <ROW Component="System.Memory.dll" ComponentId="{979698C5-5FE2-4A7B-896B-5E7C4CD4EA3F}" Directory_="APPDIR" Attributes="0" KeyPath="System.Memory.dll"/>
+    <ROW Component="System.Numerics.Vectors.dll" ComponentId="{62495699-F7FF-4691-84EE-E3DB3489563D}" Directory_="APPDIR" Attributes="0" KeyPath="System.Numerics.Vectors.dll"/>
+    <ROW Component="System.Runtime.CompilerServices.Unsafe.dll" ComponentId="{89B34130-4EBA-4735-80EE-EB25B19501D7}" Directory_="APPDIR" Attributes="0" KeyPath="System.Runtime.CompilerServices.Unsafe.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="MailKit.dll" Component_="MailKit.dll" FileName="MailKit.dll" Attributes="0" SourcePath="..\JBCert\bin\Release\MailKit.dll" SelfReg="false"/>
+    <ROW File="MailKit.pdb" Component_="MailKit.dll" FileName="MailKit.pdb" Attributes="0" SourcePath="..\JBCert\bin\Release\MailKit.pdb" SelfReg="false"/>
+    <ROW File="MailKit.xml" Component_="MailKit.xml" FileName="MailKit.xml" Attributes="0" SourcePath="..\JBCert\bin\Release\MailKit.xml" SelfReg="false"/>
+    <ROW File="MimeKit.dll" Component_="MimeKit.dll" FileName="MimeKit.dll" Attributes="0" SourcePath="..\JBCert\bin\Release\MimeKit.dll" SelfReg="false"/>
+    <ROW File="MimeKit.pdb" Component_="MimeKit.dll" FileName="MimeKit.pdb" Attributes="0" SourcePath="..\JBCert\bin\Release\MimeKit.pdb" SelfReg="false"/>
+    <ROW File="MimeKit.xml" Component_="MailKit.xml" FileName="MimeKit.xml" Attributes="0" SourcePath="..\JBCert\bin\Release\MimeKit.xml" SelfReg="false"/>
+    <ROW File="Model.dll" Component_="Model.dll" FileName="Model.dll" Attributes="0" SourcePath="..\JBCert\bin\Release\Model.dll" SelfReg="false"/>
+    <ROW File="Model.pdb" Component_="Model.dll" FileName="Model.pdb" Attributes="0" SourcePath="..\JBCert\bin\Release\Model.pdb" SelfReg="false"/>
+    <ROW File="Repository.dll" Component_="Repository.dll" FileName="REPOSI~1.DLL|Repository.dll" Attributes="0" SourcePath="..\JBCert\bin\Release\Repository.dll" SelfReg="false"/>
+    <ROW File="Repository.pdb" Component_="Repository.dll" FileName="REPOSI~1.PDB|Repository.pdb" Attributes="0" SourcePath="..\JBCert\bin\Release\Repository.pdb" SelfReg="false"/>
+    <ROW File="Service.dll" Component_="Service.dll" FileName="Service.dll" Attributes="0" SourcePath="..\JBCert\bin\Release\Service.dll" SelfReg="false"/>
+    <ROW File="Service.pdb" Component_="Service.dll" FileName="Service.pdb" Attributes="0" SourcePath="..\JBCert\bin\Release\Service.pdb" SelfReg="false"/>
+    <ROW File="System.Buffers.dll" Component_="System.Buffers.dll" FileName="SYSTEM~1.DLL|System.Buffers.dll" Attributes="0" SourcePath="..\JBCert\bin\Release\System.Buffers.dll" SelfReg="false"/>
+    <ROW File="System.Buffers.xml" Component_="MailKit.xml" FileName="SYSTEM~1.XML|System.Buffers.xml" Attributes="0" SourcePath="..\JBCert\bin\Release\System.Buffers.xml" SelfReg="false"/>
+    <ROW File="System.Memory.dll" Component_="System.Memory.dll" FileName="SYSTEM~2.DLL|System.Memory.dll" Attributes="0" SourcePath="..\JBCert\bin\Release\System.Memory.dll" SelfReg="false"/>
+    <ROW File="System.Memory.xml" Component_="MailKit.xml" FileName="SYSTEM~2.XML|System.Memory.xml" Attributes="0" SourcePath="..\JBCert\bin\Release\System.Memory.xml" SelfReg="false"/>
+    <ROW File="System.Numerics.Vectors.dll" Component_="System.Numerics.Vectors.dll" FileName="SYSTEM~3.DLL|System.Numerics.Vectors.dll" Attributes="0" SourcePath="..\JBCert\bin\Release\System.Numerics.Vectors.dll" SelfReg="false"/>
+    <ROW File="System.Numerics.Vectors.xml" Component_="MailKit.xml" FileName="SYSTEM~3.XML|System.Numerics.Vectors.xml" Attributes="0" SourcePath="..\JBCert\bin\Release\System.Numerics.Vectors.xml" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="System.Runtime.CompilerServices.Unsafe.dll" FileName="SYSTEM~4.DLL|System.Runtime.CompilerServices.Unsafe.dll" Attributes="0" SourcePath="..\JBCert\bin\Release\System.Runtime.CompilerServices.Unsafe.dll" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.xml" Component_="MailKit.xml" FileName="SYSTEM~4.XML|System.Runtime.CompilerServices.Unsafe.xml" Attributes="0" SourcePath="..\JBCert\bin\Release\System.Runtime.CompilerServices.Unsafe.xml" SelfReg="false"/>
+    <ROW File="BCrypt.NetNext.dll" Component_="BCrypt.NetNext.dll" FileName="BCRYPT~1.DLL|BCrypt.Net-Next.dll" Attributes="0" SourcePath="..\JBCert\bin\Release\BCrypt.Net-Next.dll" SelfReg="false"/>
+    <ROW File="BCrypt.NetNext.xml" Component_="MailKit.xml" FileName="BCRYPT~1.XML|BCrypt.Net-Next.xml" Attributes="0" SourcePath="..\JBCert\bin\Release\BCrypt.Net-Next.xml" SelfReg="false"/>
+    <ROW File="BouncyCastle.Crypto.dll" Component_="BouncyCastle.Crypto.dll" FileName="BOUNCY~1.DLL|BouncyCastle.Crypto.dll" Attributes="0" SourcePath="..\JBCert\bin\Release\BouncyCastle.Crypto.dll" SelfReg="false"/>
+    <ROW File="BouncyCastle.Crypto.xml" Component_="MailKit.xml" FileName="BOUNCY~1.XML|BouncyCastle.Crypto.xml" Attributes="0" SourcePath="..\JBCert\bin\Release\BouncyCastle.Crypto.xml" SelfReg="false"/>
+    <ROW File="Common.dll" Component_="Common.dll" FileName="Common.dll" Attributes="0" SourcePath="..\JBCert\bin\Release\Common.dll" SelfReg="false"/>
+    <ROW File="Common.pdb" Component_="Common.dll" FileName="Common.pdb" Attributes="0" SourcePath="..\JBCert\bin\Release\Common.pdb" SelfReg="false"/>
+    <ROW File="JBCert.exe" Component_="JBCert.exe" FileName="JBCert.exe" Attributes="0" SourcePath="..\JBCert\bin\Release\JBCert.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="JBCert.exe.config" Component_="MailKit.xml" FileName="JBCERT~1.CON|JBCert.exe.config" Attributes="0" SourcePath="..\JBCert\bin\Release\JBCert.exe.config" SelfReg="false"/>
+    <ROW File="JBCert.pdb" Component_="JBCert.exe" FileName="JBCert.pdb" Attributes="0" SourcePath="..\JBCert\bin\Release\JBCert.pdb" SelfReg="false"/>
+    <ROW File="SendPasswordEmailTemplate.html" Component_="SendPasswordEmailTemplate.html" FileName="SENDPA~1.HTM|SendPasswordEmailTemplate.html" Attributes="0" SourcePath="..\JBCert\Mail\SendPasswordEmailTemplate.html" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" UseLargeSchema="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]" MultiBuildTarget="DefaultBuild:[DesktopFolder]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="MainFeature" Component_="MailKit.dll"/>
+    <ROW Feature_="MainFeature" Component_="MailKit.xml"/>
+    <ROW Feature_="MainFeature" Component_="MimeKit.dll"/>
+    <ROW Feature_="MainFeature" Component_="Model.dll"/>
+    <ROW Feature_="MainFeature" Component_="Repository.dll"/>
+    <ROW Feature_="MainFeature" Component_="Service.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Buffers.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Memory.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Numerics.Vectors.dll"/>
+    <ROW Feature_="MainFeature" Component_="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Feature_="MainFeature" Component_="BCrypt.NetNext.dll"/>
+    <ROW Feature_="MainFeature" Component_="BouncyCastle.Crypto.dll"/>
+    <ROW Feature_="MainFeature" Component_="Common.dll"/>
+    <ROW Feature_="MainFeature" Component_="JBCert.exe"/>
+    <ROW Feature_="MainFeature" Component_="SHORTCUTDIR"/>
+    <ROW Feature_="MainFeature" Component_="SendPasswordEmailTemplate.html"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="JBCert.exe" SourcePath="..\JBCert\bin\Release\JBCert.exe" Index="0"/>
+    <ROW Name="SystemFoldermsiexec.exe" SourcePath="&lt;AI_RES&gt;uninstall.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="JBCert" Directory_="SHORTCUTDIR" Name="JBCert" Component_="JBCert.exe" Target="[#JBCert.exe]" Hotkey="0" Icon_="JBCert.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="JBCert_1" Directory_="DesktopFolder" Name="JBCert" Component_="JBCert.exe" Target="[#JBCert.exe]" Hotkey="0" Icon_="JBCert.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="JBCert_2" Directory_="StartMenuFolder" Name="JBCert" Component_="JBCert.exe" Target="[#JBCert.exe]" Hotkey="0" Icon_="JBCert.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="UninstallProductName" Directory_="APPDIR" Name="UNINST~1.0|Uninstall [|ProductName]" Component_="Service.dll" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Hotkey="0" Icon_="SystemFoldermsiexec.exe" IconIndex="0" ShowCmd="1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+</DOCUMENT>

@@ -1,0 +1,11 @@
+F:\Project\C#\JBCert_1\JBCert\Service\bin\Debug\Service.dll
+F:\Project\C#\JBCert_1\JBCert\Service\bin\Debug\Service.pdb
+F:\Project\C#\JBCert_1\JBCert\Service\bin\Debug\Model.dll
+F:\Project\C#\JBCert_1\JBCert\Service\bin\Debug\Repository.dll
+F:\Project\C#\JBCert_1\JBCert\Service\bin\Debug\Model.pdb
+F:\Project\C#\JBCert_1\JBCert\Service\bin\Debug\Repository.pdb
+F:\Project\C#\JBCert_1\JBCert\Service\obj\Debug\Service.csprojAssemblyReference.cache
+F:\Project\C#\JBCert_1\JBCert\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+F:\Project\C#\JBCert_1\JBCert\Service\obj\Debug\Service.csproj.CopyComplete
+F:\Project\C#\JBCert_1\JBCert\Service\obj\Debug\Service.dll
+F:\Project\C#\JBCert_1\JBCert\Service\obj\Debug\Service.pdb

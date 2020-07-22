@@ -1,0 +1,603 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F944E583-1828-44A9-970E-52E5613C4E8C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>JBCert</RootNamespace>
+    <AssemblyName>JBCert</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.0.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.0.0\lib\net472\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.5\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="MailKit, Version=2.8.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.2.8.0\lib\net47\MailKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MimeKit, Version=2.9.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.2.9.1\lib\net47\MimeKit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddBlankCertConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBlankCertConfigForm.Designer.cs">
+      <DependentUpon>AddBlankCertConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddBlankCertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBlankCertForm.Designer.cs">
+      <DependentUpon>AddBlankCertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddBlankCertTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBlankCertTypeForm.Designer.cs">
+      <DependentUpon>AddBlankCertTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddCertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCertForm.Designer.cs">
+      <DependentUpon>AddCertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddExamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddExamForm.Designer.cs">
+      <DependentUpon>AddExamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSchoolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSchoolForm.Designer.cs">
+      <DependentUpon>AddSchoolForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStudentForm.Designer.cs">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authorization\Auth.cs" />
+    <Compile Include="CertHelpDocForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CertHelpDocForm.Designer.cs">
+      <DependentUpon>CertHelpDocForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmForm.Designer.cs">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateAccountForm.Designer.cs">
+      <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentOfEducationAndTrainingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepartmentOfEducationAndTrainingForm.Designer.cs">
+      <DependentUpon>DepartmentOfEducationAndTrainingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailStudentForm.Designer.cs">
+      <DependentUpon>DetailStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditAccountInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAccountInformationForm.Designer.cs">
+      <DependentUpon>EditAccountInformationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditAccountRoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAccountRoleForm.Designer.cs">
+      <DependentUpon>EditAccountRoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditBlankCertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditBlankCertForm.Designer.cs">
+      <DependentUpon>EditBlankCertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditBlankCertTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditBlankCertTypeForm.Designer.cs">
+      <DependentUpon>EditBlankCertTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditCertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCertForm.Designer.cs">
+      <DependentUpon>EditCertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditDoEaTForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditDoEaTForm.Designer.cs">
+      <DependentUpon>EditDoEaTForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditExamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditExamForm.Designer.cs">
+      <DependentUpon>EditExamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditSchoolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSchoolForm.Designer.cs">
+      <DependentUpon>EditSchoolForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditStudentForm.Designer.cs">
+      <DependentUpon>EditStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeForm.Designer.cs">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IntroductionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntroductionForm.Designer.cs">
+      <DependentUpon>IntroductionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mail\MailWrapper.cs" />
+    <Compile Include="ManagingBlankCertConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingBlankCertConfig.Designer.cs">
+      <DependentUpon>ManagingBlankCertConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagingBlankCertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingBlankCertForm.Designer.cs">
+      <DependentUpon>ManagingBlankCertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagingBlankCertTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingBlankCertTypeForm.Designer.cs">
+      <DependentUpon>ManagingBlankCertTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagingCertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingCertForm.Designer.cs">
+      <DependentUpon>ManagingCertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagingCopyCertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingCopyCertForm.Designer.cs">
+      <DependentUpon>ManagingCopyCertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagingExamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingExamForm.Designer.cs">
+      <DependentUpon>ManagingExamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagingPrinterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingPrinterForm.Designer.cs">
+      <DependentUpon>ManagingPrinterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagingRoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingRoleForm.Designer.cs">
+      <DependentUpon>ManagingRoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagingSchoolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingSchoolForm.Designer.cs">
+      <DependentUpon>ManagingSchoolForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagingStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingStudentForm.Designer.cs">
+      <DependentUpon>ManagingStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagingUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingUserForm.Designer.cs">
+      <DependentUpon>ManagingUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagingYourAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingYourAccountForm.Designer.cs">
+      <DependentUpon>ManagingYourAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonthlyReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonthlyReportForm.Designer.cs">
+      <DependentUpon>MonthlyReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotificationForm.Designer.cs">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineHelpingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OnlineHelpingForm.Designer.cs">
+      <DependentUpon>OnlineHelpingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintCopyCertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintCopyCertForm.Designer.cs">
+      <DependentUpon>PrintCopyCertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintOptionForm.Designer.cs">
+      <DependentUpon>PrintOptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintRootCertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintRootCertForm.Designer.cs">
+      <DependentUpon>PrintRootCertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResetPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResetPasswordForm.Designer.cs">
+      <DependentUpon>ResetPasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectBlankCertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectBlankCertForm.Designer.cs">
+      <DependentUpon>SelectBlankCertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectBlankCertTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectBlankCertTypeForm.Designer.cs">
+      <DependentUpon>SelectBlankCertTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectRootOrCopyCertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectRootOrCopyCertForm.Designer.cs">
+      <DependentUpon>SelectRootOrCopyCertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowingImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowingImageForm.Designer.cs">
+      <DependentUpon>ShowingImageForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddBlankCertConfigForm.resx">
+      <DependentUpon>AddBlankCertConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddBlankCertForm.resx">
+      <DependentUpon>AddBlankCertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddBlankCertTypeForm.resx">
+      <DependentUpon>AddBlankCertTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCertForm.resx">
+      <DependentUpon>AddCertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddExamForm.resx">
+      <DependentUpon>AddExamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSchoolForm.resx">
+      <DependentUpon>AddSchoolForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddStudentForm.resx">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CertHelpDocForm.resx">
+      <DependentUpon>CertHelpDocForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmForm.resx">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateAccountForm.resx">
+      <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepartmentOfEducationAndTrainingForm.resx">
+      <DependentUpon>DepartmentOfEducationAndTrainingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailStudentForm.resx">
+      <DependentUpon>DetailStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAccountInformationForm.resx">
+      <DependentUpon>EditAccountInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAccountRoleForm.resx">
+      <DependentUpon>EditAccountRoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBlankCertForm.resx">
+      <DependentUpon>EditBlankCertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBlankCertTypeForm.resx">
+      <DependentUpon>EditBlankCertTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCertForm.resx">
+      <DependentUpon>EditCertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditDoEaTForm.resx">
+      <DependentUpon>EditDoEaTForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditExamForm.resx">
+      <DependentUpon>EditExamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditSchoolForm.resx">
+      <DependentUpon>EditSchoolForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditStudentForm.resx">
+      <DependentUpon>EditStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntroductionForm.resx">
+      <DependentUpon>IntroductionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagingBlankCertConfig.resx">
+      <DependentUpon>ManagingBlankCertConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagingBlankCertForm.resx">
+      <DependentUpon>ManagingBlankCertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagingBlankCertTypeForm.resx">
+      <DependentUpon>ManagingBlankCertTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagingCertForm.resx">
+      <DependentUpon>ManagingCertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagingCopyCertForm.resx">
+      <DependentUpon>ManagingCopyCertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagingExamForm.resx">
+      <DependentUpon>ManagingExamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagingPrinterForm.resx">
+      <DependentUpon>ManagingPrinterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagingRoleForm.resx">
+      <DependentUpon>ManagingRoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagingSchoolForm.resx">
+      <DependentUpon>ManagingSchoolForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagingStudentForm.resx">
+      <DependentUpon>ManagingStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagingUserForm.resx">
+      <DependentUpon>ManagingUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagingYourAccountForm.resx">
+      <DependentUpon>ManagingYourAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthlyReportForm.resx">
+      <DependentUpon>MonthlyReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotificationForm.resx">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OnlineHelpingForm.resx">
+      <DependentUpon>OnlineHelpingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintCopyCertForm.resx">
+      <DependentUpon>PrintCopyCertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintOptionForm.resx">
+      <DependentUpon>PrintOptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintRootCertForm.resx">
+      <DependentUpon>PrintRootCertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ResetPasswordForm.resx">
+      <DependentUpon>ResetPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectBlankCertForm.resx">
+      <DependentUpon>SelectBlankCertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectBlankCertTypeForm.resx">
+      <DependentUpon>SelectBlankCertTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectRootOrCopyCertForm.resx">
+      <DependentUpon>SelectRootOrCopyCertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowingImageForm.resx">
+      <DependentUpon>ShowingImageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Doc\JBCertHelpDoc.docx" />
+    <None Include="Doc\PreTestHelp.doc" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{e4326f29-b176-427b-bd8d-9749476aa3ff}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{6c4f288f-8dee-485a-82aa-a6dab53909f9}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{9b0e9990-3193-4478-b067-851cf30c4729}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{69859613-b5b0-4f0b-9918-71764f45a984}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
+    <Content Include="Mail\SendPasswordEmailTemplate.html" />
+    <Content Include="MenuIcon\about.png" />
+    <Content Include="MenuIcon\blank-cert.png" />
+    <Content Include="MenuIcon\add-blank-cert.png" />
+    <Content Include="MenuIcon\copy.png" />
+    <Content Include="MenuIcon\exit.png" />
+    <Content Include="MenuIcon\logout.png" />
+    <Content Include="MenuIcon\return.png" />
+    <Content Include="MenuIcon\report.png" />
+    <Content Include="MenuIcon\exam %282%29.png" />
+    <Content Include="MenuIcon\guide.png" />
+    <Content Include="MenuIcon\create-certificate.png" />
+    <Content Include="MenuIcon\certificate.png" />
+    <Content Include="MenuIcon\create-exam.png" />
+    <Content Include="MenuIcon\exam.png" />
+    <Content Include="MenuIcon\logo.ico" />
+    <Content Include="MenuIcon\info.png" />
+    <Content Include="MenuIcon\education.png" />
+    <Content Include="MenuIcon\logo.png" />
+    <Content Include="MenuIcon\blank-cert-type.png" />
+    <Content Include="MenuIcon\parameters.png" />
+    <Content Include="MenuIcon\print.png" />
+    <Content Include="MenuIcon\role.png" />
+    <Content Include="MenuIcon\school.png" />
+    <Content Include="MenuIcon\add-student.png" />
+    <Content Include="MenuIcon\database.png" />
+    <Content Include="MenuIcon\report-monthy.png" />
+    <Content Include="MenuIcon\your-account.png" />
+    <Content Include="MenuIcon\student.png" />
+    <Content Include="MenuIcon\user.png" />
+    <Content Include="NotificationIcon\error.png" />
+    <Content Include="NotificationIcon\information.png" />
+    <Content Include="NotificationIcon\warning.png" />
+    <Content Include="Resource\background.png" />
+    <Content Include="Resource\contact.png" />
+    <Content Include="Resource\contact1.png" />
+    <Content Include="Resource\JB_Cert_small.jpg" />
+    <Content Include="Resource\logo1.jpg" />
+    <Content Include="Resource\Logo JB %28quy chuẩn%29-02.png" />
+    <Content Include="Resource\skype.png" />
+    <Content Include="Resource\zalo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+    <Folder Include="StudentImages\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

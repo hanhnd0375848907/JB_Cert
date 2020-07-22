@@ -1,0 +1,6 @@
+F:\Project\C#\JBCert_1\JBCert\Common\bin\Release\Common.dll
+F:\Project\C#\JBCert_1\JBCert\Common\bin\Release\Common.pdb
+F:\Project\C#\JBCert_1\JBCert\Common\obj\Release\Common.csproj.CoreCompileInputs.cache
+F:\Project\C#\JBCert_1\JBCert\Common\obj\Release\Common.dll
+F:\Project\C#\JBCert_1\JBCert\Common\obj\Release\Common.pdb
+F:\Project\C#\JBCert_1\JBCert\Common\obj\Release\Common.csprojAssemblyReference.cache
