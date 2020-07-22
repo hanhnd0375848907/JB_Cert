@@ -29,9 +29,16 @@ namespace JBCert
                     ImagePictureBox.Image = Image.FromStream(fs);
                 }
             }
+            catch(FileNotFoundException FileNotFoundEx)
+            {
+                NotificationForm notificationForm = new NotificationForm("Không tìm thấy ảnh, vui lòng cập nhật lại ảnh", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+            }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
+                notificationForm.ShowDialog();
             }
         }
 

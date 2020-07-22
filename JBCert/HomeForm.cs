@@ -37,6 +37,7 @@ namespace JBCert
         }
 
         private Form activeForm = null;
+        private List<Form> activeForms = new List<Form>();
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -71,6 +72,9 @@ namespace JBCert
                 childForm.BringToFront();
                 childForm.Show();
             }
+
+            activeForm = childForm;
+
 
         }
 

@@ -7,3 +7,12 @@ F:\Project\C#\JBCert_1\JBCert\Repository\obj\Debug\Repository.csproj.CoreCompile
 F:\Project\C#\JBCert_1\JBCert\Repository\obj\Debug\Repository.csproj.CopyComplete
 F:\Project\C#\JBCert_1\JBCert\Repository\obj\Debug\Repository.dll
 F:\Project\C#\JBCert_1\JBCert\Repository\obj\Debug\Repository.pdb
+F:\Project\GIT\JB_Cert\Repository\bin\Debug\Repository.dll
+F:\Project\GIT\JB_Cert\Repository\bin\Debug\Repository.pdb
+F:\Project\GIT\JB_Cert\Repository\bin\Debug\Model.dll
+F:\Project\GIT\JB_Cert\Repository\bin\Debug\Model.pdb
+F:\Project\GIT\JB_Cert\Repository\obj\Debug\Repository.csprojAssemblyReference.cache
+F:\Project\GIT\JB_Cert\Repository\obj\Debug\Repository.csproj.CoreCompileInputs.cache
+F:\Project\GIT\JB_Cert\Repository\obj\Debug\Repository.csproj.CopyComplete
+F:\Project\GIT\JB_Cert\Repository\obj\Debug\Repository.dll
+F:\Project\GIT\JB_Cert\Repository\obj\Debug\Repository.pdb

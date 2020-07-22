@@ -303,6 +303,7 @@
             this.VillageComboBox.Name = "VillageComboBox";
             this.VillageComboBox.Size = new System.Drawing.Size(133, 25);
             this.VillageComboBox.TabIndex = 22;
+            this.VillageComboBox.SelectedIndexChanged += new System.EventHandler(this.VillageComboBox_SelectedIndexChanged);
             // 
             // label3
             // 

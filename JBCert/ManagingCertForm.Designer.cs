@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CertDataGridView = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RowCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -61,6 +61,8 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
+            this.SelectAllButton = new System.Windows.Forms.Button();
+            this.DeSelectAllButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CertDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,14 +73,14 @@
             this.CertDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CertDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CertDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.CertDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CertDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -319,7 +321,7 @@
             // 
             this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddButton.Location = new System.Drawing.Point(754, 78);
+            this.AddButton.Location = new System.Drawing.Point(752, 185);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(118, 39);
             this.AddButton.TabIndex = 7;
@@ -331,7 +333,7 @@
             // 
             this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditButton.Location = new System.Drawing.Point(754, 127);
+            this.EditButton.Location = new System.Drawing.Point(752, 234);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(118, 32);
             this.EditButton.TabIndex = 7;
@@ -343,13 +345,37 @@
             // 
             this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteButton.Location = new System.Drawing.Point(754, 169);
+            this.DeleteButton.Location = new System.Drawing.Point(752, 276);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(118, 32);
             this.DeleteButton.TabIndex = 7;
             this.DeleteButton.Text = "Xóa";
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // SelectAllButton
+            // 
+            this.SelectAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SelectAllButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectAllButton.Location = new System.Drawing.Point(752, 78);
+            this.SelectAllButton.Name = "SelectAllButton";
+            this.SelectAllButton.Size = new System.Drawing.Size(118, 39);
+            this.SelectAllButton.TabIndex = 7;
+            this.SelectAllButton.Text = "Chọn tất cả";
+            this.SelectAllButton.UseVisualStyleBackColor = true;
+            this.SelectAllButton.Click += new System.EventHandler(this.SelectAllButton_Click);
+            // 
+            // DeSelectAllButton
+            // 
+            this.DeSelectAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeSelectAllButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeSelectAllButton.Location = new System.Drawing.Point(752, 123);
+            this.DeSelectAllButton.Name = "DeSelectAllButton";
+            this.DeSelectAllButton.Size = new System.Drawing.Size(118, 39);
+            this.DeSelectAllButton.TabIndex = 7;
+            this.DeSelectAllButton.Text = "Bỏ chọn tất cả";
+            this.DeSelectAllButton.UseVisualStyleBackColor = true;
+            this.DeSelectAllButton.Click += new System.EventHandler(this.DeSelectAllButton_Click);
             // 
             // ManagingCertForm
             // 
@@ -359,6 +385,8 @@
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.EditButton);
+            this.Controls.Add(this.SelectAllButton);
+            this.Controls.Add(this.DeSelectAllButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.SchoolComboBox);
@@ -414,5 +442,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IsPrinted;
         private System.Windows.Forms.DataGridViewButtonColumn ViewStudentImage;
         private System.Windows.Forms.DataGridViewButtonColumn ViewBlankCertImage;
+        private System.Windows.Forms.Button SelectAllButton;
+        private System.Windows.Forms.Button DeSelectAllButton;
     }
 }

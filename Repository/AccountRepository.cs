@@ -261,6 +261,7 @@ namespace Repository
                         accountModel.Id = int.Parse(sqlDataReader["Id"].ToString());
                         accountModel.Password = sqlDataReader["Password"].ToString();
                         accountModel.Username = sqlDataReader["Username"].ToString();
+                        accountModel.Email = sqlDataReader["Email"].ToString();
                         accountModel.IsActive = bool.Parse(sqlDataReader["IsActive"].ToString());
                         accountModel.IsDeleted = false;
                     }

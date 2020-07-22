@@ -4,3 +4,9 @@ F:\Project\C#\JBCert_1\JBCert\Common\obj\Debug\Common.csprojAssemblyReference.ca
 F:\Project\C#\JBCert_1\JBCert\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 F:\Project\C#\JBCert_1\JBCert\Common\obj\Debug\Common.dll
 F:\Project\C#\JBCert_1\JBCert\Common\obj\Debug\Common.pdb
+F:\Project\GIT\JB_Cert\Common\bin\Debug\Common.dll
+F:\Project\GIT\JB_Cert\Common\bin\Debug\Common.pdb
+F:\Project\GIT\JB_Cert\Common\obj\Debug\Common.csprojAssemblyReference.cache
+F:\Project\GIT\JB_Cert\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+F:\Project\GIT\JB_Cert\Common\obj\Debug\Common.dll
+F:\Project\GIT\JB_Cert\Common\obj\Debug\Common.pdb

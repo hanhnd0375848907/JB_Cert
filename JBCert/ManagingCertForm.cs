@@ -305,5 +305,23 @@ namespace JBCert
                 notificationForm.ShowDialog();
             }
         }
+
+        private void DeSelectAllButton_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in CertDataGridView.Rows)
+            {
+                DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
+                currentCheckBox.Value = false;
+            }
+        }
+
+        private void SelectAllButton_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in CertDataGridView.Rows)
+            {
+                DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
+                currentCheckBox.Value = true;
+            }
+        }
     }
 }

@@ -33,8 +33,6 @@
             this.UsernameTextBox = new System.Windows.Forms.TextBox();
             this.ResetPasswordButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
-            this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +56,7 @@
             // ResetPasswordButton
             // 
             this.ResetPasswordButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetPasswordButton.Location = new System.Drawing.Point(257, 180);
+            this.ResetPasswordButton.Location = new System.Drawing.Point(241, 118);
             this.ResetPasswordButton.Name = "ResetPasswordButton";
             this.ResetPasswordButton.Size = new System.Drawing.Size(153, 35);
             this.ResetPasswordButton.TabIndex = 4;
@@ -70,7 +68,7 @@
             // 
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.Location = new System.Drawing.Point(122, 180);
+            this.CancelButton.Location = new System.Drawing.Point(106, 118);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(105, 35);
             this.CancelButton.TabIndex = 5;
@@ -78,38 +76,21 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // EmailTextBox
-            // 
-            this.EmailTextBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailTextBox.Location = new System.Drawing.Point(152, 97);
-            this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(242, 25);
-            this.EmailTextBox.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 100);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Email";
-            // 
             // ResetPasswordForm
             // 
             this.AcceptButton = this.ResetPasswordButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.CancelButton;
-            this.ClientSize = new System.Drawing.Size(422, 227);
-            this.Controls.Add(this.EmailTextBox);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(422, 191);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.ResetPasswordButton);
             this.Controls.Add(this.UsernameTextBox);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(438, 230);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(438, 230);
             this.Name = "ResetPasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cấp lại mật khẩu";
@@ -124,7 +105,5 @@
         private System.Windows.Forms.TextBox UsernameTextBox;
         private System.Windows.Forms.Button ResetPasswordButton;
         private System.Windows.Forms.Button CancelButton;
-        private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.Label label2;
     }
 }

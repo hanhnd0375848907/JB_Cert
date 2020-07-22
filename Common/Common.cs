@@ -54,6 +54,9 @@ namespace Common
     {
         public const string VERSION = "1.2.0";
         public const string COMMON_ERORR = "Có lỗi, vui lòng liên hệ nhà phát triển phần mềm";
+        public const string NOTIFICATION_EMAIL = "notification@jbtech.vn";
+        public const string PASSWORD_NOTIFICATION_EMAIL = "Jbtech@2020";
+        public const string US_EMAIL = "us@jbtech.vn";
     }
 
     public static class CurrentUser

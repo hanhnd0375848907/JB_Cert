@@ -61,40 +61,47 @@ namespace JBCert
 
         private void ManagingSchoolForm_Load(object sender, EventArgs e)
         {
-            //Point headerCellLocation = SchoolDataGridView.GetCellDisplayRectangle(0, -1, true).Location;
-            ////Place the Header CheckBox in the Location of the Header Cell.
-            //headerCheckBox.Location = new Point(headerCellLocation.X + 25, headerCellLocation.Y + 2);
-            //headerCheckBox.BackColor = Color.White;
-            //headerCheckBox.Size = new Size(18, 18);
-            //headerCheckBox.Click += HeaderCheckBox_Click; ;
-            //SchoolDataGridView.Controls.Add(headerCheckBox);
-
-            // load town
-            List<TownModel> townModels = managingSchoolService.GetAllTown();
-            townModels.Add(new TownModel()
+            try
             {
-                Id = -1,
-                TownName = "Tất cả"
-            });
-            TownComboBox.DataSource = townModels.OrderBy(x => x.Id).ToList();
-            TownComboBox.DisplayMember = "TownName";
-            TownComboBox.ValueMember = "Id";
-            TownComboBox.SelectedIndex = 0;
-            
-            // load village
-            List<VillageModel> villageModels = managingSchoolService.GetAllVillage();
-            villageModels.Add(new VillageModel()
+                //Point headerCellLocation = SchoolDataGridView.GetCellDisplayRectangle(0, -1, true).Location;
+                ////Place the Header CheckBox in the Location of the Header Cell.
+                //headerCheckBox.Location = new Point(headerCellLocation.X + 25, headerCellLocation.Y + 2);
+                //headerCheckBox.BackColor = Color.White;
+                //headerCheckBox.Size = new Size(18, 18);
+                //headerCheckBox.Click += HeaderCheckBox_Click; ;
+                //SchoolDataGridView.Controls.Add(headerCheckBox);
+
+                // load town
+                List<TownModel> townModels = managingSchoolService.GetAllTown();
+                townModels.Add(new TownModel()
+                {
+                    Id = -1,
+                    TownName = "Tất cả"
+                });
+                TownComboBox.DataSource = townModels.OrderBy(x => x.Id).ToList();
+                TownComboBox.DisplayMember = "TownName";
+                TownComboBox.ValueMember = "Id";
+                TownComboBox.SelectedIndex = 0;
+
+                // load village
+                List<VillageModel> villageModels = managingSchoolService.GetAllVillage();
+                villageModels.Add(new VillageModel()
+                {
+                    Id = -1,
+                    VillageName = "Tất cả"
+                });
+                VillageComboBox.DataSource = villageModels.OrderBy(x => x.Id).ToList();
+                VillageComboBox.DisplayMember = "VillageName";
+                VillageComboBox.ValueMember = "Id";
+                VillageComboBox.SelectedIndex = 0;
+
+
+                LoadSchool();
+            }
+            catch(Exception ex)
             {
-                Id = -1,
-                VillageName = "Tất cả"
-            });
-            VillageComboBox.DataSource = villageModels.OrderBy(x => x.Id).ToList();
-            VillageComboBox.DisplayMember = "VillageName";
-            VillageComboBox.ValueMember = "Id";
-            VillageComboBox.SelectedIndex = 0;
 
-
-            LoadSchool();
+            }
         }
 
         //private void HeaderCheckBox_Click(object sender, EventArgs e)
@@ -242,8 +249,8 @@ namespace JBCert
             }
             catch
             {
-                NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
-                notificationForm.ShowDialog();
+                //NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
+                //notificationForm.ShowDialog();
             }
         }
 
@@ -413,6 +420,11 @@ namespace JBCert
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VillageComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

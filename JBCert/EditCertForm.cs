@@ -122,6 +122,11 @@ namespace JBCert
                     BlankCertImagePictureBox.Image = Image.FromStream(fs);
                 }
             }
+            catch (FileNotFoundException FileNotFoundEx)
+            {
+                NotificationForm notificationForm = new NotificationForm("Không tìm thấy ảnh, vui lòng cập nhật lại ảnh", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+            }
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

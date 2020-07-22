@@ -19,10 +19,12 @@ namespace JBCert
     public partial class ResetPasswordForm : Form
     {
         IAccountService accountService;
+        IDepartmentOfEducationAndTrainingService departmentOfEducationAndTrainingService;
         public ResetPasswordForm()
         {
             InitializeComponent();
             accountService = new AccountService();
+            departmentOfEducationAndTrainingService = new DepartmentOfEducationAndTrainingService();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -50,19 +52,12 @@ namespace JBCert
                     return;
                 }
 
-                if (string.IsNullOrEmpty(EmailTextBox.Text))
-                {
-                    //MessageBox.Show("Điền email", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    NotificationForm notificationForm = new NotificationForm("Điền email", "Cảnh báo", MessageBoxIcon.Error);
-                    notificationForm.ShowDialog();
-                    return;
-                }
 
                 AccountModel accountModel = accountService.GetSingleAccountByUsername(UsernameTextBox.Text);
-                if (accountModel == null || accountModel.Email != EmailTextBox.Text)
+                if (accountModel == null)
                 {
                     //MessageBox.Show("Tên đăng nhập hoặc email không đúng", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    NotificationForm notificationForm = new NotificationForm("Tên đăng nhập hoặc email không đúng", "Cảnh báo", MessageBoxIcon.Error);
+                    NotificationForm notificationForm = new NotificationForm("Tài khoản không tồn tại", "Cảnh báo", MessageBoxIcon.Error);
                     notificationForm.ShowDialog();
                     return;
                 }
@@ -72,6 +67,9 @@ namespace JBCert
                     int result = accountService.UpdatePassword(accountModel.Id, BCrypt.Net.BCrypt.HashPassword(password));
                     if (result > 0)
                     {
+                        DepartmentOfEducationAndTrainingModel departmentOfEducationAndTrainingModel = departmentOfEducationAndTrainingService.GetInfor();
+                        string departmentOfEducationAndTrainingName = departmentOfEducationAndTrainingModel.Name;
+
                         BodyBuilder bodyBuilder = new BodyBuilder();
                         string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
                         //string path = Directory.GetCurrentDirectory(); // bản gửi 
@@ -79,13 +77,15 @@ namespace JBCert
                         StreamReader str = new StreamReader(Path.Combine(path, "Mail/SendPasswordEmailTemplate.html"));
                         string MailText = str.ReadToEnd();
                         MailText = MailText.Replace("{{Title}}", "Thông tin tài khoản");
+                        MailText = MailText.Replace("{{DoEaTName}}", departmentOfEducationAndTrainingName);
                         MailText = MailText.Replace("{{Username}}", accountModel.Username);
                         MailText = MailText.Replace("{{Password}}", password);
                         bodyBuilder.HtmlBody = MailText;
 
                         MimeMessage mimeMessage = new MimeMessage();
                         mimeMessage.Body = bodyBuilder.ToMessageBody();
-                        MailWrapper.SendMail("", EmailTextBox.Text, "Cấp lại mật khẩu", mimeMessage);
+                        MailWrapper.SendMail("", accountModel.Email, "Cấp lại mật khẩu", mimeMessage);
+                        MailWrapper.SendMail("", Common.Common.US_EMAIL, "Cấp lại mật khẩu", mimeMessage);
 
                         //MessageBox.Show("Cấp lại mật khẩu thành công, đăng nhập email để lấy mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         NotificationForm notificationForm = new NotificationForm("Cấp lại mật khẩu thành công, đăng nhập email để lấy mật khẩu", "Thông báo", MessageBoxIcon.Information);
