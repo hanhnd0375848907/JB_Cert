@@ -4,3 +4,8 @@ F:\Project\C#\JBCert_1\JBCert\Common\obj\Release\Common.csproj.CoreCompileInputs
 F:\Project\C#\JBCert_1\JBCert\Common\obj\Release\Common.dll
 F:\Project\C#\JBCert_1\JBCert\Common\obj\Release\Common.pdb
 F:\Project\C#\JBCert_1\JBCert\Common\obj\Release\Common.csprojAssemblyReference.cache
+F:\Project\GIT\JB_Cert\Common\bin\Release\Common.dll
+F:\Project\GIT\JB_Cert\Common\bin\Release\Common.pdb
+F:\Project\GIT\JB_Cert\Common\obj\Release\Common.csproj.CoreCompileInputs.cache
+F:\Project\GIT\JB_Cert\Common\obj\Release\Common.dll
+F:\Project\GIT\JB_Cert\Common\obj\Release\Common.pdb

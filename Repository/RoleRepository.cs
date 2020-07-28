@@ -22,6 +22,8 @@ namespace Repository
         List<RoleModel> GetAllRoleByAccountId(int accountId);
 
         int AssignToAccount(int accountId, int roleId);
+
+        int RemoveRoleAccount(int roleId);
     }
     public class RoleRepository : IRoleRepository
     {
@@ -89,6 +91,32 @@ namespace Repository
                     conn.Close();
                 }
 
+            }
+        }
+
+        public int RemoveRoleAccount(int roleId)
+        {
+            using(conn = JBCertConnection.Instance)
+            {
+                string queryString = @"Delete from [dbo].[tblAccountRole]
+                                        Where RoleId = @RoleId";
+                conn.Open();
+                SqlCommand sqlCommand = new SqlCommand(queryString, conn);
+                sqlCommand.CommandType = CommandType.Text;
+                sqlCommand.Parameters.AddWithValue("@RoleId", roleId);
+                try
+                {
+                    int rowEffected = sqlCommand.ExecuteNonQuery();
+                    return rowEffected;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
         }
 

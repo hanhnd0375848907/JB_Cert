@@ -61,64 +61,41 @@ namespace JBCert
 
         private void ManagingSchoolForm_Load(object sender, EventArgs e)
         {
-            //Point headerCellLocation = SchoolDataGridView.GetCellDisplayRectangle(0, -1, true).Location;
-            ////Place the Header CheckBox in the Location of the Header Cell.
-            //headerCheckBox.Location = new Point(headerCellLocation.X + 25, headerCellLocation.Y + 2);
-            //headerCheckBox.BackColor = Color.White;
-            //headerCheckBox.Size = new Size(18, 18);
-            //headerCheckBox.Click += HeaderCheckBox_Click; ;
-            //SchoolDataGridView.Controls.Add(headerCheckBox);
-
-            // load town
-            List<TownModel> townModels = managingSchoolService.GetAllTown();
-            townModels.Add(new TownModel()
+            try
             {
-                Id = -1,
-                TownName = "Tất cả"
-            });
-            TownComboBox.DataSource = townModels.OrderBy(x => x.Id).ToList();
-            TownComboBox.DisplayMember = "TownName";
-            TownComboBox.ValueMember = "Id";
-            TownComboBox.SelectedIndex = 0;
-            
-            // load village
-            List<VillageModel> villageModels = managingSchoolService.GetAllVillage();
-            villageModels.Add(new VillageModel()
+                // load town
+                List<TownModel> townModels = managingSchoolService.GetAllTown();
+                townModels.Add(new TownModel()
+                {
+                    Id = -1,
+                    TownName = "Tất cả"
+                });
+                TownComboBox.DataSource = townModels.OrderBy(x => x.Id).ToList();
+                TownComboBox.DisplayMember = "TownName";
+                TownComboBox.ValueMember = "Id";
+                TownComboBox.SelectedIndex = 0;
+
+                // load village
+                List<VillageModel> villageModels = managingSchoolService.GetAllVillage();
+                villageModels.Add(new VillageModel()
+                {
+                    Id = -1,
+                    VillageName = "Tất cả"
+                });
+                VillageComboBox.DataSource = villageModels.OrderBy(x => x.Id).ToList();
+                VillageComboBox.DisplayMember = "VillageName";
+                VillageComboBox.ValueMember = "Id";
+                VillageComboBox.SelectedIndex = 0;
+
+
+                LoadSchool();
+            }
+            catch(Exception ex)
             {
-                Id = -1,
-                VillageName = "Tất cả"
-            });
-            VillageComboBox.DataSource = villageModels.OrderBy(x => x.Id).ToList();
-            VillageComboBox.DisplayMember = "VillageName";
-            VillageComboBox.ValueMember = "Id";
-            VillageComboBox.SelectedIndex = 0;
 
-
-            LoadSchool();
+            }
         }
 
-        //private void HeaderCheckBox_Click(object sender, EventArgs e)
-        //{
-        //    if (headerCheckBox.Checked)
-        //    {
-        //        foreach (DataGridViewRow row in SchoolDataGridView.Rows)
-        //        {
-        //            DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
-        //            currentCheckBox.Value = true;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        foreach (DataGridViewRow row in SchoolDataGridView.Rows)
-        //        {
-        //            DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
-        //            currentCheckBox.Value = false;
-        //        }
-        //    }
-
-        //    SchoolDataGridView.EndEdit();
-
-        //}
 
         private void AddSchoolButton_Click(object sender, EventArgs e)
         {
@@ -190,6 +167,20 @@ namespace JBCert
                     phoneNumber = PhoneNumberTextBox.Text;
                 }
 
+                if (TownComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Giá trị huyện không tồn tại", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
+                if (VillageComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Giá trị xã không tồn tại", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
                 townId = int.Parse(TownComboBox.SelectedValue.ToString());
                 villageId = int.Parse(VillageComboBox.SelectedValue.ToString());
 
@@ -242,8 +233,8 @@ namespace JBCert
             }
             catch
             {
-                NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
-                notificationForm.ShowDialog();
+                //NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
+                //notificationForm.ShowDialog();
             }
         }
 
@@ -251,9 +242,9 @@ namespace JBCert
         {
             try
             {
-                List<int> schoolIds = (from DataGridViewRow r in SchoolDataGridView.Rows
-                                       where Convert.ToBoolean(r.Cells[1].Value) == true
-                                       select Convert.ToInt32(r.Cells[0].Value)).ToList();
+               
+                List<int> schoolIds = new List<int>();
+                schoolIds.Add(Convert.ToInt32(SchoolDataGridView.Rows[SchoolDataGridView.SelectedCells[0].RowIndex].Cells[0].Value));
                 if (schoolIds.Count == 1)
                 {
                     int schoolId = schoolIds.FirstOrDefault();
@@ -297,37 +288,6 @@ namespace JBCert
                 }
                 else
                 {
-                    //DialogResult dialogResult = MessageBox.Show("Đồng ý xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    //if (dialogResult == DialogResult.Yes)
-                    //{
-                    //    try
-                    //    {
-                    //        int result = managingSchoolService.DeleteManySchool(schoolIds);
-                    //        if (result > 0)
-                    //        {
-                    //            //MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //            NotificationForm notificationForm = new NotificationForm("Xóa thành công", "Thông báo", MessageBoxIcon.Information);
-                    //            notificationForm.ShowDialog();
-                    //            LoadSchool();
-                    //        }
-                    //        else
-                    //        {
-                    //            //MessageBox.Show("Xóa không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //            NotificationForm notificationForm = new NotificationForm("Xóa không thành công", "Cảnh báo", MessageBoxIcon.Warning);
-                    //            notificationForm.ShowDialog();
-                    //        }
-                    //    }
-                    //    catch (Exception ex)
-                    //    {
-                    //        //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //        NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
-                    //        notificationForm.ShowDialog();
-                    //    }
-                    //}
-                    //else if (dialogResult == DialogResult.No)
-                    //{
-                    //    //no delete
-                    //}
 
                     ConfirmForm confirmForm = new ConfirmForm("Đồng ý xóa ?");
                     confirmForm.ShowDialog();
@@ -369,21 +329,21 @@ namespace JBCert
 
         private void SchoolDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            //try
-            //{
-            //    if (e.RowIndex >= 0 && e.ColumnIndex == SchoolDataGridView.Columns["RowCheckBox"].Index)
-            //    {
-            //        DataGridViewCheckBoxCell rowCheckBox = (DataGridViewCheckBoxCell)SchoolDataGridView.Rows[e.RowIndex].Cells["RowCheckBox"];
-            //        if (Convert.ToBoolean(rowCheckBox.Value) == false)
-            //        {
-            //            headerCheckBox.Checked = false;
-            //        }
-            //    }
-            //}
-            //catch
-            //{
+            try
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex == SchoolDataGridView.Columns["RowCheckBox"].Index)
+                {
+                    DataGridViewCheckBoxCell rowCheckBox = (DataGridViewCheckBoxCell)SchoolDataGridView.Rows[e.RowIndex].Cells["RowCheckBox"];
+                    if (Convert.ToBoolean(rowCheckBox.Value) == false)
+                    {
+                        SelectAllCheckBox.Checked = false;
+                    }
+                }
+            }
+            catch
+            {
 
-            //}
+            }
         }
 
         private void SchoolDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -415,6 +375,31 @@ namespace JBCert
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void VillageComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SelectAllCheckBox_Click(object sender, EventArgs e)
+        {
+            if (SelectAllCheckBox.Checked)
+            {
+                foreach (DataGridViewRow row in SchoolDataGridView.Rows)
+                {
+                    DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
+                    currentCheckBox.Value = true;
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in SchoolDataGridView.Rows)
+                {
+                    DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
+                    currentCheckBox.Value = false;
+                }
+            }
         }
     }
 }

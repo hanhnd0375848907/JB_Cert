@@ -77,7 +77,7 @@ namespace Repository
                                            ,[IsDeleted])
                                      Output Inserted.Id
                                      VALUES
-                                           (@Username, @Password, @PhoneNumber, @Email, 1, 0)";
+                                           (@Username, @Password, @PhoneNumber, @Email, @IsActive, 0)";
                 conn.Open();
                 SqlCommand sqlCommand = new SqlCommand(queryString, conn);
                 sqlCommand.CommandType = CommandType.Text;
@@ -85,6 +85,7 @@ namespace Repository
                 sqlCommand.Parameters.AddWithValue("@Password", accountModel.Password);
                 sqlCommand.Parameters.AddWithValue("@PhoneNumber", accountModel.PhoneNumber);
                 sqlCommand.Parameters.AddWithValue("@Email", accountModel.Email);
+                sqlCommand.Parameters.AddWithValue("@IsActive", accountModel.IsActive);
                 try
                 {
                     int accountId = (int)sqlCommand.ExecuteScalar();
@@ -152,11 +153,15 @@ namespace Repository
                         if (accountModels.Any(x => x.Id == int.Parse(sqlDataReader["Id"].ToString())))
                         {
                             AccountModel accountModel = accountModels.Where(x => x.Id == int.Parse(sqlDataReader["Id"].ToString())).FirstOrDefault();
-                            accountModel.RoleModels.Add(new RoleModel()
+                            if (sqlDataReader["RoleId"].ToString() != "")
                             {
-                                RoleName = sqlDataReader["RoleName"].ToString(),
-                                RoleDescription = sqlDataReader["RoleDescription"].ToString()
-                            });
+                                accountModel.RoleModels.Add(new RoleModel()
+                                {
+                                    Id = int.Parse(sqlDataReader["RoleId"].ToString()),
+                                    RoleName = sqlDataReader["RoleName"].ToString(),
+                                    RoleDescription = sqlDataReader["RoleDescription"].ToString()
+                                });
+                            }
                         }
                         else
                         {
@@ -167,18 +172,15 @@ namespace Repository
                             accountModel.Email = sqlDataReader["Email"].ToString();
                             accountModel.PhoneNumber = sqlDataReader["PhoneNumber"].ToString();
                             accountModel.IsActive = bool.Parse(sqlDataReader["IsActive"].ToString());
-                            if (!string.IsNullOrEmpty(sqlDataReader["RoleId"].ToString()) && sqlDataReader["RoleId"] != null)
+                            accountModel.RoleModels = new List<RoleModel>();
+                            if (sqlDataReader["RoleId"].ToString() != "")
                             {
-                                accountModel.RoleModels = new List<RoleModel>()
+                                accountModel.RoleModels.Add(new RoleModel()
                                 {
-
-                                    new RoleModel() // chưa sửa khi roleId null, roleName null...
-                                    {
-                                        Id = int.Parse(sqlDataReader["RoleId"].ToString()),
-                                        RoleName = sqlDataReader["RoleName"].ToString(),
-                                        RoleDescription = sqlDataReader["RoleDescription"].ToString()
-                                    }
-                                };
+                                    Id = int.Parse(sqlDataReader["RoleId"].ToString()),
+                                    RoleName = sqlDataReader["RoleName"].ToString(),
+                                    RoleDescription = sqlDataReader["RoleDescription"].ToString()
+                                });
                             }
 
                             accountModel.IsDeleted = false;
@@ -261,6 +263,7 @@ namespace Repository
                         accountModel.Id = int.Parse(sqlDataReader["Id"].ToString());
                         accountModel.Password = sqlDataReader["Password"].ToString();
                         accountModel.Username = sqlDataReader["Username"].ToString();
+                        accountModel.Email = sqlDataReader["Email"].ToString();
                         accountModel.IsActive = bool.Parse(sqlDataReader["IsActive"].ToString());
                         accountModel.IsDeleted = false;
                     }
@@ -362,30 +365,36 @@ namespace Repository
                         if (accountModels.Any(x => x.Id == int.Parse(sqlDataReader["Id"].ToString())))
                         {
                             AccountModel accountModel = accountModels.Where(x => x.Id == int.Parse(sqlDataReader["Id"].ToString())).FirstOrDefault();
-                            accountModel.RoleModels.Add(new RoleModel()
+                            if (sqlDataReader["RoleId"].ToString() != "")
                             {
-                                RoleName = sqlDataReader["RoleName"].ToString(),
-                                RoleDescription = sqlDataReader["RoleDescription"].ToString()
-                            });
+                                accountModel.RoleModels.Add(new RoleModel()
+                                {
+                                    Id = int.Parse(sqlDataReader["RoleId"].ToString()),
+                                    RoleName = sqlDataReader["RoleName"].ToString(),
+                                    RoleDescription = sqlDataReader["RoleDescription"].ToString()
+                                });
+                            }
                         }
                         else
                         {
                             AccountModel accountModel = new AccountModel();
+                            var a = sqlDataReader["RoleId"].ToString();
                             accountModel.Id = int.Parse(sqlDataReader["Id"].ToString());
                             accountModel.Username = sqlDataReader["Username"].ToString();
                             accountModel.Password = sqlDataReader["Password"].ToString();
                             accountModel.Email = sqlDataReader["Email"].ToString();
                             accountModel.PhoneNumber = sqlDataReader["PhoneNumber"].ToString();
                             accountModel.IsActive = bool.Parse(sqlDataReader["IsActive"].ToString());
-                            accountModel.RoleModels = new List<RoleModel>()
+                            accountModel.RoleModels = new List<RoleModel>();
+                            if (sqlDataReader["RoleId"].ToString() != "")
                             {
-                                new RoleModel()
+                                accountModel.RoleModels.Add(new RoleModel()
                                 {
                                     Id = int.Parse(sqlDataReader["RoleId"].ToString()),
                                     RoleName = sqlDataReader["RoleName"].ToString(),
                                     RoleDescription = sqlDataReader["RoleDescription"].ToString()
-                                }
-                            };
+                                });
+                            }
                             accountModel.IsDeleted = false;
                             accountModels.Add(accountModel);
                         }

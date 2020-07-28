@@ -100,6 +100,7 @@ namespace JBCert
             }
             catch(Exception ex)
             {
+                var a = ex.Message;
                 //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
                 notificationForm.ShowDialog();

@@ -41,16 +41,6 @@ namespace JBCert
 
         }
 
-        private void IsChangePasswordCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            CurrentPasswordTextBox.Enabled = IsChangePasswordCheckBox.Checked;
-            NewPasswordTextBox.Enabled = IsChangePasswordCheckBox.Checked;
-            ReNewPasswordTextBox.Enabled = IsChangePasswordCheckBox.Checked;
-            label4.Enabled = IsChangePasswordCheckBox.Checked;
-            label5.Enabled = IsChangePasswordCheckBox.Checked;
-            label6.Enabled = IsChangePasswordCheckBox.Checked;
-        }
-
         private void SaveButton_Click(object sender, EventArgs e)
         {
             try
@@ -64,30 +54,6 @@ namespace JBCert
 
 
                 int result = accountService.UpdateAccountInformation(accountModel);
-                if (IsChangePasswordCheckBox.Checked)
-                {
-                    string currentPassword = string.IsNullOrEmpty(CurrentPasswordTextBox.Text) ? "" : CurrentPasswordTextBox.Text;
-                    string newPassowrd = string.IsNullOrEmpty(NewPasswordTextBox.Text) ? "" : NewPasswordTextBox.Text;
-                    string reNewPassword = string.IsNullOrEmpty(ReNewPasswordTextBox.Text) ? "" : ReNewPasswordTextBox.Text;
-                    if (BCrypt.Net.BCrypt.Verify(currentPassword, accountModel.Password))
-                    {
-                        if (newPassowrd != reNewPassword)
-                        {
-                            //MessageBox.Show("Nhập lại mật khẩu mới không khớp", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            NotificationForm notificationForm = new NotificationForm("Nhập lại mật khẩu mới không khớp", "Cảnh báo", MessageBoxIcon.Error);
-                            notificationForm.ShowDialog();
-                        }
-
-                        result += accountService.UpdatePassword(accountModel.Id, BCrypt.Net.BCrypt.HashPassword(newPassowrd));
-
-                    }
-                    else
-                    {
-                        //MessageBox.Show("Mật khẩu hiện tại không đúng", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        NotificationForm notificationForm = new NotificationForm("Mật khẩu hiện tại không đúng", "Cảnh báo", MessageBoxIcon.Error);
-                        notificationForm.ShowDialog();
-                    }
-                }
 
                 if (result > 0)
                 {
@@ -98,7 +64,7 @@ namespace JBCert
                 else
                 {
                     //MessageBox.Show("Cập nhật thông tin không thành công", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    NotificationForm notificationForm = new NotificationForm("Cập nhật thông tin không thành công", "Cảnh báo", MessageBoxIcon.Error);
+                    NotificationForm notificationForm = new NotificationForm("Cập nhật thông tin không thành công", "Cảnh báo", MessageBoxIcon.Warning);
                     notificationForm.ShowDialog();
                 }
             }
@@ -108,6 +74,67 @@ namespace JBCert
                 NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
                 notificationForm.ShowDialog();
             }
+        }
+
+        private void IsChangePasswordCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ChangePasswordButton_Click(object sender, EventArgs e)
+        {
+            AccountModel accountModel = accountService.GetSingleAccountById(CurrentUser.Id);
+            string currentPassword = string.IsNullOrEmpty(CurrentPasswordTextBox.Text) ? "" : CurrentPasswordTextBox.Text;
+            string newPassowrd = string.IsNullOrEmpty(NewPasswordTextBox.Text) ? "" : NewPasswordTextBox.Text;
+            string reNewPassword = string.IsNullOrEmpty(ReNewPasswordTextBox.Text) ? "" : ReNewPasswordTextBox.Text;
+            if (BCrypt.Net.BCrypt.Verify(currentPassword, accountModel.Password))
+            {
+                if (newPassowrd != reNewPassword)
+                {
+                    //MessageBox.Show("Nhập lại mật khẩu mới không khớp", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotificationForm notificationForm = new NotificationForm("Nhập lại mật khẩu mới không khớp", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
+                int result = accountService.UpdatePassword(accountModel.Id, BCrypt.Net.BCrypt.HashPassword(newPassowrd));
+                if (result > 0)
+                {
+                    //MessageBox.Show("Cập nhật thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NotificationForm notificationForm = new NotificationForm("Cập nhật mật khẩu thành công", "Thông báo", MessageBoxIcon.Information);
+                    notificationForm.ShowDialog();
+                }
+                else
+                {
+                    //MessageBox.Show("Cập nhật thông tin không thành công", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotificationForm notificationForm = new NotificationForm("Cập nhật mật khẩu không thành công", "Cảnh báo", MessageBoxIcon.Error);
+                    notificationForm.ShowDialog();
+                }
+            }
+            else
+            {
+                //MessageBox.Show("Mật khẩu hiện tại không đúng", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotificationForm notificationForm = new NotificationForm("Mật khẩu hiện tại không đúng", "Cảnh báo", MessageBoxIcon.Error);
+                notificationForm.ShowDialog();
+            }
+        }
+
+        private void ChangePasswordCheckBox_Click(object sender, EventArgs e)
+        {
+            label4.Enabled = ChangePasswordCheckBox.Checked;
+            label5.Enabled = ChangePasswordCheckBox.Checked;
+            label6.Enabled = ChangePasswordCheckBox.Checked;
+
+            CurrentPasswordTextBox.Enabled = ChangePasswordCheckBox.Checked;
+            NewPasswordTextBox.Enabled = ChangePasswordCheckBox.Checked;
+            ReNewPasswordTextBox.Enabled = ChangePasswordCheckBox.Checked;
+
+            ChangePasswordButton.Enabled = ChangePasswordCheckBox.Checked;
         }
     }
 }

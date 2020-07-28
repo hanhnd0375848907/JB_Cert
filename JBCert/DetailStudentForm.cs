@@ -41,7 +41,7 @@ namespace JBCert
                 IdentityTextBox.Text = studentModel.IdentityNumber;
                 ScoreTextBox.Text = studentModel.Score.ToString();
                 GraduatingYearTextBox.Text = studentModel.GraduatingYear.ToString();
-                DobDateTimePicker.Value = studentModel.Dob;
+                DobTextBox.Text = studentModel.Dob.ToString("dd/MM/yyyy");
                 NoteRichTextBox.Text = studentModel.Note;
                 SchoolTextBox.Text = studentModel.SchoolName;
                 MajorTextBox.Text = studentModel.MajorName;

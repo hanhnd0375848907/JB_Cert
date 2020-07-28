@@ -47,6 +47,7 @@
     <Compile Include="BlankCertTypeModel.cs" />
     <Compile Include="CertModel.cs" />
     <Compile Include="ClaimModel.cs" />
+    <Compile Include="CopiedCertModel.cs" />
     <Compile Include="DepartmentOfEducationAndTrainingModel.cs" />
     <Compile Include="EthnicModel.cs" />
     <Compile Include="ExamModel.cs" />

@@ -78,6 +78,7 @@ namespace JBCert
                     //MessageBox.Show("Điền tên trường", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     NotificationForm notificationForm = new NotificationForm("Điền tên trường", "Cảnh báo", MessageBoxIcon.Warning);
                     notificationForm.ShowDialog();
+                    return;
                 }
 
                 if (string.IsNullOrEmpty(AddressTextBox.Text))
@@ -85,6 +86,7 @@ namespace JBCert
                     //MessageBox.Show("Điền địa chỉ", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     NotificationForm notificationForm = new NotificationForm("Điền địa chỉ", "Cảnh báo", MessageBoxIcon.Warning);
                     notificationForm.ShowDialog();
+                    return;
                 }
 
                 if (string.IsNullOrEmpty(PhoneNumberTextBox.Text))
@@ -92,6 +94,7 @@ namespace JBCert
                     //MessageBox.Show("Điền số điện thoại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     NotificationForm notificationForm = new NotificationForm("Điền số điện thoại", "Cảnh báo", MessageBoxIcon.Warning);
                     notificationForm.ShowDialog();
+                    return;
                 }
 
                 if (string.IsNullOrEmpty(Representative.Text))
@@ -99,6 +102,35 @@ namespace JBCert
                     //MessageBox.Show("Điền người đại diện", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     NotificationForm notificationForm = new NotificationForm("Điền người đại diện", "Cảnh báo", MessageBoxIcon.Warning);
                     notificationForm.ShowDialog();
+                    return;
+                }
+
+                if (BlankCertTypeComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Chọn loại bằng", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
+                if (BlankCertTypeComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Chọn loại", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
+                if (TownComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Chọn huyện", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
+                if (VillageComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Chọn xã", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
                 }
 
                 SchoolModel schoolModel = new SchoolModel();

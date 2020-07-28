@@ -58,7 +58,7 @@ namespace JBCert
                         blankCertModel.IsReturned == true ? "Đã thu hồi" : "Không thu hồi",
                         blankCertModel.CreatedAt,
                         blankCertModel.BlankCertTypeName,
-                        blankCertModel.UpdatedAt
+                        blankCertModel.UpdatedAt.ToString("dd/MM/yyyy")
                     );
                 }
 
@@ -73,13 +73,6 @@ namespace JBCert
 
         private void ManagingBlankCertForm_Load(object sender, EventArgs e)
         {
-            //Point headerCellLocation = BlankCertDataGridView.GetCellDisplayRectangle(0, -1, true).Location;
-            ////Place the Header CheckBox in the Location of the Header Cell.
-            //headerCheckBox.Location = new Point(headerCellLocation.X + 25, headerCellLocation.Y + 2);
-            //headerCheckBox.BackColor = Color.White;
-            //headerCheckBox.Size = new Size(18, 18);
-            //headerCheckBox.Click += HeaderCheckBox_Click;
-            //BlankCertDataGridView.Controls.Add(headerCheckBox);
 
             LoadListBlankCert();
 
@@ -101,20 +94,6 @@ namespace JBCert
             StatusComboBox.Items.Add("Đã dùng");    // 3
             StatusComboBox.SelectedIndex = 0;
         }
-
-        //private void HeaderCheckBox_Click(object sender, EventArgs e)
-        //{
-        //    if (headerCheckBox.Checked)
-        //    {
-                
-        //    }
-        //    else
-        //    {
-                
-        //    }
-
-        //    BlankCertDataGridView.EndEdit();
-        //}
 
         private void AddBlankCertButton_Click(object sender, EventArgs e)
         {
@@ -172,12 +151,25 @@ namespace JBCert
             string serial = "";
             int blankCertTypeId = -1;
             int status = 0;
-
             try
             {
                 if (!string.IsNullOrEmpty(SerialTextBox.Text))
                 {
                     serial = SerialTextBox.Text;
+                }
+
+                if(BlankCertTypeComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Loại bằng không tồn tại", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
+                if (StatusComboBox.SelectedItem == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Trạng thái không tồn tại", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
                 }
 
                 blankCertTypeId = int.Parse(BlankCertTypeComboBox.SelectedValue.ToString());
@@ -206,7 +198,7 @@ namespace JBCert
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Warning);
+                NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
                 notificationForm.ShowDialog();
             }
         }
@@ -215,9 +207,11 @@ namespace JBCert
         {
             try
             {
-                List<int> blankCertIds = (from DataGridViewRow r in BlankCertDataGridView.Rows
-                                          where Convert.ToBoolean(r.Cells[1].Value) == true
-                                          select Convert.ToInt32(r.Cells[0].Value)).ToList();
+                //List<int> blankCertIds = (from DataGridViewRow r in BlankCertDataGridView.Rows
+                //                          where Convert.ToBoolean(r.Cells[1].Value) == true
+                //                          select Convert.ToInt32(r.Cells[0].Value)).ToList();
+                List<int> blankCertIds = new List<int>();
+                blankCertIds.Add(Convert.ToInt32(BlankCertDataGridView.Rows[BlankCertDataGridView.SelectedCells[0].RowIndex].Cells[0].Value));
                 if (blankCertIds.Count == 1)
                 {
                     int blankCertId = blankCertIds.FirstOrDefault();
@@ -260,38 +254,6 @@ namespace JBCert
                     notificationForm.ShowDialog();
                     return;
                 }
-
-                //DialogResult dialogResult = MessageBox.Show("Đồng ý xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                //if (dialogResult == DialogResult.Yes)
-                //{
-                //    try
-                //    {
-                //        int result = managingBlankCertService.DeleteManyBlankCert(blankCertIds);
-                //        if (result > 0)
-                //        {
-                //            //MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //            NotificationForm notificationForm = new NotificationForm("Xóa thành công", "Thông báo", MessageBoxIcon.Information);
-                //            notificationForm.ShowDialog();
-                //            LoadListBlankCert();
-                //        }
-                //        else
-                //        {
-                //            //MessageBox.Show("Xóa không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //            NotificationForm notificationForm = new NotificationForm("Xóa không thành công", "Cảnh báo", MessageBoxIcon.Warning);
-                //            notificationForm.ShowDialog();
-                //        }
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //        NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Warning);
-                //        notificationForm.ShowDialog();
-                //    }
-                //}
-                //else if (dialogResult == DialogResult.No)
-                //{
-                //    //no delete
-                //}
 
                 ConfirmForm confirmForm = new ConfirmForm("Đồng ý xóa ?");
                 confirmForm.ShowDialog();
@@ -343,21 +305,21 @@ namespace JBCert
 
         private void BlankCertDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            //try
-            //{
-            //    if (e.RowIndex >= 0 && e.ColumnIndex == BlankCertDataGridView.Columns["RowCheckBox"].Index)
-            //    {
-            //        DataGridViewCheckBoxCell rowCheckBox = (DataGridViewCheckBoxCell)BlankCertDataGridView.Rows[e.RowIndex].Cells["RowCheckBox"];
-            //        if (Convert.ToBoolean(rowCheckBox.Value) == false)
-            //        {
-            //            headerCheckBox.Checked = false;
-            //        }
-            //    }
-            //}
-            //catch
-            //{
+            try
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex == BlankCertDataGridView.Columns["RowCheckBox"].Index)
+                {
+                    DataGridViewCheckBoxCell rowCheckBox = (DataGridViewCheckBoxCell)BlankCertDataGridView.Rows[e.RowIndex].Cells["RowCheckBox"];
+                    if (Convert.ToBoolean(rowCheckBox.Value) == false)
+                    {
+                        SelectAllCheckBox.Checked = false;
+                    }
+                }
+            }
+            catch
+            {
 
-            //}
+            }
         }
 
         private void SelectAllButton_Click(object sender, EventArgs e)
@@ -375,6 +337,26 @@ namespace JBCert
             {
                 DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
                 currentCheckBox.Value = false;
+            }
+        }
+
+        private void SelectAllCheckBox_Click(object sender, EventArgs e)
+        {
+            if (SelectAllCheckBox.Checked)
+            {
+                foreach (DataGridViewRow row in BlankCertDataGridView.Rows)
+                {
+                    DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
+                    currentCheckBox.Value = true;
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in BlankCertDataGridView.Rows)
+                {
+                    DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
+                    currentCheckBox.Value = false;
+                }
             }
         }
     }

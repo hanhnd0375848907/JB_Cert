@@ -21,6 +21,12 @@ namespace JBCert
             accountService = new AccountService();
             EditAccountInformationForm.OnAccountInformationUpdated += EditAccountInformationForm_OnAccountInformationUpdated;
             EditAccountRoleForm.OnAccountRoleUpdated += EditAccountRoleForm_OnAccountRoleUpdated;
+            CreateAccountForm.OnAccountCreated += CreateAccountForm_OnAccountCreated;
+        }
+
+        private void CreateAccountForm_OnAccountCreated()
+        {
+            LoadAccountList();
         }
 
         private void EditAccountRoleForm_OnAccountRoleUpdated()
@@ -35,14 +41,6 @@ namespace JBCert
 
         private void ManagingUserForm_Load(object sender, EventArgs e)
         {
-            //Point headerCellLocation = AccountDataGridView.GetCellDisplayRectangle(0, -1, true).Location;
-            ////Place the Header CheckBox in the Location of the Header Cell.
-            //headerCheckBox.Location = new Point(headerCellLocation.X + 25, headerCellLocation.Y + 2);
-            //headerCheckBox.BackColor = Color.White;
-            //headerCheckBox.Size = new Size(18, 18);
-            //headerCheckBox.Click += HeaderCheckBox_Click;
-            //AccountDataGridView.Controls.Add(headerCheckBox);
-
             // load isactive combobox
             IsActiveComboBox.Items.Add("Tất cả");
             IsActiveComboBox.Items.Add("Đang hoạt động");
@@ -52,28 +50,7 @@ namespace JBCert
             LoadAccountList();
         }
 
-        //private void HeaderCheckBox_Click(object sender, EventArgs e)
-        //{
-        //    if (headerCheckBox.Checked)
-        //    {
-        //        foreach (DataGridViewRow row in AccountDataGridView.Rows)
-        //        {
-        //            DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
-        //            currentCheckBox.Value = true;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        foreach (DataGridViewRow row in AccountDataGridView.Rows)
-        //        {
-        //            DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
-        //            currentCheckBox.Value = false;
-        //        }
-        //    }
-
-        //    AccountDataGridView.EndEdit();
-        //}
-
+       
         private void LoadAccountList()
         {
             try
@@ -118,8 +95,8 @@ namespace JBCert
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
-                notificationForm.ShowDialog();
+                //NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
+                //notificationForm.ShowDialog();
             }
         }
 
@@ -138,21 +115,21 @@ namespace JBCert
 
         private void AccountDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            //try
-            //{
-            //    if (e.RowIndex >= 0 && e.ColumnIndex == AccountDataGridView.Columns["RowCheckBox"].Index)
-            //    {
-            //        DataGridViewCheckBoxCell rowCheckBox = (DataGridViewCheckBoxCell)AccountDataGridView.Rows[e.RowIndex].Cells["RowCheckBox"];
-            //        if (Convert.ToBoolean(rowCheckBox.Value) == false)
-            //        {
-            //            headerCheckBox.Checked = false;
-            //        }
-            //    }
-            //}
-            //catch
-            //{
+            try
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex == AccountDataGridView.Columns["RowCheckBox"].Index)
+                {
+                    DataGridViewCheckBoxCell rowCheckBox = (DataGridViewCheckBoxCell)AccountDataGridView.Rows[e.RowIndex].Cells["RowCheckBox"];
+                    if (Convert.ToBoolean(rowCheckBox.Value) == false)
+                    {
+                        SelectAllCheckBox.Checked = false;
+                    }
+                }
+            }
+            catch
+            {
 
-            //}
+            }
         }
 
         private void AccountDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -165,9 +142,11 @@ namespace JBCert
 
         private void UpdateInformationButton_Click(object sender, EventArgs e)
         {
-            List<int> accountIds = (from DataGridViewRow r in AccountDataGridView.Rows
-                                    where Convert.ToBoolean(r.Cells[1].Value) == true
-                                    select Convert.ToInt32(r.Cells[0].Value)).ToList();
+            //List<int> accountIds = (from DataGridViewRow r in AccountDataGridView.Rows
+            //                        where Convert.ToBoolean(r.Cells[1].Value) == true
+            //                        select Convert.ToInt32(r.Cells[0].Value)).ToList();
+            List<int> accountIds = new List<int>();
+            accountIds.Add(Convert.ToInt32(AccountDataGridView.Rows[AccountDataGridView.SelectedCells[0].RowIndex].Cells[0].Value));
             if (accountIds.Count == 1)
             {
                 EditAccountInformationForm editAccountInformationForm = new EditAccountInformationForm(accountIds.FirstOrDefault());
@@ -302,6 +281,13 @@ namespace JBCert
         {
             try
             {
+                if (IsActiveComboBox.SelectedItem == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Giá trị trạng thái không tồn tại", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
                 string username = "";
                 string email = "";
                 string phoneNumber = "";
@@ -338,6 +324,13 @@ namespace JBCert
                 List<AccountModel> accountModels = accountService.SearchAccount(username, email, phoneNumber, isActive);
                 AccountDataGridView.Rows.Clear();
                 int i = 1;
+
+                if (accountModels.Count == 1)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Không có dữ liệu", "Thông báo", MessageBoxIcon.Information);
+                    notificationForm.ShowDialog();
+                }
+
                 foreach (var accountModel in accountModels)
                 {
                     if (accountModel.Username == "Admin")
@@ -380,6 +373,7 @@ namespace JBCert
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+
             LoadSearchedAccountList();
         }
 
@@ -399,6 +393,7 @@ namespace JBCert
                     return;
                 }
 
+                
                 int result = accountService.ActiveManyAccount(accountIds);
                 if (accountIds.Count > 0)
                 {
@@ -444,6 +439,26 @@ namespace JBCert
             {
                 DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
                 currentCheckBox.Value = false;
+            }
+        }
+
+        private void SelectAllCheckBox_Click(object sender, EventArgs e)
+        {
+            if (SelectAllCheckBox.Checked)
+            {
+                foreach (DataGridViewRow row in AccountDataGridView.Rows)
+                {
+                    DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
+                    currentCheckBox.Value = true;
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in AccountDataGridView.Rows)
+                {
+                    DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
+                    currentCheckBox.Value = false;
+                }
             }
         }
     }

@@ -107,5 +107,10 @@ namespace JBCert
             AddBlankCertConfigForm addBlankCertConfigForm = new AddBlankCertConfigForm();
             addBlankCertConfigForm.ShowDialog();
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

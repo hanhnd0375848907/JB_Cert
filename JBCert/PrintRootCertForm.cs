@@ -96,7 +96,8 @@ namespace JBCert
                 string imageName = managingStudentService.GetStudentImage(certModel.StudentId);
                 if (string.IsNullOrEmpty(imageName))
                 {
-                    MessageBox.Show("Không tìm thấy ảnh", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    NotificationForm notificationForm = new NotificationForm("Không tìm thấy ảnh", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
                     return;
                 }
                 string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
@@ -110,7 +111,8 @@ namespace JBCert
                 string imageName = managingBlankCertService.GetBlankCertImage(certModel.BlankCertId);
                 if (string.IsNullOrEmpty(imageName))
                 {
-                    MessageBox.Show("Không tìm thấy ảnh", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    NotificationForm notificationForm = new NotificationForm("Không tìm thấy ảnh", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
                     return;
                 }
                 string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
@@ -129,7 +131,8 @@ namespace JBCert
         {
             if (chosenCertIdList.Count == 0)
             {
-                MessageBox.Show("Chọn ít nhất 1 bằng để in", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotificationForm notificationForm = new NotificationForm("Chọn ít nhất 1 bằng để in", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
                 return;
             }
             PrintOptionForm printOptionForm = new PrintOptionForm(chosenCertIdList);
@@ -171,6 +174,18 @@ namespace JBCert
         {
             try
             {
+                if (SchoolComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Giá trị trường học không tồn tại", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                }
+
+                if (IsCheckedComboBox.SelectedItem == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Giá trị trạng thái không tồn tại", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                }
+
                 int schoolId = int.Parse(SchoolComboBox.SelectedValue.ToString());
                 if (schoolId == -1)
                 {
@@ -212,7 +227,8 @@ namespace JBCert
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
+                notificationForm.ShowDialog();
             }
         }
     }

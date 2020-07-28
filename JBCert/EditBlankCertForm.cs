@@ -69,6 +69,11 @@ namespace JBCert
                 ReturnBlankCertCheckbox.Checked = currentBlankCertModel.IsReturned;
                 ReasonReturnRichTextBox.Text = currentBlankCertModel.ReasonReturn;
             }
+            catch(FileNotFoundException ex)
+            {
+                NotificationForm notificationForm = new NotificationForm("Không tìm thấy ảnh phôi", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+            }
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -103,6 +108,13 @@ namespace JBCert
                 {
                     //MessageBox.Show("Điền số hiệu văn bằng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     NotificationForm notificationForm = new NotificationForm("Điền số hiệu văn bằng!", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
+                if (BlankCertTypeComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Chọn loại phôi!", "Cảnh báo", MessageBoxIcon.Warning);
                     notificationForm.ShowDialog();
                     return;
                 }

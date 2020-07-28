@@ -47,7 +47,6 @@
             this.BornedAddressTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.DobDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@
             this.MajorTextBox = new System.Windows.Forms.TextBox();
             this.GenderTextBox = new System.Windows.Forms.TextBox();
             this.EthnicTextBox = new System.Windows.Forms.TextBox();
+            this.DobTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +74,7 @@
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(76, 27);
             this.CancelButton.TabIndex = 69;
-            this.CancelButton.Text = "Hủy";
+            this.CancelButton.Text = "Thoát";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -254,15 +254,6 @@
             this.label6.TabIndex = 46;
             this.label6.Text = "Dân tộc";
             // 
-            // DobDateTimePicker
-            // 
-            this.DobDateTimePicker.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DobDateTimePicker.Location = new System.Drawing.Point(278, 165);
-            this.DobDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.DobDateTimePicker.Name = "DobDateTimePicker";
-            this.DobDateTimePicker.Size = new System.Drawing.Size(250, 25);
-            this.DobDateTimePicker.TabIndex = 45;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -401,12 +392,22 @@
             this.EthnicTextBox.Size = new System.Drawing.Size(156, 25);
             this.EthnicTextBox.TabIndex = 75;
             // 
+            // DobTextBox
+            // 
+            this.DobTextBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DobTextBox.Location = new System.Drawing.Point(278, 168);
+            this.DobTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.DobTextBox.Name = "DobTextBox";
+            this.DobTextBox.Size = new System.Drawing.Size(250, 25);
+            this.DobTextBox.TabIndex = 76;
+            // 
             // DetailStudentForm
             // 
             this.AcceptButton = this.CancelButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.DobTextBox);
             this.Controls.Add(this.EthnicTextBox);
             this.Controls.Add(this.GenderTextBox);
             this.Controls.Add(this.MajorTextBox);
@@ -431,7 +432,6 @@
             this.Controls.Add(this.BornedAddressTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.DobDateTimePicker);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.AddressTextBox);
             this.Controls.Add(this.label4);
@@ -474,7 +474,6 @@
         private System.Windows.Forms.TextBox BornedAddressTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker DobDateTimePicker;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox AddressTextBox;
         private System.Windows.Forms.Label label4;
@@ -489,5 +488,6 @@
         private System.Windows.Forms.TextBox MajorTextBox;
         private System.Windows.Forms.TextBox GenderTextBox;
         private System.Windows.Forms.TextBox EthnicTextBox;
+        private System.Windows.Forms.TextBox DobTextBox;
     }
 }

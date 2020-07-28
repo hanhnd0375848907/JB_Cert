@@ -84,7 +84,7 @@ namespace Service
             try
             {
                 int roleId = roleRepository.AddRole(roleModel);
-                int result = 0;
+                int result = 1;
                 foreach(ClaimModel claimModel in roleModel.ClaimModels)
                 {
                     result += claimRepository.AssignClaimToRole(roleId, claimModel.Id);
@@ -103,7 +103,7 @@ namespace Service
             {
                 int result = 0;
                 int accountId = accountRepository.CreateAccount(accountModel);
-
+                result += 1;
                 foreach (int roleId in roleIds)
                 {
                     result += roleRepository.AssignToAccount(accountId, roleId);
@@ -142,6 +142,7 @@ namespace Service
                 {
                     result += roleRepository.RemoveRole(roleId);
                     result += claimRepository.RemoveAllClaimInRole(roleId);
+                    result += roleRepository.RemoveRoleAccount(roleId);
                 }
                 return result;
             }

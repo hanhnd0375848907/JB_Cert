@@ -47,6 +47,7 @@
     <Compile Include="ManagingBlankCertService.cs" />
     <Compile Include="ManagingBlankCertTypeService.cs" />
     <Compile Include="ManagingCertService.cs" />
+    <Compile Include="ManagingCopiedCertService.cs" />
     <Compile Include="ManagingSchoolService.cs" />
     <Compile Include="ManagingStudentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

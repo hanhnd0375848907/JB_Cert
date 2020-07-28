@@ -27,6 +27,13 @@ namespace JBCert
 
         private void NextButton_Click(object sender, EventArgs e)
         {
+            if (BlankCertTypeComboBox.SelectedValue == null)
+            {
+                NotificationForm notificationForm = new NotificationForm("Giá trị loại bằng không tồn tại", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                return;
+            }
+
             AddCertForm addCertForm = new AddCertForm(int.Parse(BlankCertTypeComboBox.SelectedValue.ToString()));
             addCertForm.ShowDialog();
             this.Close();

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -79,7 +80,7 @@ namespace JBCert
                 SchoolComboBox.SelectedValue = studentModel.SchoolId;
                 BornedAddressTextBox.Text = studentModel.BornedAddress;
                 AddressTextBox.Text = studentModel.Address;
-                DobDateTimePicker.Value = studentModel.Dob;
+                DobTextBox.Text = studentModel.Dob.ToString("dd/MM/yyyy");
                 HouseHoldTextBox.Text = studentModel.HouseHold;
                 ScoreTextBox.Text = studentModel.Score.ToString();
                 GraduatingYearTextBox.Text = studentModel.GraduatingYear.ToString();
@@ -121,6 +122,11 @@ namespace JBCert
                 {
                     BlankCertImagePictureBox.Image = Image.FromStream(fs);
                 }
+            }
+            catch (FileNotFoundException FileNotFoundEx)
+            {
+                NotificationForm notificationForm = new NotificationForm("Không tìm thấy ảnh, vui lòng cập nhật lại ảnh", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -182,6 +188,30 @@ namespace JBCert
                 return;
             }
 
+            DateTime dob;
+            if (string.IsNullOrEmpty(DobTextBox.Text))
+            {
+
+                NotificationForm notificationForm = new NotificationForm("Điền ngày tháng năm sinh của học sinh", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                return;
+            }
+            else
+            {
+
+                bool chValidity = DateTime.TryParseExact(
+                 DobTextBox.Text,
+                 "dd/MM/yyyy",
+                 CultureInfo.InvariantCulture,
+                 DateTimeStyles.None, out dob);
+                if (!chValidity)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Điền ngày tháng theo dạng dd/MM/yyyy ví dụ 12/07/2020", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+            }
+
             try
             {
                 int.Parse(GraduatingYearTextBox.Text);
@@ -192,6 +222,41 @@ namespace JBCert
                 NotificationForm notificationForm = new NotificationForm("Năm tốt nghiệp chỉ bao gồm số", "Thông báo", MessageBoxIcon.Warning);
                 notificationForm.ShowDialog();
                 GraduatingYearTextBox.Focus();
+                return;
+            }
+
+            if (LearningModeComboBox.SelectedValue == null)
+            {
+                NotificationForm notificationForm = new NotificationForm("Chọn hình thức đào tạo", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                return;
+            }
+
+            if (MajorComboBox.SelectedValue == null)
+            {
+                NotificationForm notificationForm = new NotificationForm("Chọn Chuyên ngành", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                return;
+            }
+
+            if (RankingComboBox.SelectedValue == null)
+            {
+                NotificationForm notificationForm = new NotificationForm("Chọn xếp loại", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                return;
+            }
+
+            if (GenderComboBox.SelectedItem == null)
+            {
+                NotificationForm notificationForm = new NotificationForm("Chọn giới tính", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                return;
+            }
+
+            if (EthnicComboBox.SelectedValue == null)
+            {
+                NotificationForm notificationForm = new NotificationForm("Chọn dân tộc", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
                 return;
             }
         }

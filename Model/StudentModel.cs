@@ -56,6 +56,8 @@ namespace Model
 
         public string RankingName { get; set; }
 
+        public int CertId { get; set; }
+
         public bool IsDeleted { get; set; }
 
     }

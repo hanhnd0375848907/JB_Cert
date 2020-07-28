@@ -277,6 +277,7 @@ namespace Service
                 foreach(int schoolId in schoolIds)
                 {
                     result += schoolRepository.DeleteSchool(schoolId);
+                    result += examRepository.DeleteAllExamBySchoolId(schoolId);
                 }
                 return result;
             }

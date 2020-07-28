@@ -134,6 +134,13 @@ namespace JBCert
 
         private void StudentSearchButton_Click(object sender, EventArgs e)
         {
+            if (SchoolComboBox.SelectedValue == null)
+            {
+                NotificationForm notificationForm = new NotificationForm("Giá trị trường học không tồn tại", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                return;
+            }
+
             LoadStudent();
         }
 
@@ -141,6 +148,12 @@ namespace JBCert
 
         private void ChosenStudentSearchButton_Click(object sender, EventArgs e)
         {
+            if (ChosenSchoolComboBox.SelectedValue == null)
+            {
+                NotificationForm notificationForm = new NotificationForm("Giá trị trường học không tồn tại", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                return;
+            }
             LoadChosenStudents();
         }
 

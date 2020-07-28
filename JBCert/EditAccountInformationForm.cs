@@ -38,6 +38,19 @@ namespace JBCert
             EmailTextBox.Text = accountModel.Email;
             PhoneNumberTextBox.Text = accountModel.PhoneNumber;
             IsActiveCheckBox.Checked = !accountModel.IsActive;
+
+            // load roles of account
+            List<RoleModel> roleModels = accountService.GetAllRole();
+            List<RoleModel> rolesOfCurrentAccount = accountService.GetAllRoleByAccountId(_accountId);
+            RoleCheckedListBox.Items.Clear();
+            foreach (RoleModel roleModel in roleModels)
+            {
+                RoleCheckedListBox.Items.Add
+                (
+                    roleModel,
+                    rolesOfCurrentAccount.Any(x => x.Id == roleModel.Id)
+                );
+            }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -86,7 +99,13 @@ namespace JBCert
             try
             {
                 int result = accountService.UpdateAccountInformation(accountModel);
-                if (result == 1)
+
+                List<int> roleIds = (from RoleModel r in RoleCheckedListBox.CheckedItems
+                                     select r.Id).ToList();
+
+                 result += accountService.UpdateAccountRole(new List<int>() { _accountId }, roleIds);
+
+                if (result >= 1)
                 {
                     //MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NotificationForm notificationForm = new NotificationForm("Cập nhật thành công", "Thông báo", MessageBoxIcon.Information);

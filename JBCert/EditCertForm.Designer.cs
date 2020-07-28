@@ -55,7 +55,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.EthnicComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.DobDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -69,6 +68,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.Th = new System.Windows.Forms.Label();
             this.DecideNumberTextBox = new System.Windows.Forms.TextBox();
+            this.DobTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.StudentImagePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlankCertImagePictureBox)).BeginInit();
             this.SuspendLayout();
@@ -96,9 +96,9 @@
             // ViewStudentImageButton
             // 
             this.ViewStudentImageButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ViewStudentImageButton.Location = new System.Drawing.Point(133, 209);
+            this.ViewStudentImageButton.Location = new System.Drawing.Point(71, 208);
             this.ViewStudentImageButton.Name = "ViewStudentImageButton";
-            this.ViewStudentImageButton.Size = new System.Drawing.Size(75, 35);
+            this.ViewStudentImageButton.Size = new System.Drawing.Size(75, 25);
             this.ViewStudentImageButton.TabIndex = 10;
             this.ViewStudentImageButton.Text = "Xem ảnh";
             this.ViewStudentImageButton.UseVisualStyleBackColor = true;
@@ -108,9 +108,9 @@
             // 
             this.ViewBlankCertImageButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ViewBlankCertImageButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ViewBlankCertImageButton.Location = new System.Drawing.Point(133, 488);
+            this.ViewBlankCertImageButton.Location = new System.Drawing.Point(71, 488);
             this.ViewBlankCertImageButton.Name = "ViewBlankCertImageButton";
-            this.ViewBlankCertImageButton.Size = new System.Drawing.Size(75, 23);
+            this.ViewBlankCertImageButton.Size = new System.Drawing.Size(75, 25);
             this.ViewBlankCertImageButton.TabIndex = 13;
             this.ViewBlankCertImageButton.Text = "Xem ảnh";
             this.ViewBlankCertImageButton.UseVisualStyleBackColor = true;
@@ -147,9 +147,9 @@
             this.CancelButton.Location = new System.Drawing.Point(655, 523);
             this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(76, 27);
+            this.CancelButton.Size = new System.Drawing.Size(76, 25);
             this.CancelButton.TabIndex = 101;
-            this.CancelButton.Text = "Hủy";
+            this.CancelButton.Text = "Thoát";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -160,7 +160,7 @@
             this.SaveButton.Location = new System.Drawing.Point(750, 523);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(2);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 27);
+            this.SaveButton.Size = new System.Drawing.Size(75, 25);
             this.SaveButton.TabIndex = 100;
             this.SaveButton.Text = "Lưu";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -369,16 +369,6 @@
             this.label1.TabIndex = 78;
             this.label1.Text = "Dân tộc";
             // 
-            // DobDateTimePicker
-            // 
-            this.DobDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DobDateTimePicker.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DobDateTimePicker.Location = new System.Drawing.Point(316, 146);
-            this.DobDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.DobDateTimePicker.Name = "DobDateTimePicker";
-            this.DobDateTimePicker.Size = new System.Drawing.Size(203, 25);
-            this.DobDateTimePicker.TabIndex = 77;
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -524,12 +514,23 @@
             this.DecideNumberTextBox.Size = new System.Drawing.Size(183, 25);
             this.DecideNumberTextBox.TabIndex = 107;
             // 
+            // DobTextBox
+            // 
+            this.DobTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DobTextBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DobTextBox.Location = new System.Drawing.Point(316, 147);
+            this.DobTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.DobTextBox.Name = "DobTextBox";
+            this.DobTextBox.Size = new System.Drawing.Size(203, 25);
+            this.DobTextBox.TabIndex = 108;
+            // 
             // EditCertForm
             // 
             this.AcceptButton = this.SaveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.DobTextBox);
             this.Controls.Add(this.DecideNumberTextBox);
             this.Controls.Add(this.Th);
             this.Controls.Add(this.ReferenceNumberTextBox);
@@ -556,7 +557,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.EthnicComboBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.DobDateTimePicker);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.AddressTextBox);
             this.Controls.Add(this.label4);
@@ -611,7 +611,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox EthnicComboBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker DobDateTimePicker;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox AddressTextBox;
         private System.Windows.Forms.Label label4;
@@ -625,5 +624,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label Th;
         private System.Windows.Forms.TextBox DecideNumberTextBox;
+        private System.Windows.Forms.TextBox DobTextBox;
     }
 }
