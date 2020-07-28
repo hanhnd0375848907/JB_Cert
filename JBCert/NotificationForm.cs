@@ -50,6 +50,7 @@ namespace JBCert
             yesButton.Width = 100;
             yesButton.Height = 35;
             yesButton.Text = "Đồng ý";
+            yesButton.Font = new Font("Arial", 11, FontStyle.Regular);
             yesButton.Left = ContentNotificationLabel.Right - yesButton.Width + 20;
             yesButton.Top = ContentNotificationLabel.Top + ContentNotificationLabel.Height + 50;
             yesButton.Margin = new Padding(3, 3, 3, 20);

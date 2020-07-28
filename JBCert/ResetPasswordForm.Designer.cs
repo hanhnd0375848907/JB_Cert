@@ -58,7 +58,7 @@
             this.ResetPasswordButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResetPasswordButton.Location = new System.Drawing.Point(241, 118);
             this.ResetPasswordButton.Name = "ResetPasswordButton";
-            this.ResetPasswordButton.Size = new System.Drawing.Size(153, 35);
+            this.ResetPasswordButton.Size = new System.Drawing.Size(153, 25);
             this.ResetPasswordButton.TabIndex = 4;
             this.ResetPasswordButton.Text = "Cấp lại mật khẩu";
             this.ResetPasswordButton.UseVisualStyleBackColor = true;
@@ -70,7 +70,7 @@
             this.CancelButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelButton.Location = new System.Drawing.Point(106, 118);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(105, 35);
+            this.CancelButton.Size = new System.Drawing.Size(115, 25);
             this.CancelButton.TabIndex = 5;
             this.CancelButton.Text = "Hủy";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -94,6 +94,7 @@
             this.Name = "ResetPasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cấp lại mật khẩu";
+            this.Load += new System.EventHandler(this.ResetPasswordForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

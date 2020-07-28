@@ -60,7 +60,7 @@
             this.NextButton.Location = new System.Drawing.Point(282, 93);
             this.NextButton.Margin = new System.Windows.Forms.Padding(2);
             this.NextButton.Name = "NextButton";
-            this.NextButton.Size = new System.Drawing.Size(113, 27);
+            this.NextButton.Size = new System.Drawing.Size(115, 25);
             this.NextButton.TabIndex = 3;
             this.NextButton.Text = "Tiếp";
             this.NextButton.UseVisualStyleBackColor = true;
@@ -69,10 +69,10 @@
             // CancelButton
             // 
             this.CancelButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.Location = new System.Drawing.Point(193, 93);
+            this.CancelButton.Location = new System.Drawing.Point(150, 93);
             this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(70, 27);
+            this.CancelButton.Size = new System.Drawing.Size(115, 25);
             this.CancelButton.TabIndex = 4;
             this.CancelButton.Text = "Hủy";
             this.CancelButton.UseVisualStyleBackColor = true;

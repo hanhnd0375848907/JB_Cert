@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -108,7 +109,107 @@ namespace JBCert
                     return;
                 }
 
-                
+                try
+                {
+                    float.Parse(ScoreTextBox.Text);
+                }
+                catch (FormatException ex)
+                {
+                    //MessageBox.Show("Điểm chỉ bao gồm số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotificationForm notificationForm = new NotificationForm("Điểm chỉ bao gồm số", "Thông báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    ScoreTextBox.Focus();
+                    return;
+                }
+
+                try
+                {
+                    int graduatingYear = int.Parse(GraduatingYearTextBox.Text);
+                    int currentYear = DateTime.Now.Year;
+                    if (graduatingYear < 1000 || graduatingYear > currentYear)
+                    {
+                        NotificationForm notificationForm = new NotificationForm("Năm tốt nghiệp nằm ngoài phạm vi cho phep", "Cảnh báo", MessageBoxIcon.Warning);
+                        notificationForm.ShowDialog();
+                        GraduatingYearTextBox.Focus();
+                        return;
+                    }
+                }
+                catch (FormatException ex)
+                {
+                    //MessageBox.Show("Năm tốt nghiệp chỉ bao gồm số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotificationForm notificationForm = new NotificationForm("Năm tốt nghiệp chỉ bao gồm số", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    GraduatingYearTextBox.Focus();
+                    return;
+                }
+
+                DateTime dob;
+                if (string.IsNullOrEmpty(DobTextBox.Text))
+                {
+
+                    NotificationForm notificationForm = new NotificationForm("Điền ngày tháng năm sinh của học sinh", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+                else
+                {
+
+                    bool chValidity = DateTime.TryParseExact(
+                     DobTextBox.Text,
+                     "dd/MM/yyyy",
+                     CultureInfo.InvariantCulture,
+                     DateTimeStyles.None, out dob);
+                    if (!chValidity)
+                    {
+                        NotificationForm notificationForm = new NotificationForm("Điền ngày tháng theo dạng dd/MM/yyyy ví dụ 12/07/2020", "Cảnh báo", MessageBoxIcon.Warning);
+                        notificationForm.ShowDialog();
+                        return;
+                    }
+                }
+
+                if (SchoolComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Chọn trường học", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
+                if (LearningModeComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Chọn hình thức đào tạo", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
+                if (MajorComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Chọn Chuyên ngành", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
+                if (RankingComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Chọn xếp loại", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
+                if (GenderComboBox.SelectedItem == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Chọn giới tính", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
+                if (EthnicComboBox.SelectedValue == null)
+                {
+                    NotificationForm notificationForm = new NotificationForm("Chọn dân tộc", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
+
                 saveFileName = FullnameTextBox.Text + "_" + IdentityTextBox.Text;
 
                 StudentModel studentModel = new StudentModel();
@@ -126,8 +227,8 @@ namespace JBCert
                 studentModel.MajorId = int.Parse(MajorComboBox.SelectedValue.ToString());
                 studentModel.RankingId = int.Parse(RankingComboBox.SelectedValue.ToString());
                 studentModel.BlankCertTypeId = managingSchoolService.GetSingleSchoolById(int.Parse(SchoolComboBox.SelectedValue.ToString())).BlankCertTypeId;
-                studentModel.Dob = DobDateTimePicker.Value;
-                studentModel.Score = int.Parse(ScoreTextBox.Text);
+                studentModel.Dob = dob;
+                studentModel.Score = float.Parse(ScoreTextBox.Text);
                 studentModel.BornedAddress = BornedAddressTextBox.Text;
                 if (string.IsNullOrEmpty(imageLocation))
                 {
@@ -226,12 +327,13 @@ namespace JBCert
                 IdentityTextBox.Text = studentModel.IdentityNumber;
                 ScoreTextBox.Text = studentModel.Score.ToString();
                 GraduatingYearTextBox.Text = studentModel.GraduatingYear.ToString();
-                DobDateTimePicker.Value = studentModel.Dob;
+                DobTextBox.Text = studentModel.Dob.ToString("dd/MM/yyyy");
                 NoteRichTextBox.Text = studentModel.Note;
                 SchoolComboBox.SelectedValue = studentModel.SchoolId;
                 MajorComboBox.SelectedValue = studentModel.MajorId;
                 GenderComboBox.SelectedItem = studentModel.Gender;
                 LearningModeComboBox.SelectedValue = studentModel.LearningModeId;
+                EthnicComboBox.SelectedValue = studentModel.EthnicId;
                 RankingComboBox.SelectedValue = studentModel.RankingId;
                 oldAvatar = studentModel.Image;
 

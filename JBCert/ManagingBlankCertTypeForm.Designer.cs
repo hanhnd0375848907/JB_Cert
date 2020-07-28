@@ -40,9 +40,11 @@
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
-            this.SelectAllButton = new System.Windows.Forms.Button();
-            this.DeSelectAllButton = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.SelectAllCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.BlankCertTypeDataGridView)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // AddBlankCertTypeButton
@@ -50,10 +52,10 @@
             this.AddBlankCertTypeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBlankCertTypeButton.Enabled = false;
             this.AddBlankCertTypeButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddBlankCertTypeButton.Location = new System.Drawing.Point(762, 149);
+            this.AddBlankCertTypeButton.Location = new System.Drawing.Point(13, 15);
             this.AddBlankCertTypeButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddBlankCertTypeButton.Name = "AddBlankCertTypeButton";
-            this.AddBlankCertTypeButton.Size = new System.Drawing.Size(111, 34);
+            this.AddBlankCertTypeButton.Size = new System.Drawing.Size(115, 25);
             this.AddBlankCertTypeButton.TabIndex = 2;
             this.AddBlankCertTypeButton.Text = "Thêm";
             this.AddBlankCertTypeButton.UseVisualStyleBackColor = true;
@@ -68,8 +70,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Navy;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -83,13 +85,14 @@
             this.Note,
             this.Edit,
             this.Delete});
-            this.BlankCertTypeDataGridView.Location = new System.Drawing.Point(9, 11);
+            this.BlankCertTypeDataGridView.EnableHeadersVisualStyles = false;
+            this.BlankCertTypeDataGridView.Location = new System.Drawing.Point(9, 67);
             this.BlankCertTypeDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.BlankCertTypeDataGridView.Name = "BlankCertTypeDataGridView";
             this.BlankCertTypeDataGridView.RowHeadersVisible = false;
             this.BlankCertTypeDataGridView.RowHeadersWidth = 62;
             this.BlankCertTypeDataGridView.RowTemplate.Height = 28;
-            this.BlankCertTypeDataGridView.Size = new System.Drawing.Size(730, 542);
+            this.BlankCertTypeDataGridView.Size = new System.Drawing.Size(997, 486);
             this.BlankCertTypeDataGridView.TabIndex = 1;
             this.BlankCertTypeDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BlankCertTypeDataGridView_CellContentClick);
             this.BlankCertTypeDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.BlankCertTypeDataGridView_CellValueChanged);
@@ -106,7 +109,7 @@
             // 
             // RowCheckBox
             // 
-            this.RowCheckBox.HeaderText = "";
+            this.RowCheckBox.HeaderText = "Chọn";
             this.RowCheckBox.Name = "RowCheckBox";
             this.RowCheckBox.Width = 60;
             // 
@@ -161,10 +164,10 @@
             this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteButton.Enabled = false;
             this.DeleteButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteButton.Location = new System.Drawing.Point(762, 265);
+            this.DeleteButton.Location = new System.Drawing.Point(13, 73);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(111, 34);
+            this.DeleteButton.Size = new System.Drawing.Size(115, 25);
             this.DeleteButton.TabIndex = 3;
             this.DeleteButton.Text = "Xóa";
             this.DeleteButton.UseVisualStyleBackColor = true;
@@ -175,42 +178,48 @@
             this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditButton.Enabled = false;
             this.EditButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditButton.Location = new System.Drawing.Point(762, 206);
+            this.EditButton.Location = new System.Drawing.Point(13, 44);
             this.EditButton.Margin = new System.Windows.Forms.Padding(2);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(111, 34);
+            this.EditButton.Size = new System.Drawing.Size(115, 25);
             this.EditButton.TabIndex = 4;
             this.EditButton.Text = "Sửa";
             this.EditButton.UseVisualStyleBackColor = true;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
-            // SelectAllButton
+            // panel2
             // 
-            this.SelectAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectAllButton.Enabled = false;
-            this.SelectAllButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectAllButton.Location = new System.Drawing.Point(762, 11);
-            this.SelectAllButton.Margin = new System.Windows.Forms.Padding(2);
-            this.SelectAllButton.Name = "SelectAllButton";
-            this.SelectAllButton.Size = new System.Drawing.Size(111, 34);
-            this.SelectAllButton.TabIndex = 5;
-            this.SelectAllButton.Text = "Chọn tất cả";
-            this.SelectAllButton.UseVisualStyleBackColor = true;
-            this.SelectAllButton.Click += new System.EventHandler(this.SelectAllButton_Click);
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.AddBlankCertTypeButton);
+            this.panel2.Controls.Add(this.DeleteButton);
+            this.panel2.Controls.Add(this.EditButton);
+            this.panel2.Location = new System.Drawing.Point(1030, 87);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(142, 115);
+            this.panel2.TabIndex = 8;
             // 
-            // DeSelectAllButton
+            // label4
             // 
-            this.DeSelectAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeSelectAllButton.Enabled = false;
-            this.DeSelectAllButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeSelectAllButton.Location = new System.Drawing.Point(762, 63);
-            this.DeSelectAllButton.Margin = new System.Windows.Forms.Padding(2);
-            this.DeSelectAllButton.Name = "DeSelectAllButton";
-            this.DeSelectAllButton.Size = new System.Drawing.Size(111, 34);
-            this.DeSelectAllButton.TabIndex = 6;
-            this.DeSelectAllButton.Text = "Bỏ chọn tất cả";
-            this.DeSelectAllButton.UseVisualStyleBackColor = true;
-            this.DeSelectAllButton.Click += new System.EventHandler(this.DeSelectAllButton_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(150, 18);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Danh sách loại bằng";
+            // 
+            // SelectAllCheckBox
+            // 
+            this.SelectAllCheckBox.AutoSize = true;
+            this.SelectAllCheckBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectAllCheckBox.Location = new System.Drawing.Point(9, 41);
+            this.SelectAllCheckBox.Name = "SelectAllCheckBox";
+            this.SelectAllCheckBox.Size = new System.Drawing.Size(102, 21);
+            this.SelectAllCheckBox.TabIndex = 18;
+            this.SelectAllCheckBox.Text = "Chọn tất cả";
+            this.SelectAllCheckBox.UseVisualStyleBackColor = true;
+            this.SelectAllCheckBox.Click += new System.EventHandler(this.SelectAllCheckBox_Click);
             // 
             // ManagingBlankCertTypeForm
             // 
@@ -218,12 +227,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(884, 561);
-            this.Controls.Add(this.DeSelectAllButton);
-            this.Controls.Add(this.SelectAllButton);
-            this.Controls.Add(this.EditButton);
-            this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.AddBlankCertTypeButton);
+            this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.Controls.Add(this.SelectAllCheckBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.BlankCertTypeDataGridView);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManagingBlankCertTypeForm";
@@ -231,7 +238,9 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ManagingBlankCertTypeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BlankCertTypeDataGridView)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -240,6 +249,7 @@
         private System.Windows.Forms.DataGridView BlankCertTypeDataGridView;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button EditButton;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewCheckBoxColumn RowCheckBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
@@ -247,7 +257,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.Button SelectAllButton;
-        private System.Windows.Forms.Button DeSelectAllButton;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox SelectAllCheckBox;
     }
 }

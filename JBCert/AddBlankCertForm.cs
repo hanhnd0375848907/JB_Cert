@@ -64,6 +64,14 @@ namespace JBCert
                     return;
                 }
 
+                if (BlankCertTypeComboBox.SelectedValue == null)
+                {
+                    //MessageBox.Show("Chọn ảnh phôi!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotificationForm notificationForm = new NotificationForm("Chọn loại phôi", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+
                 if (string.IsNullOrEmpty(imageLocation))
                 {
                     //MessageBox.Show("Chọn ảnh phôi!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -73,6 +81,7 @@ namespace JBCert
                 }
                 saveFileName = SerialCertTextBox.Text;
                 string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+
 
                 int result = managingBlankCertService.Add(SerialCertTextBox.Text, "", saveFileName + extension, int.Parse(BlankCertTypeComboBox.SelectedValue.ToString()));
                 if (result > 0)

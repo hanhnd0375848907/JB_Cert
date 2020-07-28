@@ -47,6 +47,7 @@
     <Compile Include="BlankCertTypeRepository.cs" />
     <Compile Include="CertRepository.cs" />
     <Compile Include="ClaimRepository.cs" />
+    <Compile Include="CopiedCertRepository.cs" />
     <Compile Include="DepartmentOfEducationAndTrainingRepository.cs" />
     <Compile Include="EthnicRepository.cs" />
     <Compile Include="ExamRepository.cs" />

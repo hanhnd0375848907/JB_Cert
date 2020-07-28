@@ -1,0 +1,305 @@
+﻿using Model;
+using Service;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace JBCert
+{
+    public partial class SelectCopiedBlankCertForm : Form
+    {
+        private AddCopiedCertForm _addCopiedCertForm;
+        private int _blankCertTypeId;
+        private IManagingBlankCertService managingBlankCertService;
+        private IManagingCertService managingCertService;
+        private List<BlankCertModel> chosenBlankCertModels;
+        private IManagingCopiedCertService managingCopiedCertService;
+        public SelectCopiedBlankCertForm(AddCopiedCertForm addCopiedCertForm, int blankCertTypeId)
+        {
+            InitializeComponent();
+            _blankCertTypeId = blankCertTypeId;
+            _addCopiedCertForm = addCopiedCertForm;
+            managingBlankCertService = new ManagingBlankCertService();
+            chosenBlankCertModels = new List<BlankCertModel>();
+            managingCertService = new ManagingCertService();
+            managingCopiedCertService = new ManagingCopiedCertService();
+        }
+
+        private void SelectCopiedBlankCertForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadBlankCert()
+        {
+            if (string.IsNullOrEmpty(SerialTextBox.Text))
+            {
+                SerialTextBox.Text = "";
+            }
+            List<BlankCertModel> blankCertModels = managingBlankCertService.SearchBlankCertFormForAddingCert(SerialTextBox.Text, _blankCertTypeId);
+            BlankCertDataGridView.Rows.Clear();
+            int i = 1;
+            foreach (var blankCertModel in blankCertModels)
+            {
+                BlankCertDataGridView.Rows.Add
+                (
+                    blankCertModel.Id,
+                    i++,
+                    blankCertModel.Serial
+                );
+            }
+        }
+
+        private void ChangeDataChosenBlankCerts(int blankCertId, bool doAdd)
+        {
+            try
+            {
+                if (chosenBlankCertModels.Any(x => x.Id == blankCertId) && doAdd)
+                {
+                    MessageBox.Show("Đã chọn phôi này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    if (doAdd)
+                    {
+                        BlankCertModel blankCertModel = managingBlankCertService.GetSingleById(blankCertId);
+                        blankCertModel.ReferenceNumber = "";
+                        chosenBlankCertModels.Add(blankCertModel);
+                    }
+                    else
+                    {
+                        chosenBlankCertModels.Remove(chosenBlankCertModels.Where(x => x.Id == blankCertId).FirstOrDefault());
+                    }
+                }
+                LoadChosenBlankCerts();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
+                notificationForm.ShowDialog();
+            }
+        }
+
+        private void LoadChosenBlankCerts()
+        {
+            ChosenBlankCertDataGridView.Rows.Clear();
+            int i = 1;
+            foreach (var chosenBlankCertModel in chosenBlankCertModels)
+            {
+                ChosenBlankCertDataGridView.Rows.Add
+                (
+                    chosenBlankCertModel.Id,
+                    i++,
+                    chosenBlankCertModel.Serial,
+                    chosenBlankCertModel.ReferenceNumber
+                );
+            }
+
+        }
+
+        private void UpdateReferenceNumber(string referenceNumber, int blankCertId)
+        {
+            chosenBlankCertModels.Where(x => x.Id == blankCertId).FirstOrDefault().ReferenceNumber = referenceNumber;
+        }
+
+        private void BlankCertDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == BlankCertDataGridView.Columns["Select"].Index && e.RowIndex >= 0)
+            {
+                int blankCertId = int.Parse(BlankCertDataGridView.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                ChangeDataChosenBlankCerts(blankCertId, true);
+            }
+            else if (e.ColumnIndex == BlankCertDataGridView.Columns["ShowImage"].Index && e.RowIndex >= 0)
+            {
+                int blankCertId = int.Parse(BlankCertDataGridView.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                string imageName = managingBlankCertService.GetSingleById(blankCertId).Image;
+                if (string.IsNullOrEmpty(imageName))
+                {
+                    //MessageBox.Show("Không tìm thấy ảnh", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    NotificationForm notificationForm = new NotificationForm("Không tìm thấy ảnh", "Lỗi", MessageBoxIcon.Error);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+                string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                ShowingImageForm showingImageForm = new ShowingImageForm(Path.Combine(@"C:\JbCert_Resource\Images\", imageName));
+                showingImageForm.ShowDialog();
+
+            }
+        }
+
+        private void ChosenBlankCertDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == ChosenBlankCertDataGridView.Columns["Remove"].Index && e.RowIndex >= 0)
+            {
+                int blankCertId = int.Parse(ChosenBlankCertDataGridView.Rows[e.RowIndex].Cells["ChosenId"].Value.ToString());
+                ChangeDataChosenBlankCerts(blankCertId, false);
+            }
+            else if (e.ColumnIndex == ChosenBlankCertDataGridView.Columns["ChosenShowImage"].Index && e.RowIndex >= 0)
+            {
+                int blankCertId = int.Parse(ChosenBlankCertDataGridView.Rows[e.RowIndex].Cells["ChosenId"].Value.ToString());
+                string imageName = managingBlankCertService.GetSingleById(blankCertId).Image;
+                if (string.IsNullOrEmpty(imageName))
+                {
+                    //MessageBox.Show("Không tìm thấy ảnh", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    NotificationForm notificationForm = new NotificationForm("Không tìm thấy ảnh", "Lỗi", MessageBoxIcon.Error);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+                string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                ShowingImageForm showingImageForm = new ShowingImageForm(Path.Combine(@"C:\JbCert_Resource\Images\", imageName));
+                showingImageForm.ShowDialog();
+
+            }
+        }
+
+        private void ChosenBlankCertDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == ChosenBlankCertDataGridView.Columns["ChosenReferenceNumber"].Index)
+            {
+                int blankCertId = int.Parse(ChosenBlankCertDataGridView.Rows[e.RowIndex].Cells["ChosenId"].Value.ToString());
+                DataGridViewTextBoxCell referenceNumberTextBoxCell = (DataGridViewTextBoxCell)ChosenBlankCertDataGridView.Rows[e.RowIndex].Cells["ChosenReferenceNumber"];
+                string referenceNumber = "";
+                if (referenceNumberTextBoxCell.Value != null)
+                {
+                    referenceNumber = referenceNumberTextBoxCell.Value.ToString();
+                }
+                else
+                {
+                    referenceNumber = "";
+                }
+                UpdateReferenceNumber(referenceNumber, blankCertId);
+            }
+        }
+
+        private void ChosenBlankCertDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (ChosenBlankCertDataGridView.IsCurrentCellDirty)
+            {
+                ChosenBlankCertDataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            if (_addCopiedCertForm.chosenStudents.Count > chosenBlankCertModels.Count)
+            {
+                //MessageBox.Show("Số lượng sinh viên nhiều hơn số lượng phôi", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotificationForm notificationForm = new NotificationForm("Số lượng sinh viên nhiều hơn số lượng phôi", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                return;
+            }
+
+            if (_addCopiedCertForm.chosenStudents.Count < chosenBlankCertModels.Count)
+            {
+                //MessageBox.Show("Số lượng sinh viên ít hơn số lượng phôi", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotificationForm notificationForm = new NotificationForm("Số lượng sinh viên ít hơn số lượng phôi", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(CertNameTextBox.Text))
+            {
+                //MessageBox.Show("Điền tên bằng", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotificationForm notificationForm = new NotificationForm("Điền tên bằng", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                CertNameTextBox.Focus();
+                return;
+            }
+
+            BlankCertModel blankCertModel = chosenBlankCertModels.Where(x => string.IsNullOrEmpty(x.ReferenceNumber)).FirstOrDefault();
+            if (blankCertModel != null)
+            {
+                //MessageBox.Show("Số vào sổ của phôi có số hiệu" + blankCertModel.Serial + " đang trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotificationForm notificationForm = new NotificationForm("Số vào sổ của phôi có số hiệu" + blankCertModel.Serial + " đang trống", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                return;
+            }
+
+
+            try
+            {
+                int result = managingCopiedCertService.AddManyCopiedCert(chosenBlankCertModels, _addCopiedCertForm.chosenStudents, CertNameTextBox.Text);
+                if (result == _addCopiedCertForm.chosenStudents.Count)
+                {
+                    //MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotificationForm notificationForm = new NotificationForm("Thêm thành công", "Thông báo", MessageBoxIcon.Information);
+                    notificationForm.ShowDialog();
+                }
+                else
+                {
+                    //MessageBox.Show("Thêm không thành công", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotificationForm notificationForm = new NotificationForm("Thêm không thành công", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                }
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
+                notificationForm.ShowDialog();
+            }
+        }
+
+        private void SearchBlankCertButton_Click(object sender, EventArgs e)
+        {
+            LoadBlankCert();
+        }
+
+        private void ResetBlankCertButton_Click(object sender, EventArgs e)
+        {
+            SerialTextBox.Text = "";
+            BlankCertDataGridView.Rows.Clear();
+        }
+
+        private void ChosenSearchBlankCertButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(ChosenSerialTextBox.Text))
+                {
+                    ChosenSerialTextBox.Text = "";
+                }
+
+                ChosenBlankCertDataGridView.Rows.Clear();
+
+                List<BlankCertModel> searchedChosenBlankCerts = new List<BlankCertModel>();
+
+                searchedChosenBlankCerts = chosenBlankCertModels.Where(x => x.Serial.Contains(ChosenSerialTextBox.Text)).ToList();
+
+                foreach (var searchChosenBlankCert in searchedChosenBlankCerts)
+                {
+
+                    ChosenBlankCertDataGridView.Rows.Add
+                    (
+                        searchChosenBlankCert.Id,
+                        searchChosenBlankCert.Serial,
+                        searchChosenBlankCert.ReferenceNumber
+                    );
+
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
+                notificationForm.ShowDialog();
+            }
+        }
+
+        private void ChosenResetBlankCertButton_Click(object sender, EventArgs e)
+        {
+            ChosenSerialTextBox.Text = "";
+            ChosenBlankCertDataGridView.Rows.Clear();
+        }
+    }
+}

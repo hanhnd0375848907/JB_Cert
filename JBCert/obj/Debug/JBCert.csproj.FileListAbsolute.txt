@@ -87,6 +87,10 @@ F:\Project\GIT\JB_Cert\JBCert\bin\Debug\JBCert.pdb
 F:\Project\GIT\JB_Cert\JBCert\bin\Debug\BCrypt.Net-Next.dll
 F:\Project\GIT\JB_Cert\JBCert\bin\Debug\BouncyCastle.Crypto.dll
 F:\Project\GIT\JB_Cert\JBCert\bin\Debug\Common.dll
+F:\Project\GIT\JB_Cert\JBCert\bin\Debug\itextsharp.dll
+F:\Project\GIT\JB_Cert\JBCert\bin\Debug\LiveCharts.dll
+F:\Project\GIT\JB_Cert\JBCert\bin\Debug\LiveCharts.WinForms.dll
+F:\Project\GIT\JB_Cert\JBCert\bin\Debug\LiveCharts.Wpf.dll
 F:\Project\GIT\JB_Cert\JBCert\bin\Debug\MailKit.dll
 F:\Project\GIT\JB_Cert\JBCert\bin\Debug\MimeKit.dll
 F:\Project\GIT\JB_Cert\JBCert\bin\Debug\Model.dll
@@ -102,6 +106,13 @@ F:\Project\GIT\JB_Cert\JBCert\bin\Debug\Repository.pdb
 F:\Project\GIT\JB_Cert\JBCert\bin\Debug\Service.pdb
 F:\Project\GIT\JB_Cert\JBCert\bin\Debug\BCrypt.Net-Next.xml
 F:\Project\GIT\JB_Cert\JBCert\bin\Debug\BouncyCastle.Crypto.xml
+F:\Project\GIT\JB_Cert\JBCert\bin\Debug\itextsharp.xml
+F:\Project\GIT\JB_Cert\JBCert\bin\Debug\LiveCharts.pdb
+F:\Project\GIT\JB_Cert\JBCert\bin\Debug\LiveCharts.xml
+F:\Project\GIT\JB_Cert\JBCert\bin\Debug\LiveCharts.WinForms.pdb
+F:\Project\GIT\JB_Cert\JBCert\bin\Debug\LiveCharts.WinForms.xml
+F:\Project\GIT\JB_Cert\JBCert\bin\Debug\LiveCharts.Wpf.pdb
+F:\Project\GIT\JB_Cert\JBCert\bin\Debug\LiveCharts.Wpf.xml
 F:\Project\GIT\JB_Cert\JBCert\bin\Debug\MailKit.pdb
 F:\Project\GIT\JB_Cert\JBCert\bin\Debug\MailKit.xml
 F:\Project\GIT\JB_Cert\JBCert\bin\Debug\MimeKit.pdb
@@ -115,6 +126,7 @@ F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.AddBlankCertConfigForm.resources
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.AddBlankCertForm.resources
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.AddBlankCertTypeForm.resources
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.AddCertForm.resources
+F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.AddCopiedCertForm.resources
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.AddExamForm.resources
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.AddSchoolForm.resources
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.AddStudentForm.resources
@@ -157,6 +169,7 @@ F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.Properties.Resources.resources
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.ResetPasswordForm.resources
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.SelectBlankCertForm.resources
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.SelectBlankCertTypeForm.resources
+F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.SelectCopiedBlankCertForm.resources
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.SelectRootOrCopyCertForm.resources
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.ShowingImageForm.resources
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.csproj.GenerateResource.cache

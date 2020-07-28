@@ -35,9 +35,9 @@
             this.PrintedCertChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.NumberOfPrintedCert = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,6 +55,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.TitleMonthlyReportLabel = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.BlankCertStatusPieChart = new LiveCharts.WinForms.PieChart();
+            this.label16 = new System.Windows.Forms.Label();
+            this.RootCertStatusPieChart = new LiveCharts.WinForms.PieChart();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PrintedCertChart)).BeginInit();
             this.panel2.SuspendLayout();
@@ -62,6 +68,8 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,7 +79,7 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.PrintedCertChart);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(13, 254);
+            this.panel1.Location = new System.Drawing.Point(12, 560);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(859, 295);
             this.panel1.TabIndex = 0;
@@ -84,14 +92,14 @@
             this.PrintedCertChart.ChartAreas.Add(chartArea5);
             legend5.Name = "Legend1";
             this.PrintedCertChart.Legends.Add(legend5);
-            this.PrintedCertChart.Location = new System.Drawing.Point(3, 25);
+            this.PrintedCertChart.Location = new System.Drawing.Point(3, 30);
             this.PrintedCertChart.Name = "PrintedCertChart";
             series5.ChartArea = "ChartArea1";
             series5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series5.Legend = "Legend1";
             series5.Name = "Ngày";
             this.PrintedCertChart.Series.Add(series5);
-            this.PrintedCertChart.Size = new System.Drawing.Size(853, 267);
+            this.PrintedCertChart.Size = new System.Drawing.Size(853, 262);
             this.PrintedCertChart.TabIndex = 3;
             this.PrintedCertChart.Text = "chart1";
             // 
@@ -112,19 +120,11 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(13, 40);
+            this.panel2.MaximumSize = new System.Drawing.Size(221, 93);
+            this.panel2.MinimumSize = new System.Drawing.Size(221, 93);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(207, 93);
+            this.panel2.Size = new System.Drawing.Size(221, 93);
             this.panel2.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(197, 19);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Số lượng văn bằng đã in";
             // 
             // NumberOfPrintedCert
             // 
@@ -147,6 +147,16 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Văn bằng";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(197, 19);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Số lượng văn bằng đã in";
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
@@ -154,6 +164,8 @@
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(257, 40);
+            this.panel3.MaximumSize = new System.Drawing.Size(221, 93);
+            this.panel3.MinimumSize = new System.Drawing.Size(221, 93);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(221, 93);
             this.panel3.TabIndex = 1;
@@ -196,8 +208,10 @@
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Location = new System.Drawing.Point(12, 150);
+            this.panel4.MaximumSize = new System.Drawing.Size(221, 93);
+            this.panel4.MinimumSize = new System.Drawing.Size(221, 93);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(208, 93);
+            this.panel4.Size = new System.Drawing.Size(221, 93);
             this.panel4.TabIndex = 1;
             // 
             // label7
@@ -238,6 +252,8 @@
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Location = new System.Drawing.Point(257, 150);
+            this.panel5.MaximumSize = new System.Drawing.Size(221, 93);
+            this.panel5.MinimumSize = new System.Drawing.Size(221, 93);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(221, 93);
             this.panel5.TabIndex = 1;
@@ -280,6 +296,8 @@
             this.panel6.Controls.Add(this.label14);
             this.panel6.Controls.Add(this.label15);
             this.panel6.Location = new System.Drawing.Point(516, 40);
+            this.panel6.MaximumSize = new System.Drawing.Size(221, 93);
+            this.panel6.MinimumSize = new System.Drawing.Size(221, 93);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(221, 93);
             this.panel6.TabIndex = 1;
@@ -326,11 +344,69 @@
             this.TitleMonthlyReportLabel.TabIndex = 2;
             this.TitleMonthlyReportLabel.Text = "Tháng hiện tại";
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Controls.Add(this.label16);
+            this.panel7.Controls.Add(this.BlankCertStatusPieChart);
+            this.panel7.Location = new System.Drawing.Point(14, 257);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(316, 297);
+            this.panel7.TabIndex = 3;
+            // 
+            // BlankCertStatusPieChart
+            // 
+            this.BlankCertStatusPieChart.Location = new System.Drawing.Point(5, 44);
+            this.BlankCertStatusPieChart.Name = "BlankCertStatusPieChart";
+            this.BlankCertStatusPieChart.Size = new System.Drawing.Size(308, 250);
+            this.BlankCertStatusPieChart.TabIndex = 0;
+            this.BlankCertStatusPieChart.Text = "pieChart1";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(2, 10);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(196, 19);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Thông tin trạng thái phôi";
+            // 
+            // RootCertStatusPieChart
+            // 
+            this.RootCertStatusPieChart.Location = new System.Drawing.Point(3, 44);
+            this.RootCertStatusPieChart.Name = "RootCertStatusPieChart";
+            this.RootCertStatusPieChart.Size = new System.Drawing.Size(308, 250);
+            this.RootCertStatusPieChart.TabIndex = 5;
+            this.RootCertStatusPieChart.Text = "pieChart1";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.Controls.Add(this.RootCertStatusPieChart);
+            this.panel8.Controls.Add(this.label20);
+            this.panel8.Location = new System.Drawing.Point(377, 257);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(316, 297);
+            this.panel8.TabIndex = 3;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(2, 10);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(193, 19);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Trạng thái văn bằng gốc";
+            // 
             // MonthlyReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(884, 867);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.TitleMonthlyReportLabel);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -355,6 +431,10 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,5 +466,11 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label TitleMonthlyReportLabel;
+        private System.Windows.Forms.Panel panel7;
+        private LiveCharts.WinForms.PieChart BlankCertStatusPieChart;
+        private System.Windows.Forms.Label label16;
+        private LiveCharts.WinForms.PieChart RootCertStatusPieChart;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label20;
     }
 }

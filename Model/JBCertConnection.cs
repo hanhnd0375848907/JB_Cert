@@ -29,8 +29,8 @@ namespace Model
                         {
                             string server = @".\SQLEXPRESS";
                             string database = "jb_cert";
-                            string connectionString = "Data Source=" + server + ";Initial Catalog=" + database + ";Trusted_Connection=Yes;";
-                            //string connectionString = "Server=tcp:jbtech.database.windows.net,1433;Initial Catalog=Jb_Cert;Persist Security Info=False;User ID=jbadmin;Password=JBTech2020;MultipleActiveResultSets=true;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                            //string connectionString = "Data Source=" + server + ";Initial Catalog=" + database + ";Trusted_Connection=Yes;";
+                            string connectionString = "Server=tcp:jbtech.database.windows.net,1433;Initial Catalog=Jb_Cert;Persist Security Info=False;User ID=jbadmin;Password=JBTech2020;MultipleActiveResultSets=true;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                             instance = new SqlConnection(connectionString);
                         }
                     }
@@ -39,8 +39,8 @@ namespace Model
                 {
                     string server = @".\SQLEXPRESS";
                     string database = "jb_cert";
-                    string connectionString = "Data Source=" + server + ";Initial Catalog=" + database + ";Trusted_Connection=Yes;";
-                    //string connectionString = "Server=tcp:jbtech.database.windows.net,1433;Initial Catalog=Jb_Cert;Persist Security Info=False;User ID=jbadmin;Password=JBTech2020;MultipleActiveResultSets=true;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                    //string connectionString = "Data Source=" + server + ";Initial Catalog=" + database + ";Trusted_Connection=Yes;";
+                    string connectionString = "Server=tcp:jbtech.database.windows.net,1433;Initial Catalog=Jb_Cert;Persist Security Info=False;User ID=jbadmin;Password=JBTech2020;MultipleActiveResultSets=true;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                     instance.ConnectionString = connectionString;
                 }
                 return instance;

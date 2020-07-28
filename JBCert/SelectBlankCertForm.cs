@@ -85,7 +85,9 @@ namespace JBCert
                 string imageName = managingBlankCertService.GetSingleById(blankCertId).Image;
                 if (string.IsNullOrEmpty(imageName))
                 {
-                    MessageBox.Show("Không tìm thấy ảnh", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("Không tìm thấy ảnh", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    NotificationForm notificationForm = new NotificationForm("Không tìm thấy ảnh", "Lỗi", MessageBoxIcon.Error);
+                    notificationForm.ShowDialog();
                     return;
                 }
                 string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
@@ -102,7 +104,9 @@ namespace JBCert
             {
                 if (chosenBlankCertModels.Any(x => x.Id == blankCertId) && doAdd)
                 {
-                    MessageBox.Show("Đã chọn phôi này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Đã chọn phôi này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NotificationForm notificationForm = new NotificationForm("Đã chọn phôi này", "Thông báo", MessageBoxIcon.Information);
+                    notificationForm.ShowDialog();
                 }
                 else
                 {
@@ -121,7 +125,9 @@ namespace JBCert
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
+                notificationForm.ShowDialog();
             }
         }
 
@@ -201,7 +207,9 @@ namespace JBCert
                 string imageName = managingBlankCertService.GetSingleById(blankCertId).Image;
                 if (string.IsNullOrEmpty(imageName))
                 {
-                    MessageBox.Show("Không tìm thấy ảnh", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("Không tìm thấy ảnh", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    NotificationForm notificationForm = new NotificationForm("Không tìm thấy ảnh", "Lỗi", MessageBoxIcon.Error);
+                    notificationForm.ShowDialog();
                     return;
                 }
                 string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
@@ -247,19 +255,25 @@ namespace JBCert
         {
             if (_addCertForm.chosenStudents.Count > chosenBlankCertModels.Count)
             {
-                MessageBox.Show("Số lượng sinh viên nhiều hơn số lượng phôi", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //MessageBox.Show("Số lượng sinh viên nhiều hơn số lượng phôi", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotificationForm notificationForm = new NotificationForm("Số lượng sinh viên nhiều hơn số lượng phôi", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
                 return;
             }
 
             if (_addCertForm.chosenStudents.Count < chosenBlankCertModels.Count)
             {
-                MessageBox.Show("Số lượng sinh viên ít hơn số lượng phôi", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //MessageBox.Show("Số lượng sinh viên ít hơn số lượng phôi", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotificationForm notificationForm = new NotificationForm("Số lượng sinh viên ít hơn số lượng phôi", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
                 return;
             }
 
             if (string.IsNullOrEmpty(CertNameTextBox.Text))
             {
-                MessageBox.Show("Điền tên bằng", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //MessageBox.Show("Điền tên bằng", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotificationForm notificationForm = new NotificationForm("Điền tên bằng", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
                 CertNameTextBox.Focus();
                 return;
             }
@@ -267,7 +281,9 @@ namespace JBCert
             BlankCertModel blankCertModel = chosenBlankCertModels.Where(x => string.IsNullOrEmpty(x.ReferenceNumber)).FirstOrDefault();
             if (blankCertModel != null)
             {
-                MessageBox.Show("Số vào sổ của phôi có số hiệu" + blankCertModel.Serial + " đang trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //MessageBox.Show("Số vào sổ của phôi có số hiệu" + blankCertModel.Serial + " đang trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotificationForm notificationForm = new NotificationForm("Số vào sổ của phôi có số hiệu" + blankCertModel.Serial + " đang trống", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
                 return;
             }
 
@@ -277,18 +293,24 @@ namespace JBCert
                 int result = managingCertService.AddManyCerts(chosenBlankCertModels, _addCertForm.chosenStudents, CertNameTextBox.Text);
                 if (result == _addCertForm.chosenStudents.Count)
                 {
-                    MessageBox.Show("Thêm thành công", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotificationForm notificationForm = new NotificationForm("Thêm thành công", "Thông báo", MessageBoxIcon.Information);
+                    notificationForm.ShowDialog();
                 }
                 else
                 {
-                    MessageBox.Show("Thêm không thành công", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //MessageBox.Show("Thêm không thành công", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotificationForm notificationForm = new NotificationForm("Thêm không thành công", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
                 }
 
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
+                notificationForm.ShowDialog();
             }
 
         }

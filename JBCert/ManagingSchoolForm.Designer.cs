@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AddSchoolButton = new System.Windows.Forms.Button();
             this.SchoolDataGridView = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,19 +57,21 @@
             this.label4 = new System.Windows.Forms.Label();
             this.EditButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
-            this.DeSelectAllButton = new System.Windows.Forms.Button();
-            this.SelectAllButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.SelectAllCheckBox = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SchoolDataGridView)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // AddSchoolButton
             // 
             this.AddSchoolButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddSchoolButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddSchoolButton.Location = new System.Drawing.Point(798, 188);
+            this.AddSchoolButton.Location = new System.Drawing.Point(16, 14);
             this.AddSchoolButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddSchoolButton.Name = "AddSchoolButton";
-            this.AddSchoolButton.Size = new System.Drawing.Size(116, 31);
+            this.AddSchoolButton.Size = new System.Drawing.Size(115, 25);
             this.AddSchoolButton.TabIndex = 2;
             this.AddSchoolButton.Text = "Thêm";
             this.AddSchoolButton.UseVisualStyleBackColor = true;
@@ -82,14 +84,14 @@
             this.SchoolDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.SchoolDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.SchoolDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.SchoolDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SchoolDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -107,13 +109,14 @@
             this.Note,
             this.Edit,
             this.Delete});
-            this.SchoolDataGridView.Location = new System.Drawing.Point(11, 61);
+            this.SchoolDataGridView.EnableHeadersVisualStyles = false;
+            this.SchoolDataGridView.Location = new System.Drawing.Point(11, 106);
             this.SchoolDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.SchoolDataGridView.Name = "SchoolDataGridView";
             this.SchoolDataGridView.RowHeadersVisible = false;
             this.SchoolDataGridView.RowHeadersWidth = 62;
             this.SchoolDataGridView.RowTemplate.Height = 28;
-            this.SchoolDataGridView.Size = new System.Drawing.Size(783, 324);
+            this.SchoolDataGridView.Size = new System.Drawing.Size(989, 430);
             this.SchoolDataGridView.TabIndex = 3;
             this.SchoolDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SchoolDataGridView_CellContentClick);
             this.SchoolDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.SchoolDataGridView_CellValueChanged);
@@ -129,7 +132,7 @@
             // 
             // RowCheckBox
             // 
-            this.RowCheckBox.HeaderText = "";
+            this.RowCheckBox.HeaderText = "Chọn";
             this.RowCheckBox.Name = "RowCheckBox";
             this.RowCheckBox.Width = 60;
             // 
@@ -244,7 +247,7 @@
             // 
             this.TownComboBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TownComboBox.FormattingEnabled = true;
-            this.TownComboBox.Location = new System.Drawing.Point(213, 30);
+            this.TownComboBox.Location = new System.Drawing.Point(214, 48);
             this.TownComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.TownComboBox.Name = "TownComboBox";
             this.TownComboBox.Size = new System.Drawing.Size(115, 25);
@@ -255,7 +258,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(210, 13);
+            this.label2.Location = new System.Drawing.Point(211, 31);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 17);
@@ -265,7 +268,7 @@
             // SchoolNameTextBox
             // 
             this.SchoolNameTextBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SchoolNameTextBox.Location = new System.Drawing.Point(11, 32);
+            this.SchoolNameTextBox.Location = new System.Drawing.Point(12, 50);
             this.SchoolNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.SchoolNameTextBox.Name = "SchoolNameTextBox";
             this.SchoolNameTextBox.Size = new System.Drawing.Size(173, 25);
@@ -275,7 +278,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 13);
+            this.label1.Location = new System.Drawing.Point(8, 31);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 17);
@@ -285,10 +288,10 @@
             // SearchButton
             // 
             this.SearchButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchButton.Location = new System.Drawing.Point(685, 30);
+            this.SearchButton.Location = new System.Drawing.Point(682, 47);
             this.SearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(109, 25);
+            this.SearchButton.Size = new System.Drawing.Size(115, 25);
             this.SearchButton.TabIndex = 20;
             this.SearchButton.Text = "Tìm kiếm";
             this.SearchButton.UseVisualStyleBackColor = true;
@@ -298,7 +301,7 @@
             // 
             this.VillageComboBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VillageComboBox.FormattingEnabled = true;
-            this.VillageComboBox.Location = new System.Drawing.Point(355, 30);
+            this.VillageComboBox.Location = new System.Drawing.Point(356, 48);
             this.VillageComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.VillageComboBox.Name = "VillageComboBox";
             this.VillageComboBox.Size = new System.Drawing.Size(133, 25);
@@ -309,7 +312,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(351, 13);
+            this.label3.Location = new System.Drawing.Point(352, 31);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 17);
@@ -319,7 +322,7 @@
             // PhoneNumberTextBox
             // 
             this.PhoneNumberTextBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneNumberTextBox.Location = new System.Drawing.Point(517, 30);
+            this.PhoneNumberTextBox.Location = new System.Drawing.Point(518, 48);
             this.PhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
             this.PhoneNumberTextBox.Size = new System.Drawing.Size(136, 25);
@@ -329,7 +332,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(514, 11);
+            this.label4.Location = new System.Drawing.Point(515, 29);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 17);
@@ -341,10 +344,10 @@
             // 
             this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditButton.Location = new System.Drawing.Point(798, 240);
+            this.EditButton.Location = new System.Drawing.Point(15, 43);
             this.EditButton.Margin = new System.Windows.Forms.Padding(2);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(116, 32);
+            this.EditButton.Size = new System.Drawing.Size(115, 25);
             this.EditButton.TabIndex = 25;
             this.EditButton.Text = "Sửa";
             this.EditButton.UseVisualStyleBackColor = true;
@@ -354,38 +357,48 @@
             // 
             this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteButton.Location = new System.Drawing.Point(798, 293);
+            this.DeleteButton.Location = new System.Drawing.Point(15, 72);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(116, 32);
+            this.DeleteButton.Size = new System.Drawing.Size(115, 25);
             this.DeleteButton.TabIndex = 26;
             this.DeleteButton.Text = "Xóa";
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
-            // DeSelectAllButton
+            // panel1
             // 
-            this.DeSelectAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeSelectAllButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeSelectAllButton.Location = new System.Drawing.Point(799, 116);
-            this.DeSelectAllButton.Name = "DeSelectAllButton";
-            this.DeSelectAllButton.Size = new System.Drawing.Size(115, 38);
-            this.DeSelectAllButton.TabIndex = 27;
-            this.DeSelectAllButton.Text = "Bỏ chọn tất cả";
-            this.DeSelectAllButton.UseVisualStyleBackColor = true;
-            this.DeSelectAllButton.Click += new System.EventHandler(this.DeSelectAllButton_Click);
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.DeleteButton);
+            this.panel1.Controls.Add(this.AddSchoolButton);
+            this.panel1.Controls.Add(this.EditButton);
+            this.panel1.Location = new System.Drawing.Point(1023, 106);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(149, 112);
+            this.panel1.TabIndex = 29;
             // 
-            // SelectAllButton
+            // SelectAllCheckBox
             // 
-            this.SelectAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectAllButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectAllButton.Location = new System.Drawing.Point(799, 61);
-            this.SelectAllButton.Name = "SelectAllButton";
-            this.SelectAllButton.Size = new System.Drawing.Size(115, 36);
-            this.SelectAllButton.TabIndex = 28;
-            this.SelectAllButton.Text = "Chọn tất cả";
-            this.SelectAllButton.UseVisualStyleBackColor = true;
-            this.SelectAllButton.Click += new System.EventHandler(this.SelectAllButton_Click);
+            this.SelectAllCheckBox.AutoSize = true;
+            this.SelectAllCheckBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectAllCheckBox.Location = new System.Drawing.Point(11, 80);
+            this.SelectAllCheckBox.Name = "SelectAllCheckBox";
+            this.SelectAllCheckBox.Size = new System.Drawing.Size(102, 21);
+            this.SelectAllCheckBox.TabIndex = 32;
+            this.SelectAllCheckBox.Text = "Chọn tất cả";
+            this.SelectAllCheckBox.UseVisualStyleBackColor = true;
+            this.SelectAllCheckBox.Click += new System.EventHandler(this.SelectAllCheckBox_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(8, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(347, 18);
+            this.label5.TabIndex = 31;
+            this.label5.Text = "Danh sách thông tin trường học đang hiện hành";
             // 
             // ManagingSchoolForm
             // 
@@ -393,11 +406,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(918, 393);
-            this.Controls.Add(this.DeSelectAllButton);
-            this.Controls.Add(this.SelectAllButton);
-            this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.EditButton);
+            this.ClientSize = new System.Drawing.Size(1184, 561);
+            this.Controls.Add(this.SelectAllCheckBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.PhoneNumberTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.VillageComboBox);
@@ -408,7 +420,6 @@
             this.Controls.Add(this.SchoolNameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SchoolDataGridView);
-            this.Controls.Add(this.AddSchoolButton);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManagingSchoolForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -416,6 +427,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ManagingSchoolForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SchoolDataGridView)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -436,8 +448,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button DeleteButton;
-        private System.Windows.Forms.Button DeSelectAllButton;
-        private System.Windows.Forms.Button SelectAllButton;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewCheckBoxColumn RowCheckBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn No;
@@ -453,5 +464,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.CheckBox SelectAllCheckBox;
+        private System.Windows.Forms.Label label5;
     }
 }

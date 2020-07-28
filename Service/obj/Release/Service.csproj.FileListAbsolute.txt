@@ -9,3 +9,14 @@ F:\Project\C#\JBCert_1\JBCert\Service\obj\Release\Service.csproj.CoreCompileInpu
 F:\Project\C#\JBCert_1\JBCert\Service\obj\Release\Service.csproj.CopyComplete
 F:\Project\C#\JBCert_1\JBCert\Service\obj\Release\Service.dll
 F:\Project\C#\JBCert_1\JBCert\Service\obj\Release\Service.pdb
+F:\Project\GIT\JB_Cert\Service\bin\Release\Service.dll
+F:\Project\GIT\JB_Cert\Service\bin\Release\Service.pdb
+F:\Project\GIT\JB_Cert\Service\bin\Release\Model.dll
+F:\Project\GIT\JB_Cert\Service\bin\Release\Repository.dll
+F:\Project\GIT\JB_Cert\Service\bin\Release\Model.pdb
+F:\Project\GIT\JB_Cert\Service\bin\Release\Repository.pdb
+F:\Project\GIT\JB_Cert\Service\obj\Release\Service.csprojAssemblyReference.cache
+F:\Project\GIT\JB_Cert\Service\obj\Release\Service.csproj.CoreCompileInputs.cache
+F:\Project\GIT\JB_Cert\Service\obj\Release\Service.csproj.CopyComplete
+F:\Project\GIT\JB_Cert\Service\obj\Release\Service.dll
+F:\Project\GIT\JB_Cert\Service\obj\Release\Service.pdb

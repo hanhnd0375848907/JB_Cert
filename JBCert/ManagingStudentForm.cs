@@ -22,7 +22,13 @@ namespace JBCert
             InitializeComponent();
             managingStudentService = new ManagingStudentService();
             AddStudentForm.OnStudentAdded += AddStudentForm_OnStudentAdded;
+            EditStudentForm.OnStudentUpdated += EditStudentForm_OnStudentUpdated;
             managingSchoolService = new ManagingSchoolService();
+        }
+
+        private void EditStudentForm_OnStudentUpdated()
+        {
+            LoadStudentList();
         }
 
         private void AddStudentForm_OnStudentAdded()
@@ -32,13 +38,6 @@ namespace JBCert
 
         private void ManagingStudentForm_Load(object sender, EventArgs e)
         {
-            //Point headerCellLocation = StudentDataGridView.GetCellDisplayRectangle(0, -1, true).Location;
-            ////Place the Header CheckBox in the Location of the Header Cell.
-            //headerCheckBox.Location = new Point(headerCellLocation.X + 25, headerCellLocation.Y + 10);
-            //headerCheckBox.BackColor = Color.White;
-            //headerCheckBox.Size = new Size(18, 18);
-            //headerCheckBox.Click += HeaderCheckBox_Click; ; ;
-            //StudentDataGridView.Controls.Add(headerCheckBox);
 
             // load school 
             List<SchoolModel> schoolModels = managingSchoolService.GetAllSchool();
@@ -54,28 +53,6 @@ namespace JBCert
 
             LoadStudentList();
         }
-
-        //private void HeaderCheckBox_Click(object sender, EventArgs e)
-        //{
-        //    if (headerCheckBox.Checked)
-        //    {
-        //        foreach (DataGridViewRow row in StudentDataGridView.Rows)
-        //        {
-        //            DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
-        //            currentCheckBox.Value = true;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        foreach (DataGridViewRow row in StudentDataGridView.Rows)
-        //        {
-        //            DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
-        //            currentCheckBox.Value = false;
-        //        }
-        //    }
-
-        //    StudentDataGridView.EndEdit();
-        //}
 
         private void LoadStudentList()
         {
@@ -212,6 +189,13 @@ namespace JBCert
                 }
             }
 
+            if(SchoolComboBox.SelectedValue == null)
+            {
+                NotificationForm notificationForm = new NotificationForm("Giá trị trường học không tồn tại", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                return;
+            }
+
             schoolId = int.Parse(SchoolComboBox.SelectedValue.ToString());
             
 
@@ -245,9 +229,8 @@ namespace JBCert
         {
             try
             {
-                List<int> studentIds = (from DataGridViewRow r in StudentDataGridView.Rows
-                                        where Convert.ToBoolean(r.Cells[1].Value) == true
-                                        select Convert.ToInt32(r.Cells[0].Value)).ToList();
+                List<int> studentIds = new List<int>();
+                studentIds.Add(Convert.ToInt32(StudentDataGridView.Rows[StudentDataGridView.SelectedCells[0].RowIndex].Cells[0].Value));
                 if (studentIds.Count == 1)
                 {
                     int studentId = studentIds.FirstOrDefault();
@@ -281,37 +264,6 @@ namespace JBCert
             List<int> studentIds = (from DataGridViewRow r in StudentDataGridView.Rows
                                     where Convert.ToBoolean(r.Cells[1].Value) == true
                                     select Convert.ToInt32(r.Cells[0].Value)).ToList();
-            //DialogResult dialogResult = MessageBox.Show("Đồng ý xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //if (dialogResult == DialogResult.Yes)
-            //{
-            //    try
-            //    {
-            //        int result = managingStudentService.DeleteManyStudent(studentIds);
-            //        if (result > 0)
-            //        {
-            //            MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            NotificationForm notificationForm = new NotificationForm("Xóa thành công", "Thông báo", MessageBoxIcon.Information);
-            //            notificationForm.ShowDialog();
-            //            LoadStudentList();
-            //        }
-            //        else
-            //        {
-            //            //MessageBox.Show("Xóa không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            NotificationForm notificationForm = new NotificationForm("Xóa không thành công", "Cảnh báo", MessageBoxIcon.Warning);
-            //            notificationForm.ShowDialog();
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
-            //        notificationForm.ShowDialog();
-            //    }
-            //}
-            //else if (dialogResult == DialogResult.No)
-            //{
-            //    //no delete
-            //}
             ConfirmForm confirmForm = new ConfirmForm("Đồng ý xóa ?");
             confirmForm.ShowDialog();
             if (confirmForm.Result == DialogResult.Yes)
@@ -344,21 +296,21 @@ namespace JBCert
 
         private void StudentDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            //try
-            //{
-            //    if (e.RowIndex >= 0 && e.ColumnIndex == StudentDataGridView.Columns["RowCheckBox"].Index)
-            //    {
-            //        DataGridViewCheckBoxCell rowCheckBox = (DataGridViewCheckBoxCell)StudentDataGridView.Rows[e.RowIndex].Cells["RowCheckBox"];
-            //        if (Convert.ToBoolean(rowCheckBox.Value) == false)
-            //        {
-            //            headerCheckBox.Checked = false;
-            //        }
-            //    }
-            //}
-            //catch
-            //{
+            try
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex == StudentDataGridView.Columns["RowCheckBox"].Index)
+                {
+                    DataGridViewCheckBoxCell rowCheckBox = (DataGridViewCheckBoxCell)StudentDataGridView.Rows[e.RowIndex].Cells["RowCheckBox"];
+                    if (Convert.ToBoolean(rowCheckBox.Value) == false)
+                    {
+                        SelectAllCheckBox.Checked = false;
+                    }
+                }
+            }
+            catch
+            {
 
-            //}
+            }
         }
 
         private void StudentDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -384,6 +336,26 @@ namespace JBCert
             {
                 DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
                 currentCheckBox.Value = false;
+            }
+        }
+
+        private void SelectAllCheckBox_Click(object sender, EventArgs e)
+        {
+            if (SelectAllCheckBox.Checked)
+            {
+                foreach (DataGridViewRow row in StudentDataGridView.Rows)
+                {
+                    DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
+                    currentCheckBox.Value = true;
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in StudentDataGridView.Rows)
+                {
+                    DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
+                    currentCheckBox.Value = false;
+                }
             }
         }
     }

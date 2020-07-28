@@ -55,7 +55,7 @@
             // 
             this.SerialCertTextBox.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SerialCertTextBox.Location = new System.Drawing.Point(79, 18);
-            this.SerialCertTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SerialCertTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.SerialCertTextBox.Name = "SerialCertTextBox";
             this.SerialCertTextBox.Size = new System.Drawing.Size(169, 24);
             this.SerialCertTextBox.TabIndex = 2;
@@ -65,9 +65,9 @@
             this.ChooseCertImageButton.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChooseCertImageButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ChooseCertImageButton.Location = new System.Drawing.Point(572, 17);
-            this.ChooseCertImageButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChooseCertImageButton.Margin = new System.Windows.Forms.Padding(2);
             this.ChooseCertImageButton.Name = "ChooseCertImageButton";
-            this.ChooseCertImageButton.Size = new System.Drawing.Size(108, 27);
+            this.ChooseCertImageButton.Size = new System.Drawing.Size(108, 25);
             this.ChooseCertImageButton.TabIndex = 3;
             this.ChooseCertImageButton.Text = "Chọn ảnh";
             this.ChooseCertImageButton.UseVisualStyleBackColor = true;
@@ -77,9 +77,9 @@
             // 
             this.AddBlankCertButton.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddBlankCertButton.Location = new System.Drawing.Point(797, 17);
-            this.AddBlankCertButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddBlankCertButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddBlankCertButton.Name = "AddBlankCertButton";
-            this.AddBlankCertButton.Size = new System.Drawing.Size(76, 27);
+            this.AddBlankCertButton.Size = new System.Drawing.Size(76, 25);
             this.AddBlankCertButton.TabIndex = 4;
             this.AddBlankCertButton.Text = "Lưu";
             this.AddBlankCertButton.UseVisualStyleBackColor = true;
@@ -92,7 +92,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BlankCertImagePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BlankCertImagePictureBox.Location = new System.Drawing.Point(11, 55);
-            this.BlankCertImagePictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BlankCertImagePictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.BlankCertImagePictureBox.Name = "BlankCertImagePictureBox";
             this.BlankCertImagePictureBox.Size = new System.Drawing.Size(866, 332);
             this.BlankCertImagePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -104,7 +104,7 @@
             this.BlankCertTypeComboBox.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BlankCertTypeComboBox.FormattingEnabled = true;
             this.BlankCertTypeComboBox.Location = new System.Drawing.Point(349, 18);
-            this.BlankCertTypeComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BlankCertTypeComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.BlankCertTypeComboBox.Name = "BlankCertTypeComboBox";
             this.BlankCertTypeComboBox.Size = new System.Drawing.Size(194, 25);
             this.BlankCertTypeComboBox.TabIndex = 7;
@@ -125,11 +125,11 @@
             // 
             this.CancelButton.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelButton.Location = new System.Drawing.Point(711, 17);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(65, 27);
+            this.CancelButton.Size = new System.Drawing.Size(65, 25);
             this.CancelButton.TabIndex = 9;
-            this.CancelButton.Text = "Hủy";
+            this.CancelButton.Text = "Thoát";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -148,7 +148,7 @@
             this.Controls.Add(this.SerialCertTextBox);
             this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddBlankCertForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm phôi";

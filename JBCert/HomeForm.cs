@@ -18,12 +18,14 @@ namespace JBCert
     {
         int kindCert = 0;
         AccountModel _accountModel;
+        private List<Form> activeForms;
         public HomeForm(AccountModel accountModel)
         {
             InitializeComponent();
             SelectRootOrCopyCertForm.OnCopyCertSelected += SelectRootOrCopyCert_OnCopyCertSelected;
             SelectRootOrCopyCertForm.OnRootCertSelected += SelectRootOrCopyCert_OnRootCertSelected;
             _accountModel = accountModel;
+            activeForms = new List<Form>();
         }
 
         private void SelectRootOrCopyCert_OnRootCertSelected()
@@ -37,7 +39,7 @@ namespace JBCert
         }
 
         private Form activeForm = null;
-        private List<Form> activeForms = new List<Form>();
+        
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -72,8 +74,28 @@ namespace JBCert
                 childForm.BringToFront();
                 childForm.Show();
             }
+            //if (activeForms.Any(x => x.Name == childForm.Name))
+            //{
+            //    var form = activeForms.Where(x => x.Name == childForm.Name).FirstOrDefault();
+            //    int width = form.Width;
+            //}
+            //else
+            //{
+            //    childForm.FormBorderStyle = FormBorderStyle.FixedSingle;
+            //    childForm.WindowState = FormWindowState.Normal;
+            //    childForm.MinimizeBox = true;
+            //    childForm.MaximizeBox = false;
+            //    childForm.StartPosition = FormStartPosition.CenterScreen;
+            //    childForm.Width = 1200;
+            //    childForm.Height = 800;
+            //    childForm.BackColor = Color.FromArgb(230, 235, 252);
+            //    //ChildFormPanel.Controls.Add(childForm);
+            //    //ChildFormPanel.Tag = childForm;
+            //    childForm.BringToFront();
+            //    childForm.Show();
+            //    activeForms.Add(childForm);
+            //}
 
-            activeForm = childForm;
 
 
         }
@@ -406,8 +428,8 @@ namespace JBCert
 
         private void cấpPhátToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Đây là sản phẩm demo, chức năng này có trên sản phẩm chính thức", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            //MessageBox.Show("Đây là sản phẩm demo, chức năng này có trên sản phẩm chính thức", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            OpenChildForm(new ManagingCopyCertForm());
         }
 
         private void quảnLýThuHồiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -418,12 +440,25 @@ namespace JBCert
 
         private void tàiLiệuHướngDẫnSửDụngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new CertHelpDocForm());
-            string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            object fileName = Path.Combine(path, "Doc/PreTestHelp.doc");
-            Microsoft.Office.Interop.Word._Application ap = new Microsoft.Office.Interop.Word.Application();
-            ap.Visible = true;
-            Microsoft.Office.Interop.Word._Document document = ap.Documents.Open(fileName);
+            //string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string path = Directory.GetCurrentDirectory(); // bản gửi
+            object fileName = Path.Combine(path, "Doc/JBCertHelpDoc.pdf");
+            //Microsoft.Office.Interop.Word._Application ap = new Microsoft.Office.Interop.Word.Application();
+            //ap.Visible = true;
+            //Microsoft.Office.Interop.Word._Document document = ap.Documents.Open(fileName);
+
+            System.Diagnostics.Process.Start(fileName.ToString());
+        }
+
+        private void thôngTinĐơnVịChủQuảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Auth.HavePermissions(new string[] { Permission.EducationAndTraning }))
+            {
+                MessageBox.Show("Tài khoản không có quền truy cập", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            EditDoEaTForm editDoEaTForm = new EditDoEaTForm();
+            editDoEaTForm.ShowDialog();
         }
     }
 }

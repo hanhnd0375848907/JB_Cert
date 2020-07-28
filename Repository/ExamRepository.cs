@@ -18,9 +18,12 @@ namespace Repository
         List<ExamModel> GetBySchool(int schoolId);
 
         int AddExam(ExamModel examModel);
-
+        
         int UpdateExam(ExamModel examModel);
+        
         int DeleteExam(int examId);
+
+        int DeleteAllExamBySchoolId(int schoolId);
     }
     public class ExamRepository : IExamRepository
     {
@@ -46,6 +49,36 @@ namespace Repository
                 sqlCommand.Parameters.AddWithValue("@Namkythi", examModel.ExamDate);
                 sqlCommand.Parameters.AddWithValue("@LoaiId", examModel.BlankCertTypeId);
                 sqlCommand.Parameters.AddWithValue("@TruongId", examModel.SchoolId);
+
+                try
+                {
+                    int rowEffected = sqlCommand.ExecuteNonQuery();
+                    return rowEffected;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+            }
+        }
+
+        public int DeleteAllExamBySchoolId(int schoolId)
+        {
+            using (conn = JBCertConnection.Instance)
+            {
+                string queryString = @"UPDATE [dbo].[tblKythi]
+                                       SET IsDeleted = 1
+                                       WHERE TruongId = @TruongId";
+                conn.Open();
+
+                SqlCommand sqlCommand = new SqlCommand(queryString, conn);
+                sqlCommand.CommandType = CommandType.Text;
+                sqlCommand.Parameters.AddWithValue("@TruongId", schoolId);
 
                 try
                 {

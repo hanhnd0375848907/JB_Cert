@@ -39,7 +39,6 @@
             this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.DobDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.EthnicComboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.BornedAddressTextBox = new System.Windows.Forms.TextBox();
@@ -64,6 +63,21 @@
             this.label16 = new System.Windows.Forms.Label();
             this.AddButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.DobTextBox = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,10 +106,10 @@
             // AvatarButton
             // 
             this.AvatarButton.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AvatarButton.Location = new System.Drawing.Point(11, 207);
+            this.AvatarButton.Location = new System.Drawing.Point(56, 209);
             this.AvatarButton.Margin = new System.Windows.Forms.Padding(2);
             this.AvatarButton.Name = "AvatarButton";
-            this.AvatarButton.Size = new System.Drawing.Size(99, 40);
+            this.AvatarButton.Size = new System.Drawing.Size(99, 25);
             this.AvatarButton.TabIndex = 2;
             this.AvatarButton.Text = "Chọn ảnh";
             this.AvatarButton.UseVisualStyleBackColor = true;
@@ -173,17 +187,10 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Ngày sinh";
             // 
-            // DobDateTimePicker
-            // 
-            this.DobDateTimePicker.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DobDateTimePicker.Location = new System.Drawing.Point(269, 161);
-            this.DobDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.DobDateTimePicker.Name = "DobDateTimePicker";
-            this.DobDateTimePicker.Size = new System.Drawing.Size(203, 24);
-            this.DobDateTimePicker.TabIndex = 10;
-            // 
             // EthnicComboBox
             // 
+            this.EthnicComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.EthnicComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.EthnicComboBox.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EthnicComboBox.FormattingEnabled = true;
             this.EthnicComboBox.Location = new System.Drawing.Point(269, 371);
@@ -286,9 +293,11 @@
             // 
             // GenderComboBox
             // 
+            this.GenderComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.GenderComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.GenderComboBox.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenderComboBox.FormattingEnabled = true;
-            this.GenderComboBox.Location = new System.Drawing.Point(593, 371);
+            this.GenderComboBox.Location = new System.Drawing.Point(690, 372);
             this.GenderComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.GenderComboBox.Name = "GenderComboBox";
             this.GenderComboBox.Size = new System.Drawing.Size(105, 25);
@@ -298,7 +307,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(590, 351);
+            this.label11.Location = new System.Drawing.Point(687, 352);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(62, 17);
@@ -311,7 +320,7 @@
             this.ScoreTextBox.Location = new System.Drawing.Point(269, 305);
             this.ScoreTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ScoreTextBox.Name = "ScoreTextBox";
-            this.ScoreTextBox.Size = new System.Drawing.Size(51, 24);
+            this.ScoreTextBox.Size = new System.Drawing.Size(59, 24);
             this.ScoreTextBox.TabIndex = 24;
             // 
             // label12
@@ -328,17 +337,17 @@
             // GraduatingYearTextBox
             // 
             this.GraduatingYearTextBox.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GraduatingYearTextBox.Location = new System.Drawing.Point(329, 305);
+            this.GraduatingYearTextBox.Location = new System.Drawing.Point(350, 306);
             this.GraduatingYearTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.GraduatingYearTextBox.Name = "GraduatingYearTextBox";
-            this.GraduatingYearTextBox.Size = new System.Drawing.Size(67, 24);
+            this.GraduatingYearTextBox.Size = new System.Drawing.Size(122, 24);
             this.GraduatingYearTextBox.TabIndex = 26;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(327, 284);
+            this.label13.Location = new System.Drawing.Point(348, 285);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(106, 17);
@@ -347,19 +356,21 @@
             // 
             // MajorComboBox
             // 
+            this.MajorComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.MajorComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.MajorComboBox.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MajorComboBox.FormattingEnabled = true;
-            this.MajorComboBox.Location = new System.Drawing.Point(696, 305);
+            this.MajorComboBox.Location = new System.Drawing.Point(672, 305);
             this.MajorComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.MajorComboBox.Name = "MajorComboBox";
-            this.MajorComboBox.Size = new System.Drawing.Size(149, 25);
+            this.MajorComboBox.Size = new System.Drawing.Size(173, 25);
             this.MajorComboBox.TabIndex = 28;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(693, 286);
+            this.label14.Location = new System.Drawing.Point(669, 286);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(102, 17);
@@ -368,9 +379,11 @@
             // 
             // RankingComboBox
             // 
+            this.RankingComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.RankingComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.RankingComboBox.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RankingComboBox.FormattingEnabled = true;
-            this.RankingComboBox.Location = new System.Drawing.Point(438, 304);
+            this.RankingComboBox.Location = new System.Drawing.Point(568, 372);
             this.RankingComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.RankingComboBox.Name = "RankingComboBox";
             this.RankingComboBox.Size = new System.Drawing.Size(87, 25);
@@ -380,7 +393,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(435, 284);
+            this.label15.Location = new System.Drawing.Point(565, 352);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(59, 17);
@@ -389,19 +402,21 @@
             // 
             // LearningModeComboBox
             // 
+            this.LearningModeComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.LearningModeComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.LearningModeComboBox.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LearningModeComboBox.FormattingEnabled = true;
-            this.LearningModeComboBox.Location = new System.Drawing.Point(544, 304);
+            this.LearningModeComboBox.Location = new System.Drawing.Point(493, 304);
             this.LearningModeComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.LearningModeComboBox.Name = "LearningModeComboBox";
-            this.LearningModeComboBox.Size = new System.Drawing.Size(127, 25);
+            this.LearningModeComboBox.Size = new System.Drawing.Size(150, 25);
             this.LearningModeComboBox.TabIndex = 32;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(541, 284);
+            this.label16.Location = new System.Drawing.Point(490, 284);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(123, 17);
@@ -414,7 +429,7 @@
             this.AddButton.Location = new System.Drawing.Point(709, 500);
             this.AddButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(136, 36);
+            this.AddButton.Size = new System.Drawing.Size(136, 25);
             this.AddButton.TabIndex = 33;
             this.AddButton.Text = "Thêm học sinh";
             this.AddButton.UseVisualStyleBackColor = true;
@@ -424,14 +439,191 @@
             // 
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.Location = new System.Drawing.Point(608, 500);
+            this.CancelButton.Location = new System.Drawing.Point(629, 500);
             this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(76, 36);
+            this.CancelButton.Size = new System.Drawing.Size(76, 25);
             this.CancelButton.TabIndex = 34;
-            this.CancelButton.Text = "Hủy";
+            this.CancelButton.Text = "Thoát";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
+            // DobTextBox
+            // 
+            this.DobTextBox.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DobTextBox.Location = new System.Drawing.Point(269, 163);
+            this.DobTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.DobTextBox.Name = "DobTextBox";
+            this.DobTextBox.Size = new System.Drawing.Size(203, 24);
+            this.DobTextBox.TabIndex = 35;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(333, 7);
+            this.label17.Margin = new System.Windows.Forms.Padding(0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(14, 18);
+            this.label17.TabIndex = 36;
+            this.label17.Text = "*";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(565, 7);
+            this.label18.Margin = new System.Windows.Forms.Padding(0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(14, 18);
+            this.label18.TabIndex = 37;
+            this.label18.Text = "*";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(314, 74);
+            this.label19.Margin = new System.Windows.Forms.Padding(0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(14, 18);
+            this.label19.TabIndex = 38;
+            this.label19.Text = "*";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(333, 142);
+            this.label20.Margin = new System.Windows.Forms.Padding(0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(14, 18);
+            this.label20.TabIndex = 39;
+            this.label20.Text = "*";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Red;
+            this.label21.Location = new System.Drawing.Point(547, 143);
+            this.label21.Margin = new System.Windows.Forms.Padding(0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(14, 18);
+            this.label21.TabIndex = 40;
+            this.label21.Text = "*";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Red;
+            this.label22.Location = new System.Drawing.Point(324, 212);
+            this.label22.Margin = new System.Windows.Forms.Padding(0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(14, 18);
+            this.label22.TabIndex = 41;
+            this.label22.Text = "*";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Red;
+            this.label23.Location = new System.Drawing.Point(305, 283);
+            this.label23.Margin = new System.Windows.Forms.Padding(0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(14, 18);
+            this.label23.TabIndex = 42;
+            this.label23.Text = "*";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.Red;
+            this.label24.Location = new System.Drawing.Point(501, 352);
+            this.label24.Margin = new System.Windows.Forms.Padding(0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(14, 18);
+            this.label24.TabIndex = 43;
+            this.label24.Text = "*";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Red;
+            this.label25.Location = new System.Drawing.Point(610, 285);
+            this.label25.Margin = new System.Windows.Forms.Padding(0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(14, 18);
+            this.label25.TabIndex = 44;
+            this.label25.Text = "*";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.Red;
+            this.label26.Location = new System.Drawing.Point(767, 286);
+            this.label26.Margin = new System.Windows.Forms.Padding(0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(14, 18);
+            this.label26.TabIndex = 45;
+            this.label26.Text = "*";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.Red;
+            this.label27.Location = new System.Drawing.Point(322, 350);
+            this.label27.Margin = new System.Windows.Forms.Padding(0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(14, 18);
+            this.label27.TabIndex = 46;
+            this.label27.Text = "*";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.Red;
+            this.label28.Location = new System.Drawing.Point(450, 284);
+            this.label28.Margin = new System.Windows.Forms.Padding(0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(14, 18);
+            this.label28.TabIndex = 47;
+            this.label28.Text = "*";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.Red;
+            this.label29.Location = new System.Drawing.Point(621, 351);
+            this.label29.Margin = new System.Windows.Forms.Padding(0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(14, 18);
+            this.label29.TabIndex = 48;
+            this.label29.Text = "*";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.Red;
+            this.label30.Location = new System.Drawing.Point(747, 350);
+            this.label30.Margin = new System.Windows.Forms.Padding(0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(14, 18);
+            this.label30.TabIndex = 49;
+            this.label30.Text = "*";
             // 
             // AddStudentForm
             // 
@@ -439,6 +631,21 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.label30);
+            this.Controls.Add(this.label29);
+            this.Controls.Add(this.label28);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.DobTextBox);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.LearningModeComboBox);
@@ -463,7 +670,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.EthnicComboBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.DobDateTimePicker);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.AddressTextBox);
             this.Controls.Add(this.label4);
@@ -500,7 +706,6 @@
         private System.Windows.Forms.TextBox AddressTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker DobDateTimePicker;
         private System.Windows.Forms.ComboBox EthnicComboBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox BornedAddressTextBox;
@@ -525,5 +730,20 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.TextBox DobTextBox;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
     }
 }

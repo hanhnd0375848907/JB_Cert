@@ -54,7 +54,7 @@
             this.OpenPrintOptionFormButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OpenPrintOptionFormButton.Location = new System.Drawing.Point(12, 13);
             this.OpenPrintOptionFormButton.Name = "OpenPrintOptionFormButton";
-            this.OpenPrintOptionFormButton.Size = new System.Drawing.Size(136, 27);
+            this.OpenPrintOptionFormButton.Size = new System.Drawing.Size(136, 25);
             this.OpenPrintOptionFormButton.TabIndex = 1;
             this.OpenPrintOptionFormButton.Text = "In văn bằng gốc";
             this.OpenPrintOptionFormButton.UseVisualStyleBackColor = true;
@@ -196,9 +196,9 @@
             // SearchButton
             // 
             this.SearchButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchButton.Location = new System.Drawing.Point(696, 13);
+            this.SearchButton.Location = new System.Drawing.Point(673, 14);
             this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(92, 27);
+            this.SearchButton.Size = new System.Drawing.Size(115, 25);
             this.SearchButton.TabIndex = 5;
             this.SearchButton.Text = "Tìm kiếm";
             this.SearchButton.UseVisualStyleBackColor = true;

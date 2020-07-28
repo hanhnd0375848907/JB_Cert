@@ -62,38 +62,9 @@ namespace JBCert
 
         private void ManagingExamForm_Load(object sender, EventArgs e)
         {
-            //Point headerCellLocation = ExamDataGridView.GetCellDisplayRectangle(0, -1, true).Location;
-            ////Place the Header CheckBox in the Location of the Header Cell.
-            //headerCheckBox.Location = new Point(headerCellLocation.X + 25, headerCellLocation.Y + 2);
-            //headerCheckBox.BackColor = Color.White;
-            //headerCheckBox.Size = new Size(18, 18);
-            //headerCheckBox.Click += HeaderCheckBox_Click; ;
-            //ExamDataGridView.Controls.Add(headerCheckBox);
 
             LoadExamList();
         }
-
-        //private void HeaderCheckBox_Click(object sender, EventArgs e)
-        //{
-        //    if (headerCheckBox.Checked)
-        //    {
-        //        foreach (DataGridViewRow row in ExamDataGridView.Rows)
-        //        {
-        //            DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
-        //            currentCheckBox.Value = true;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        foreach (DataGridViewRow row in ExamDataGridView.Rows)
-        //        {
-        //            DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
-        //            currentCheckBox.Value = false;
-        //        }
-        //    }
-
-        //    ExamDataGridView.EndEdit();
-        //}
 
         private void ExamDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -143,21 +114,21 @@ namespace JBCert
 
         private void ExamDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            //try
-            //{
-            //    if (e.RowIndex >= 0 && e.ColumnIndex == ExamDataGridView.Columns["RowCheckBox"].Index)
-            //    {
-            //        DataGridViewCheckBoxCell rowCheckBox = (DataGridViewCheckBoxCell)ExamDataGridView.Rows[e.RowIndex].Cells["RowCheckBox"];
-            //        if (Convert.ToBoolean(rowCheckBox.Value) == false)
-            //        {
-            //            headerCheckBox.Checked = false;
-            //        }
-            //    }
-            //}
-            //catch
-            //{
+            try
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex == ExamDataGridView.Columns["RowCheckBox"].Index)
+                {
+                    DataGridViewCheckBoxCell rowCheckBox = (DataGridViewCheckBoxCell)ExamDataGridView.Rows[e.RowIndex].Cells["RowCheckBox"];
+                    if (Convert.ToBoolean(rowCheckBox.Value) == false)
+                    {
+                        SelectAllCheckBox.Checked = false;
+                    }
+                }
+            }
+            catch
+            {
 
-            //}
+            }
         }
 
         private void ExamDataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -172,9 +143,8 @@ namespace JBCert
         {
             try
             {
-                List<int> examIds = (from DataGridViewRow r in ExamDataGridView.Rows
-                                     where Convert.ToBoolean(r.Cells[1].Value) == true
-                                     select Convert.ToInt32(r.Cells[0].Value)).ToList();
+                List<int> examIds = new List<int>();
+                examIds.Add(Convert.ToInt32(ExamDataGridView.Rows[ExamDataGridView.SelectedCells[0].RowIndex].Cells[0].Value));
                 if (examIds.Count == 1)
                 {
                     int examId = examIds.FirstOrDefault();
@@ -207,6 +177,12 @@ namespace JBCert
             List<int> examIds = (from DataGridViewRow r in ExamDataGridView.Rows
                                  where Convert.ToBoolean(r.Cells[1].Value) == true
                                  select Convert.ToInt32(r.Cells[0].Value)).ToList();
+            if (examIds.Count == 0)
+            {
+                NotificationForm notificationForm = new NotificationForm("Chọn ít nhất 1 kỳ thì để xóa", "Cảnh báo", MessageBoxIcon.Warning);
+                notificationForm.ShowDialog();
+                return;
+            }
             ConfirmForm confirmForm = new ConfirmForm("Đồng ý xóa ?");
             confirmForm.ShowDialog();
             if (confirmForm.Result == DialogResult.Yes)
@@ -235,37 +211,6 @@ namespace JBCert
                     notificationForm.ShowDialog();
                 }
             }
-            //DialogResult dialogResult = MessageBox.Show("Đồng ý xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //if (dialogResult == DialogResult.Yes)
-            //{
-            //    try
-            //    {
-            //        int result = managingSchoolService.DeleteManyExam(examIds);
-            //        if (result > 0)
-            //        {
-            //            //MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            NotificationForm notificationForm = new NotificationForm("Xóa thành công", "Thông báo", MessageBoxIcon.Information);
-            //            notificationForm.ShowDialog();
-            //            LoadExamList();
-            //        }
-            //        else
-            //        {
-            //            //MessageBox.Show("Xóa không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            NotificationForm notificationForm = new NotificationForm("Xóa không thành công", "Cảnh báo", MessageBoxIcon.Error);
-            //            notificationForm.ShowDialog();
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
-            //        notificationForm.ShowDialog();
-            //    }
-            //}
-            //else if (dialogResult == DialogResult.No)
-            //{
-            //    //no delete
-            //}
         }
 
         private void SelectAllButton_Click(object sender, EventArgs e)
@@ -283,6 +228,26 @@ namespace JBCert
             {
                 DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
                 currentCheckBox.Value = false;
+            }
+        }
+
+        private void SelectAllCheckBox_Click(object sender, EventArgs e)
+        {
+            if (SelectAllCheckBox.Checked)
+            {
+                foreach (DataGridViewRow row in ExamDataGridView.Rows)
+                {
+                    DataGridViewCheckBoxCell currentcheckbox = (DataGridViewCheckBoxCell)row.Cells[1];
+                    currentcheckbox.Value = true;
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in ExamDataGridView.Rows)
+                {
+                    DataGridViewCheckBoxCell currentCheckBox = (DataGridViewCheckBoxCell)row.Cells[1];
+                    currentCheckBox.Value = false;
+                }
             }
         }
     }

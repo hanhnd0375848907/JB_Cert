@@ -82,19 +82,12 @@ namespace JBCert
             }
         }
 
-        private void IsAddCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            RoleNameTextBox.Enabled = IsAddCheckBox.Checked;
-            AddButton.Enabled = IsAddCheckBox.Checked;
-            label1.Enabled = IsAddCheckBox.Checked;
-        }
-
         private void AddButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(RoleNameTextBox.Text))
             {
                 //MessageBox.Show("Điền tên quyền", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                NotificationForm notificationForm = new NotificationForm("Điền tên quyền", "Cảnh báo", MessageBoxIcon.Warning);
+                NotificationForm notificationForm = new NotificationForm("Điền tên vai trò", "Cảnh báo", MessageBoxIcon.Warning);
                 notificationForm.ShowDialog();
                 return;
             }
@@ -115,13 +108,13 @@ namespace JBCert
                 if (result > 0)
                 {
                     //MessageBox.Show("Thêm quyền thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    NotificationForm notificationForm = new NotificationForm("Thêm quyền thành công", "Thông báo", MessageBoxIcon.Information);
+                    NotificationForm notificationForm = new NotificationForm("Thêm vai trò thành công", "Thông báo", MessageBoxIcon.Information);
                     notificationForm.ShowDialog();
                 }
                 else
                 {
                     //MessageBox.Show("Thêm quyền không thành công", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    NotificationForm notificationForm = new NotificationForm("Thêm quyền không thành công", "Cảnh báo", MessageBoxIcon.Warning);
+                    NotificationForm notificationForm = new NotificationForm("Thêm vai trò không thành công", "Cảnh báo", MessageBoxIcon.Warning);
                     notificationForm.ShowDialog();
                 }
                 LoadRoleList();
@@ -148,13 +141,13 @@ namespace JBCert
                     if (result > 0)
                     {
                         //MessageBox.Show("Cập nhật quyền thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        NotificationForm notificationForm = new NotificationForm("Cập nhật quyền thành công", "Thông báo", MessageBoxIcon.Information);
+                        NotificationForm notificationForm = new NotificationForm("Cập nhật vai trò thành công", "Thông báo", MessageBoxIcon.Information);
                         notificationForm.ShowDialog();
                     }
                     else
                     {
                         //MessageBox.Show("Cập nhật quyền không thành công", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        NotificationForm notificationForm = new NotificationForm("Cập nhật quyền không thành công", "Cảnh báo", MessageBoxIcon.Warning);
+                        NotificationForm notificationForm = new NotificationForm("Cập nhật vai trò không thành công", "Cảnh báo", MessageBoxIcon.Warning);
                         notificationForm.ShowDialog();
                     }
                     LoadRoleList();
@@ -163,7 +156,7 @@ namespace JBCert
                 else
                 {
                     //MessageBox.Show("Chưa chọn quyền nào", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    NotificationForm notificationForm = new NotificationForm("Chưa chọn quyền nào", "Cảnh báo", MessageBoxIcon.Warning);
+                    NotificationForm notificationForm = new NotificationForm("Chưa chọn vai trò nào", "Cảnh báo", MessageBoxIcon.Warning);
                     notificationForm.ShowDialog();
                 }
             }
@@ -181,28 +174,39 @@ namespace JBCert
             {
                 List<int> roleIds = (from RoleModel r in RoleCheckedListBox.CheckedItems
                                      select r.Id).ToList();
-                if (roleIds.Count > 0)
+                if (roleIds.Count == 0)
                 {
-                    int result = accountService.DeleteManyRole(roleIds);
-                    if (result > 0)
+                    NotificationForm notification = new NotificationForm("Vui lòng chọn 1 hoặc nhiều vai trò để xóa", "Cảnh báo", MessageBoxIcon.Warning);
+                    notification.ShowDialog();
+                    return;
+                }
+                ConfirmForm confirmForm = new ConfirmForm("Xóa vai trò có thể ảnh hưởng đến quyền truy cập các tài khoản ,Bạn có đồng ý xóa");
+                confirmForm.ShowDialog();
+                if (confirmForm.Result == DialogResult.Yes)
+                {
+                    if (roleIds.Count > 0)
                     {
-                        //MessageBox.Show("Xóa quyền thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        NotificationForm notificationForm = new NotificationForm("Xóa quyền thành công", "Thông báo", MessageBoxIcon.Information);
-                        notificationForm.ShowDialog();
+                        int result = accountService.DeleteManyRole(roleIds);
+                        if (result > 0)
+                        {
+                            //MessageBox.Show("Xóa quyền thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            NotificationForm notificationForm = new NotificationForm("Xóa vai trò thành công", "Thông báo", MessageBoxIcon.Information);
+                            notificationForm.ShowDialog();
+                        }
+                        else
+                        {
+                            //MessageBox.Show("Xóa quyền không thành công", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            NotificationForm notificationForm = new NotificationForm("Xóa vai trò không thành công", "Cảnh báo", MessageBoxIcon.Warning);
+                            notificationForm.ShowDialog();
+                        }
+                        LoadRoleList();
                     }
                     else
                     {
-                        //MessageBox.Show("Xóa quyền không thành công", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        NotificationForm notificationForm = new NotificationForm("Xóa quyền không thành công", "Cảnh báo", MessageBoxIcon.Warning);
+                        //MessageBox.Show("Chưa chọn quyền nào", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        NotificationForm notificationForm = new NotificationForm("Chưa chọn vai trò nào", "Cảnh báo", MessageBoxIcon.Warning);
                         notificationForm.ShowDialog();
                     }
-                    LoadRoleList();
-                }
-                else
-                {
-                    //MessageBox.Show("Chưa chọn quyền nào", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    NotificationForm notificationForm = new NotificationForm("Chưa chọn quyền nào", "Cảnh báo", MessageBoxIcon.Warning);
-                    notificationForm.ShowDialog();
                 }
             }
             catch (Exception ex)
@@ -215,39 +219,58 @@ namespace JBCert
 
         private void RoleCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            this.BeginInvoke(new Action(() =>
-            {
-                try
-                {
-                    List<int> roleIds = (from RoleModel r in RoleCheckedListBox.CheckedItems
-                                         select r.Id).ToList();
-                    if (roleIds.Count == 1)
-                    {
-                        List<ClaimModel> claimsOfCheckedRole = accountService.GetAllClaimByRoleId(roleIds.FirstOrDefault());
-                        List<ClaimModel> claimModels = accountService.GetAllPermission();
-                        PermissionCheckedListBox.Items.Clear();
-                        foreach (ClaimModel claimModel in claimModels)
-                        {
-                            PermissionCheckedListBox.Items.Add
-                            (
-                                claimModel,
-                                claimsOfCheckedRole.Any(x => x.Id == claimModel.Id)
-                            );
-                        }
-                    }
-                    else
-                    {
-                        LoadPermissionList();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
-                    notificationForm.ShowDialog();
-                }
-            }));
+            //this.BeginInvoke(new Action(() =>
+            //{
+            //    try
+            //    {
+            //        List<int> roleIds = (from RoleModel r in RoleCheckedListBox.CheckedItems
+            //                             select r.Id).ToList();
+            //        if (roleIds.Count == 1)
+            //        {
+            //            List<ClaimModel> claimsOfCheckedRole = accountService.GetAllClaimByRoleId(roleIds.FirstOrDefault());
+            //            List<ClaimModel> claimModels = accountService.GetAllPermission();
+            //            PermissionCheckedListBox.Items.Clear();
+            //            foreach (ClaimModel claimModel in claimModels)
+            //            {
+            //                PermissionCheckedListBox.Items.Add
+            //                (
+            //                    claimModel,
+            //                    claimsOfCheckedRole.Any(x => x.Id == claimModel.Id)
+            //                );
+            //            }
+            //        }
+            //        else
+            //        {
+            //            LoadPermissionList();
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        //MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
+            //        notificationForm.ShowDialog();
+            //    }
+            //}));
 
+        }
+
+        private void RoleCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RoleModel roleModel = (RoleModel)RoleCheckedListBox.SelectedItem;
+            if (roleModel != null)
+            {
+                List<ClaimModel> claimsOfCheckedRole = accountService.GetAllClaimByRoleId(roleModel.Id);
+                List<ClaimModel> claimModels = accountService.GetAllPermission();
+                PermissionCheckedListBox.Items.Clear();
+                foreach (ClaimModel claimModel in claimModels)
+                {
+                    PermissionCheckedListBox.Items.Add
+                    (
+                        claimModel,
+                        claimsOfCheckedRole.Any(x => x.Id == claimModel.Id)
+                    );
+                }
+            }
         }
     }
 }

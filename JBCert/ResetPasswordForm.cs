@@ -71,8 +71,8 @@ namespace JBCert
                         string departmentOfEducationAndTrainingName = departmentOfEducationAndTrainingModel.Name;
 
                         BodyBuilder bodyBuilder = new BodyBuilder();
-                        string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-                        //string path = Directory.GetCurrentDirectory(); // bản gửi 
+                        //string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                        string path = Directory.GetCurrentDirectory(); // bản gửi 
 
                         StreamReader str = new StreamReader(Path.Combine(path, "Mail/SendPasswordEmailTemplate.html"));
                         string MailText = str.ReadToEnd();
@@ -107,6 +107,11 @@ namespace JBCert
                 NotificationForm notificationForm = new NotificationForm(Common.Common.COMMON_ERORR, "Lỗi", MessageBoxIcon.Error);
                 notificationForm.ShowDialog();
             }
+        }
+
+        private void ResetPasswordForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

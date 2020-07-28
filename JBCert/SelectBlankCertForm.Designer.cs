@@ -28,9 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectBlankCertForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BlankCertDataGridView = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Serial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ShowImage = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ResetBlankCertButton = new System.Windows.Forms.Button();
             this.SearchBlankCertButton = new System.Windows.Forms.Button();
             this.SerialTextBox = new System.Windows.Forms.TextBox();
@@ -47,11 +54,6 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Serial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ShowImage = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ChosenId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChosenNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChosenSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,6 +88,14 @@
             this.BlankCertDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BlankCertDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.BlankCertDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.BlankCertDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -93,6 +103,7 @@
             this.Serial,
             this.ShowImage,
             this.Select});
+            this.BlankCertDataGridView.EnableHeadersVisualStyles = false;
             this.BlankCertDataGridView.Location = new System.Drawing.Point(18, 50);
             this.BlankCertDataGridView.Name = "BlankCertDataGridView";
             this.BlankCertDataGridView.ReadOnly = true;
@@ -100,6 +111,42 @@
             this.BlankCertDataGridView.Size = new System.Drawing.Size(426, 380);
             this.BlankCertDataGridView.TabIndex = 4;
             this.BlankCertDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BlankCertDataGridView_CellContentClick);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 75;
+            // 
+            // No
+            // 
+            this.No.HeaderText = "STT";
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            // 
+            // Serial
+            // 
+            this.Serial.HeaderText = "Số hiệu";
+            this.Serial.Name = "Serial";
+            this.Serial.ReadOnly = true;
+            // 
+            // ShowImage
+            // 
+            this.ShowImage.HeaderText = "Xem ảnh";
+            this.ShowImage.Name = "ShowImage";
+            this.ShowImage.ReadOnly = true;
+            this.ShowImage.Text = "Xem ảnh";
+            this.ShowImage.UseColumnTextForButtonValue = true;
+            // 
+            // Select
+            // 
+            this.Select.HeaderText = "Chọn";
+            this.Select.Name = "Select";
+            this.Select.ReadOnly = true;
+            this.Select.Text = "Chọn";
+            this.Select.UseColumnTextForButtonValue = true;
             // 
             // ResetBlankCertButton
             // 
@@ -165,6 +212,14 @@
             this.ChosenBlankCertDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ChosenBlankCertDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.ChosenBlankCertDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ChosenBlankCertDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ChosenId,
@@ -173,10 +228,11 @@
             this.ChosenReferenceNumber,
             this.ChosenShowImage,
             this.Remove});
+            this.ChosenBlankCertDataGridView.EnableHeadersVisualStyles = false;
             this.ChosenBlankCertDataGridView.Location = new System.Drawing.Point(18, 50);
             this.ChosenBlankCertDataGridView.Name = "ChosenBlankCertDataGridView";
             this.ChosenBlankCertDataGridView.RowHeadersVisible = false;
-            this.ChosenBlankCertDataGridView.Size = new System.Drawing.Size(559, 383);
+            this.ChosenBlankCertDataGridView.Size = new System.Drawing.Size(572, 383);
             this.ChosenBlankCertDataGridView.TabIndex = 4;
             this.ChosenBlankCertDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChosenBlankCertDataGridView_CellContentClick);
             this.ChosenBlankCertDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChosenBlankCertDataGridView_CellValueChanged);
@@ -295,42 +351,6 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            this.Id.Width = 75;
-            // 
-            // No
-            // 
-            this.No.HeaderText = "STT";
-            this.No.Name = "No";
-            this.No.ReadOnly = true;
-            // 
-            // Serial
-            // 
-            this.Serial.HeaderText = "Số hiệu";
-            this.Serial.Name = "Serial";
-            this.Serial.ReadOnly = true;
-            // 
-            // ShowImage
-            // 
-            this.ShowImage.HeaderText = "Xem ảnh";
-            this.ShowImage.Name = "ShowImage";
-            this.ShowImage.ReadOnly = true;
-            this.ShowImage.Text = "Xem ảnh";
-            this.ShowImage.UseColumnTextForButtonValue = true;
-            // 
-            // Select
-            // 
-            this.Select.HeaderText = "Chọn";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Text = "Chọn";
-            this.Select.UseColumnTextForButtonValue = true;
-            // 
             // ChosenId
             // 
             this.ChosenId.HeaderText = "Id";
@@ -354,6 +374,7 @@
             // 
             this.ChosenReferenceNumber.HeaderText = "Số vào sổ";
             this.ChosenReferenceNumber.Name = "ChosenReferenceNumber";
+            this.ChosenReferenceNumber.Width = 150;
             // 
             // ChosenShowImage
             // 

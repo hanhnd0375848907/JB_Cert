@@ -83,8 +83,8 @@
             this.ChosenStudentDataGridView.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Navy;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -99,6 +99,7 @@
             this.ChosenShowImage,
             this.ChosenDetail,
             this.ChosenRemove});
+            this.ChosenStudentDataGridView.EnableHeadersVisualStyles = false;
             this.ChosenStudentDataGridView.Location = new System.Drawing.Point(11, 82);
             this.ChosenStudentDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.ChosenStudentDataGridView.Name = "ChosenStudentDataGridView";
@@ -214,7 +215,7 @@
             this.ChosenStudentSearchButton.Location = new System.Drawing.Point(350, 53);
             this.ChosenStudentSearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.ChosenStudentSearchButton.Name = "ChosenStudentSearchButton";
-            this.ChosenStudentSearchButton.Size = new System.Drawing.Size(84, 27);
+            this.ChosenStudentSearchButton.Size = new System.Drawing.Size(84, 25);
             this.ChosenStudentSearchButton.TabIndex = 22;
             this.ChosenStudentSearchButton.Text = "Tìm kiếm";
             this.ChosenStudentSearchButton.UseVisualStyleBackColor = true;
@@ -237,7 +238,7 @@
             this.ChosenResetButton.Location = new System.Drawing.Point(438, 53);
             this.ChosenResetButton.Margin = new System.Windows.Forms.Padding(2);
             this.ChosenResetButton.Name = "ChosenResetButton";
-            this.ChosenResetButton.Size = new System.Drawing.Size(81, 27);
+            this.ChosenResetButton.Size = new System.Drawing.Size(81, 25);
             this.ChosenResetButton.TabIndex = 21;
             this.ChosenResetButton.Text = "Làm mới";
             this.ChosenResetButton.UseVisualStyleBackColor = true;
@@ -285,8 +286,8 @@
             this.StudentDataGridView.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Navy;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -301,6 +302,7 @@
             this.ShowImage,
             this.Detail,
             this.Select});
+            this.StudentDataGridView.EnableHeadersVisualStyles = false;
             this.StudentDataGridView.Location = new System.Drawing.Point(11, 82);
             this.StudentDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.StudentDataGridView.Name = "StudentDataGridView";
@@ -445,10 +447,10 @@
             // StudentSearchButton
             // 
             this.StudentSearchButton.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StudentSearchButton.Location = new System.Drawing.Point(353, 52);
+            this.StudentSearchButton.Location = new System.Drawing.Point(355, 54);
             this.StudentSearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.StudentSearchButton.Name = "StudentSearchButton";
-            this.StudentSearchButton.Size = new System.Drawing.Size(84, 27);
+            this.StudentSearchButton.Size = new System.Drawing.Size(84, 25);
             this.StudentSearchButton.TabIndex = 16;
             this.StudentSearchButton.Text = "Tìm kiếm";
             this.StudentSearchButton.UseVisualStyleBackColor = true;
@@ -460,7 +462,7 @@
             this.ResetButton.Location = new System.Drawing.Point(453, 53);
             this.ResetButton.Margin = new System.Windows.Forms.Padding(2);
             this.ResetButton.Name = "ResetButton";
-            this.ResetButton.Size = new System.Drawing.Size(78, 27);
+            this.ResetButton.Size = new System.Drawing.Size(78, 25);
             this.ResetButton.TabIndex = 15;
             this.ResetButton.Text = "Làm mới";
             this.ResetButton.UseVisualStyleBackColor = true;
@@ -480,10 +482,10 @@
             // 
             this.NextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.NextButton.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NextButton.Location = new System.Drawing.Point(925, 405);
+            this.NextButton.Location = new System.Drawing.Point(960, 407);
             this.NextButton.Margin = new System.Windows.Forms.Padding(2);
             this.NextButton.Name = "NextButton";
-            this.NextButton.Size = new System.Drawing.Size(113, 27);
+            this.NextButton.Size = new System.Drawing.Size(113, 25);
             this.NextButton.TabIndex = 10;
             this.NextButton.Text = "Chọn phôi";
             this.NextButton.UseVisualStyleBackColor = true;
@@ -494,12 +496,12 @@
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.Location = new System.Drawing.Point(832, 405);
+            this.CancelButton.Location = new System.Drawing.Point(883, 407);
             this.CancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(73, 27);
+            this.CancelButton.Size = new System.Drawing.Size(73, 25);
             this.CancelButton.TabIndex = 14;
-            this.CancelButton.Text = "Hủy";
+            this.CancelButton.Text = "Thoát";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -515,7 +517,7 @@
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(1098, 476);
+            this.MinimumSize = new System.Drawing.Size(1100, 482);
             this.Name = "AddCertForm";
             this.Text = "Tạo thông tin văn bằng";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

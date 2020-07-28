@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,7 @@ namespace JBCert
                 ExamModel examModel = managingSchoolService.GetSingleExamById(_examId);
                 ExamNameTextBox.Text = examModel.ExamName;
                 SchoolNameComboBox.SelectedValue = examModel.SchoolId;
-                ExamDateDateTimePicker.Value = examModel.ExamDate;
+                ExamDateTextBox.Text = examModel.ExamDate.ToString("dd/MM/yyyy");
             }
             catch(Exception ex)
             {
@@ -66,12 +67,44 @@ namespace JBCert
                     notificationForm.ShowDialog();
                     return;
                 }
+
+                if (SchoolNameComboBox.SelectedValue == null)
+                {
+                    //MessageBox.Show("Điền tên kỳ thi", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotificationForm notificationForm = new NotificationForm("Chọn trường học", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                }
+
+                DateTime examDate;
+                if (string.IsNullOrEmpty(ExamDateTextBox.Text))
+                {
+
+                    NotificationForm notificationForm = new NotificationForm("Điền ngày thi", "Cảnh báo", MessageBoxIcon.Warning);
+                    notificationForm.ShowDialog();
+                    return;
+                }
+                else
+                {
+
+                    bool chValidity = DateTime.TryParseExact(
+                     ExamDateTextBox.Text,
+                     "dd/MM/yyyy",
+                     CultureInfo.InvariantCulture,
+                     DateTimeStyles.None, out examDate);
+                    if (!chValidity)
+                    {
+                        NotificationForm notificationForm = new NotificationForm("Điền ngày thi theo dạng dd/MM/yyyy ví dụ 12/07/2020", "Cảnh báo", MessageBoxIcon.Warning);
+                        notificationForm.ShowDialog();
+                        return;
+                    }
+                }
+
                 SchoolModel schoolModel = managingSchoolService.GetSingleSchoolById(int.Parse(SchoolNameComboBox.SelectedValue.ToString()));
                 ExamModel examModel = new ExamModel();
                 examModel.Id = _examId;
                 examModel.ExamName = ExamNameTextBox.Text;
                 examModel.SchoolId = int.Parse(SchoolNameComboBox.SelectedValue.ToString());
-                examModel.ExamDate = ExamDateDateTimePicker.Value;
+                examModel.ExamDate = examDate;
                 examModel.IsDeleted = false;
                 examModel.BlankCertTypeId = schoolModel.BlankCertTypeId;
                 int result = managingSchoolService.UpdateExam(examModel);

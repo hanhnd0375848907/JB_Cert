@@ -112,9 +112,9 @@
             // 
             this.PrintButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.PrintButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrintButton.Location = new System.Drawing.Point(775, 518);
+            this.PrintButton.Location = new System.Drawing.Point(757, 524);
             this.PrintButton.Name = "PrintButton";
-            this.PrintButton.Size = new System.Drawing.Size(97, 31);
+            this.PrintButton.Size = new System.Drawing.Size(115, 25);
             this.PrintButton.TabIndex = 6;
             this.PrintButton.Text = "In bằng";
             this.PrintButton.UseVisualStyleBackColor = true;
@@ -124,9 +124,9 @@
             // 
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.Location = new System.Drawing.Point(657, 518);
+            this.CancelButton.Location = new System.Drawing.Point(622, 524);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(97, 31);
+            this.CancelButton.Size = new System.Drawing.Size(115, 25);
             this.CancelButton.TabIndex = 7;
             this.CancelButton.Text = "Hủy";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -140,9 +140,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Navy;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -156,6 +156,7 @@
             this.SchoolName,
             this.Serial,
             this.ReferenceNumber});
+            this.CertDataGridView.EnableHeadersVisualStyles = false;
             this.CertDataGridView.Location = new System.Drawing.Point(12, 49);
             this.CertDataGridView.Name = "CertDataGridView";
             this.CertDataGridView.ReadOnly = true;

@@ -50,6 +50,19 @@ namespace JBCert
             {
                 if (BCrypt.Net.BCrypt.Verify(password, accountModel.Password))
                 {
+                    if (SavePasswordCheckBox.Checked)
+                    {
+                        Properties.Settings.Default.Username = UsernameTextBox.Text;
+                        Properties.Settings.Default.Password = PasswordTextBox.Text;
+                        Properties.Settings.Default.Save();
+                    }
+                    else
+                    {
+                        Properties.Settings.Default.Username = string.Empty;
+                        Properties.Settings.Default.Password = string.Empty;
+                        Properties.Settings.Default.Save();
+                    }
+
                     CurrentUser.Id = accountModel.Id;
                     CurrentUser.Username = accountModel.Username;
                     HomeForm homeForm = new HomeForm(accountModel);
@@ -74,6 +87,19 @@ namespace JBCert
             System.IO.Directory.CreateDirectory(@"C:\JbCert_Resource\StudentImages");
             System.IO.Directory.CreateDirectory(@"C:\JbCert_Resource\Images");
             this.BackColor = Color.FromArgb(230, 235, 252);
+
+            if (Properties.Settings.Default.Username != string.Empty)
+            {
+                UsernameTextBox.Text = Properties.Settings.Default.Username;
+                PasswordTextBox.Text = Properties.Settings.Default.Password;
+                SavePasswordCheckBox.Checked = true;
+            }
+            else
+            {
+                UsernameTextBox.Text = string.Empty;;
+                PasswordTextBox.Text = string.Empty; ;
+                SavePasswordCheckBox.Checked = false;
+            }
         }
 
         private void ForgetPasswordLabel_MouseHover(object sender, EventArgs e)
@@ -90,6 +116,11 @@ namespace JBCert
         {
             ResetPasswordForm resetPasswordForm = new ResetPasswordForm();
             resetPasswordForm.ShowDialog();
+        }
+
+        private void SavePasswordCheckBox_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

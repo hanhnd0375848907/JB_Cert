@@ -48,7 +48,7 @@
             this.SaveButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveButton.Location = new System.Drawing.Point(263, 505);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(96, 34);
+            this.SaveButton.Size = new System.Drawing.Size(96, 25);
             this.SaveButton.TabIndex = 3;
             this.SaveButton.Text = "Lưu";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -57,11 +57,11 @@
             // CancelButton
             // 
             this.CancelButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.Location = new System.Drawing.Point(134, 505);
+            this.CancelButton.Location = new System.Drawing.Point(161, 505);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(96, 34);
+            this.CancelButton.Size = new System.Drawing.Size(96, 25);
             this.CancelButton.TabIndex = 4;
-            this.CancelButton.Text = "Hủy";
+            this.CancelButton.Text = "Thoát";
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
