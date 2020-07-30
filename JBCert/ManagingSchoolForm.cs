@@ -259,7 +259,7 @@ namespace JBCert
                 }
                 else
                 {
-                    MessageBox.Show("Chỉ chọn 1 trường để sửa", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //MessageBox.Show("Chỉ chọn 1 trường để sửa", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     NotificationForm notificationForm = new NotificationForm("Chỉ chọn 1 trường để sửa", "Cảnh báo", MessageBoxIcon.Warning);
                     notificationForm.ShowDialog();
                 }

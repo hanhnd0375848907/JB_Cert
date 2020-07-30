@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountService.cs" />
+    <Compile Include="ManagingAdministrativeBoundariesService.cs" />
     <Compile Include="ManagingBlankCertConfigService.cs" />
     <Compile Include="DepartmentOfEducationAndTrainingService.cs" />
     <Compile Include="ManagingBlankCertService.cs" />

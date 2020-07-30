@@ -161,6 +161,18 @@
     <Compile Include="AddStudentForm.Designer.cs">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddTownForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTownForm.Designer.cs">
+      <DependentUpon>AddTownForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddVillageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddVillageForm.Designer.cs">
+      <DependentUpon>AddVillageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Authorization\Auth.cs" />
     <Compile Include="CertHelpDocForm.cs">
       <SubType>Form</SubType>
@@ -246,6 +258,18 @@
     <Compile Include="EditStudentForm.Designer.cs">
       <DependentUpon>EditStudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditTownForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditTownForm.Designer.cs">
+      <DependentUpon>EditTownForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditVillageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditVillageForm.Designer.cs">
+      <DependentUpon>EditVillageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,11 +349,23 @@
     <Compile Include="ManagingStudentForm.Designer.cs">
       <DependentUpon>ManagingStudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManagingTownForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingTownForm.Designer.cs">
+      <DependentUpon>ManagingTownForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManagingUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManagingUserForm.Designer.cs">
       <DependentUpon>ManagingUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagingVillageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagingVillageForm.Designer.cs">
+      <DependentUpon>ManagingVillageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagingYourAccountForm.cs">
       <SubType>Form</SubType>
@@ -435,6 +471,12 @@
     <EmbeddedResource Include="AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddTownForm.resx">
+      <DependentUpon>AddTownForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddVillageForm.resx">
+      <DependentUpon>AddVillageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CertHelpDocForm.resx">
       <DependentUpon>CertHelpDocForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -477,6 +519,12 @@
     <EmbeddedResource Include="EditStudentForm.resx">
       <DependentUpon>EditStudentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditTownForm.resx">
+      <DependentUpon>EditTownForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditVillageForm.resx">
+      <DependentUpon>EditVillageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -516,8 +564,14 @@
     <EmbeddedResource Include="ManagingStudentForm.resx">
       <DependentUpon>ManagingStudentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManagingTownForm.resx">
+      <DependentUpon>ManagingTownForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManagingUserForm.resx">
       <DependentUpon>ManagingUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagingVillageForm.resx">
+      <DependentUpon>ManagingVillageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagingYourAccountForm.resx">
       <DependentUpon>ManagingYourAccountForm.cs</DependentUpon>
@@ -609,7 +663,10 @@
     <Content Include="MenuIcon\about.png" />
     <Content Include="MenuIcon\blank-cert.png" />
     <Content Include="MenuIcon\add-blank-cert.png" />
+    <Content Include="MenuIcon\buildings.png" />
+    <Content Include="MenuIcon\config.png" />
     <Content Include="MenuIcon\copy.png" />
+    <Content Include="MenuIcon\copy1.png" />
     <Content Include="MenuIcon\exit.png" />
     <Content Include="MenuIcon\login.png" />
     <Content Include="MenuIcon\logout.png" />
@@ -633,6 +690,8 @@
     <Content Include="MenuIcon\add-student.png" />
     <Content Include="MenuIcon\database.png" />
     <Content Include="MenuIcon\report-monthy.png" />
+    <Content Include="MenuIcon\town.png" />
+    <Content Include="MenuIcon\village.png" />
     <Content Include="MenuIcon\your-account.png" />
     <Content Include="MenuIcon\student.png" />
     <Content Include="MenuIcon\user.png" />

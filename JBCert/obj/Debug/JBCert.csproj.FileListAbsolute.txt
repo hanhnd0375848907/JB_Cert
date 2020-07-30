@@ -177,3 +177,9 @@ F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.csproj.CoreCompileInputs.cache
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.csproj.CopyComplete
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.exe
 F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.pdb
+F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.ManagingTownForm.resources
+F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.AddTownForm.resources
+F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.EditTownForm.resources
+F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.ManagingVillageForm.resources
+F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.AddVillageForm.resources
+F:\Project\GIT\JB_Cert\JBCert\obj\Debug\JBCert.EditVillageForm.resources

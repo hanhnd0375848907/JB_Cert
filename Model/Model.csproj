@@ -60,6 +60,7 @@
     <Compile Include="RoleModel.cs" />
     <Compile Include="SchoolModel.cs" />
     <Compile Include="StudentModel.cs" />
+    <Compile Include="TotalVillageInTownModel.cs" />
     <Compile Include="TownModel.cs" />
     <Compile Include="VillageModel.cs" />
   </ItemGroup>

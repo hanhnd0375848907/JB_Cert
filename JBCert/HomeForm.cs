@@ -411,7 +411,7 @@ namespace JBCert
         private void báoCáoThôngThườngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("Đây là sản phẩm demo, chức năng này có trên sản phẩm chính thức", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            OpenChildForm(new MonthlyReportForm());
+            (new MonthlyReportForm()).Show();
         }
 
         private void báoCáoTheoNămToolStripMenuItem_Click(object sender, EventArgs e)
@@ -459,6 +459,16 @@ namespace JBCert
             }
             EditDoEaTForm editDoEaTForm = new EditDoEaTForm();
             editDoEaTForm.ShowDialog();
+        }
+
+        private void quảnLýHuyệnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ManagingTownForm());
+        }
+
+        private void quảnLýXãToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ManagingVillageForm());
         }
     }
 }
